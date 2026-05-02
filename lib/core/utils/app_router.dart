@@ -1,12 +1,13 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../features/splash/presentation/views/splash_view.dart';
 
 class AppRouter {
   static GoRouter router = GoRouter(
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const Scaffold(),
+        builder: (context, state) => const SplashView(),
       ),
     ],
   );
