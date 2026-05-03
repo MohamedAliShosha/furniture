@@ -6,6 +6,7 @@ import '../../../../core/utils/app_router.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/prefs_key.dart';
+import '../../../../utils/app_text.dart';
 import '../../data/models/onboarding_page_model.dart';
 import '../widgets/page_view_item.dart';
 
@@ -81,13 +82,13 @@ class _OnboardingViewState extends State<OnboardingView> {
             child: TextButton(
               // When the user clicks skip => make onboarding seen then navigate to the login
               onPressed: _navigateToLogin,
-               child: Text(
-                 AppText.skip,
-                 style: TextStyle(
-                     fontSize: 16,
-                     fontWeight: FontWeight.w500,
-                     color: Colors.grey.shade600),
-               ),
+              child: Text(
+                AppText.skip,
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.grey.shade600),
+              ),
             ),
           ),
 
@@ -148,13 +149,13 @@ class _OnboardingViewState extends State<OnboardingView> {
                       ),
                       minimumSize: const Size(120, 40),
                     ),
-                     child: Text(
-                       currentView == pages.length - 1 ? AppText.getStarted : AppText.next,
-                       style: const TextStyle(
-                         fontSize: 16,
-                         fontWeight: FontWeight.w600,
-                       ),
-                     ),
+                    child: Text(
+                      currentView == pages.length - 1 ? 'Get Started' : 'Next',
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   )
                 ],
               ),
