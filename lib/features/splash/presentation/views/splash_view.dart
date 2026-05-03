@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:furniture/core/utils/app_router.dart';
+import 'package:furniture/core/utils/prefs_key.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../widgets/splash_view_body.dart';
 
@@ -50,7 +54,24 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
 
     animationController.forward();
     // Navigate after splash animation
-    // will be implemented later
+    Future.delayed(const Duration(milliseconds: 2500), () async {
+      // Creating an instance of SharedPreferences
+      final prefs = await SharedPreferences.getInstance();
+      final bool hasSeenOnboarding =
+          prefs.getBool(PrefsKeys.hasSeenOnboarding) ?? false;
+      // Purpose: Determine initial route based on onboarding status at app launch
+      if (mounted) {
+        /*
+          If true → LoginView (returning user)
+          If false → OnboardingView (first-time user)
+         */
+        if (hasSeenOnboarding) {
+          GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
+        } else {
+          GoRouter.of(context).pushReplacement(AppRouter.kOnboardingView);
+        }
+      }
+    });
     super.initState();
   }
 
