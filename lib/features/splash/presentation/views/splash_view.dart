@@ -54,7 +54,12 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
 
     animationController.forward();
     // Navigate after splash animation
-    Future.delayed(const Duration(milliseconds: 2500), () async {
+    executeNavigation();
+    super.initState();
+  }
+
+  Future<void> executeNavigation() {
+    return Future.delayed(const Duration(milliseconds: 2500), () async {
       // Creating an instance of SharedPreferences
       final prefs = await SharedPreferences.getInstance();
       final bool hasSeenOnboarding =
@@ -62,9 +67,9 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
       // Purpose: Determine initial route based on onboarding status at app launch
       if (mounted) {
         /*
-          If true → LoginView (returning user)
-          If false → OnboardingView (first-time user)
-         */
+        If true → LoginView (returning user)
+        If false → OnboardingView (first-time user)
+       */
         if (hasSeenOnboarding) {
           GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
         } else {
@@ -72,7 +77,6 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
         }
       }
     });
-    super.initState();
   }
 
   @override
