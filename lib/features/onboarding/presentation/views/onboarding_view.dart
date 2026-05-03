@@ -81,13 +81,15 @@ class _OnboardingViewState extends State<OnboardingView> {
             child: TextButton(
               // When the user clicks skip => make onboarding seen then navigate to the login
               onPressed: _navigateToLogin,
-              child: Text(
-                AppText.skip,
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.grey.shade600),
-              ),
+              child: currentView == pages.length - 1
+                  ? const Text('')
+                  : Text(
+                      AppText.skip,
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey.shade600),
+                    ),
             ),
           ),
 
