@@ -1,10 +1,35 @@
 import 'package:flutter/material.dart';
 
-class LoginView extends StatelessWidget {
+import '../widgets/login_view_body.dart';
+
+class LoginView extends StatefulWidget {
   const LoginView({super.key});
 
   @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: LoginViewBody(
+        formKey: _formKey,
+        emailController: emailController,
+        passwordController: passwordController,
+      ),
+    );
   }
 }
