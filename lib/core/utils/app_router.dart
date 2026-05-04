@@ -1,3 +1,4 @@
+import 'package:furniture/features/auth/sign_up/presentation/views/sign_up_view.dart';
 import 'package:furniture/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -7,6 +8,7 @@ import '../../features/splash/presentation/views/splash_view.dart';
 class AppRouter {
   static const kOnboardingView = '/onboardingView';
   static const kLoginView = '/loginView';
+  static const kSignUpView = '/signUpView';
   static GoRouter router = GoRouter(
     routes: [
       GoRoute(
@@ -20,6 +22,10 @@ class AppRouter {
       GoRoute(
         path: kLoginView,
         builder: (context, state) => const LoginView(),
+      ),
+      GoRoute(
+        path: kSignUpView,
+        builder: (context, state) => const SignUpView(),
       ),
     ],
   );

@@ -16,7 +16,7 @@ class PageViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: Color(0xffFFF3D9),
+        color: Color(0xffFFF3d9),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

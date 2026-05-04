@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../../core/utils/constants.dart';
+import '../../../core/utils/constants.dart';
 
 class SocialAuthButton extends StatelessWidget {
   const SocialAuthButton({
