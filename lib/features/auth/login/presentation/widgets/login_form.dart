@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/app_icons.dart';
+import '../../../../../core/utils/app_router.dart';
 import '../../../auth_shared_widgets/auth_button.dart';
 import '../../../auth_shared_widgets/auth_divider.dart';
 import '../../../auth_shared_widgets/auth_text_field.dart';
@@ -63,6 +65,7 @@ class LoginForm extends StatelessWidget {
             child: TextButton(
               onPressed: () {
                 // navigate to forgot password screen
+                GoRouter.of(context).push(AppRouter.kForgetPasswordView);
               },
               child: Text('Forgot Password ?',
                   style: TextStyle(
