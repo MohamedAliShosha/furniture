@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../../../../core/utils/app_icons.dart';
 import '../../../auth_shared_widgets/auth_button.dart';
+import '../../../auth_shared_widgets/auth_divider.dart';
 import '../../../auth_shared_widgets/auth_text_field.dart';
+import '../../../auth_shared_widgets/social_auth_button.dart';
+import 'dont_have_account.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -70,6 +74,29 @@ class LoginForm extends StatelessWidget {
             title: 'Login',
             onPressed: () {},
           ),
+          const Gap(24),
+          const AuthDivider(),
+          Row(
+            children: [
+              Expanded(
+                child: SocialAuthButton(
+                  title: 'Google',
+                  icon: AppIcons.googleIcon,
+                  onPressed: () {},
+                ),
+              ),
+              const Gap(16),
+              Expanded(
+                child: SocialAuthButton(
+                  title: 'Facebook',
+                  icon: AppIcons.facebookIcon,
+                  onPressed: () {},
+                ),
+              ),
+            ],
+          ),
+          const Gap(24),
+          const DontHaveAccount()
         ],
       ),
     );

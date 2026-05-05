@@ -25,10 +25,8 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: LoginViewBody(
-        formKey: _formKey,
-        emailController: emailController,
-        passwordController: passwordController,
+      body: SafeArea(
+        child: LoginViewBody(),
       ),
     );
   }
