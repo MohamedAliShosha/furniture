@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-
 import '../../../../../core/utils/app_icons.dart';
-import '../../../../../core/utils/constants.dart';
-import 'auth_divider.dart';
+import '../../../auth_shared_widgets/auth_header.dart';
+import '../../../auth_shared_widgets/auth_divider.dart';
+import 'dont_have_account.dart';
 import 'login_form.dart';
-import 'social_auth_button.dart';
+import '../../../auth_shared_widgets/social_auth_button.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({
@@ -29,22 +29,9 @@ class LoginViewBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Gap(40),
-              Text(
-                'Welcome Back',
-                style: AppConstants.headingStyle.copyWith(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const Gap(
-                8,
-              ),
-              Text(
-                'Sign in to continue shopping',
-                style: AppConstants.bodyStyle.copyWith(
-                  color: Colors.grey.shade600,
-                  fontSize: 16,
-                ),
+              const AuthHeader(
+                title: 'Welcome Back',
+                subtitle: 'Sign in to continue shopping',
               ),
               const Gap(32),
               LoginForm(
@@ -73,27 +60,7 @@ class LoginViewBody extends StatelessWidget {
                 ],
               ),
               const Gap(24),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Don't have an account ? ",
-                    style: AppConstants.bodyStyle.copyWith(
-                      color: Colors.grey.shade600,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      // navigate to sign up screen
-                    },
-                    child: const Text('Sign Up',
-                        style: TextStyle(
-                          color: AppConstants.primaryColor,
-                          fontWeight: FontWeight.w600,
-                        )),
-                  ),
-                ],
-              )
+              const DontHaveAccount()
             ],
           ),
         ),

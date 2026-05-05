@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import 'auth_button.dart';
-import 'auth_text_field.dart';
+import '../../../auth_shared_widgets/auth_button.dart';
+import '../../../auth_shared_widgets/auth_text_field.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
