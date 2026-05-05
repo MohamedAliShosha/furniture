@@ -102,16 +102,20 @@ class SignUpForm extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SocialAuthButton(
-                title: AppTexts.googleButtonTitle,
-                icon: AppIcons.googleIcon,
-                onPressed: () {},
+              Expanded(
+                child: SocialAuthButton(
+                  title: AppTexts.googleButtonTitle,
+                  icon: AppIcons.googleIcon,
+                  onPressed: () {},
+                ),
               ),
               const Gap(16),
-              SocialAuthButton(
-                title: AppTexts.facebookButtonTitle,
-                icon: AppIcons.facebookIcon,
-                onPressed: () {},
+              Expanded(
+                child: SocialAuthButton(
+                  title: AppTexts.facebookButtonTitle,
+                  icon: AppIcons.facebookIcon,
+                  onPressed: () {},
+                ),
               ),
             ],
           ),
