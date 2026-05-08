@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/app_icons.dart';
+import '../../../../../core/utils/app_router.dart';
 import '../../../../../utils/app_texts.dart';
 import '../../../auth_shared_widgets/auth_button.dart';
 import '../../../auth_shared_widgets/auth_divider.dart';
@@ -94,7 +96,9 @@ class SignUpForm extends StatelessWidget {
           const Gap(32),
           AuthButton(
             title: AppTexts.signUpButtonTitle,
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).pushReplacement(AppRouter.kMainView);
+            },
           ),
           const Gap(24),
           const AuthDivider(),
