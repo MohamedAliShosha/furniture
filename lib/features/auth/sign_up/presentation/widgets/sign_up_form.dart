@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/app_icons.dart';
 import '../../../../../core/utils/app_router.dart';
-import '../../../../../utils/app_texts.dart';
+import '../../../../../core/utils/app_texts.dart';
 import '../../../auth_shared_widgets/auth_button.dart';
 import '../../../auth_shared_widgets/auth_divider.dart';
 import '../../../auth_shared_widgets/auth_text_field.dart';

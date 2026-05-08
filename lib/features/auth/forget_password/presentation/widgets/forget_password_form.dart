@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../../core/utils/constants.dart';
-import '../../../../../utils/app_texts.dart';
+import '../../../../../core/utils/app_texts.dart';
 import '../../../auth_shared_widgets/auth_button.dart';
 import '../../../auth_shared_widgets/auth_text_field.dart';
 

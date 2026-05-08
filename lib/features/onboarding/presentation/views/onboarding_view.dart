@@ -3,9 +3,9 @@ import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../core/utils/app_router.dart';
 import '../../../../core/utils/app_images.dart';
+import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/prefs_key.dart';
-import '../../../../utils/app_text.dart';
 import '../../data/models/onboarding_page_model.dart';
 import '../widgets/page_view_item.dart';
 
@@ -22,18 +22,18 @@ class _OnboardingViewState extends State<OnboardingView> {
   final List<OnboardingPage> pages = [
     OnboardingPage(
       image: AppImages.onboarding1,
-      title: AppText.onboardingTitle1,
-      description: AppText.onboardingDescription1,
+      title: AppTexts.onboardingTitle1,
+      description: AppTexts.onboardingDescription1,
     ),
     OnboardingPage(
       image: AppImages.onboarding2,
-      title: AppText.onboardingTitle2,
-      description: AppText.onboardingDescription2,
+      title: AppTexts.onboardingTitle2,
+      description: AppTexts.onboardingDescription2,
     ),
     OnboardingPage(
       image: AppImages.onboarding3,
-      title: AppText.onboardingTitle3,
-      description: AppText.onboardingDescription3,
+      title: AppTexts.onboardingTitle3,
+      description: AppTexts.onboardingDescription3,
     ),
   ];
 
@@ -82,7 +82,7 @@ class _OnboardingViewState extends State<OnboardingView> {
               // When the user clicks skip => make onboarding seen then navigate to the login
               onPressed: _navigateToLogin,
               child: Text(
-                AppText.skip,
+                AppTexts.skip,
                 style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
