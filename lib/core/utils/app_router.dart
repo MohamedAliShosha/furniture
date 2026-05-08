@@ -5,11 +5,13 @@ import 'package:go_router/go_router.dart';
 import '../../features/auth/forget_password/presentation/views/forget_password_view.dart';
 import '../../features/auth/login/presentation/views/login_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
+import '../../main_view.dart';
 
 class AppRouter {
   static const kOnboardingView = '/onboardingView';
   static const kLoginView = '/loginView';
   static const kSignUpView = '/signUpView';
+  static const kMainView = '/mainView';
   static const kForgetPasswordView = '/forgetPasswordView';
   static GoRouter router = GoRouter(
     routes: [
@@ -32,6 +34,10 @@ class AppRouter {
       GoRoute(
         path: kForgetPasswordView,
         builder: (context, state) => const ForgetPasswordView(),
+      ),
+      GoRoute(
+        path: kMainView,
+        builder: (context, state) => const MainView(),
       ),
     ],
   );
