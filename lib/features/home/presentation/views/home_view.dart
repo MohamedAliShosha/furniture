@@ -76,9 +76,9 @@ class _HomeView extends StatelessWidget {
             },
           );
         } else {
-          return HomeViewBody(
-            featuredProducts: const [],
-            allProducts: const [],
+          return const HomeViewBody(
+            featuredProducts: [],
+            allProducts: [],
           ); // Initial state
         }
       },
