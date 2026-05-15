@@ -22,20 +22,20 @@ class ForgetPasswordForm extends StatelessWidget {
       key: formKey,
       child: Column(
         children: [
-          AuthTextField(
-            hintText: 'Enter your email',
-            label: 'Email',
-            keyboardType: TextInputType.emailAddress,
-            controller: emailController,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return AppTexts.emailRequired;
-              } else if (!value.contains('@')) {
-                return AppTexts.invalidEmail;
-              }
-              return null;
-            },
-          ),
+           AuthTextField(
+             hintText: AppTexts.emailHint,
+             label: AppTexts.emailLabel,
+             keyboardType: TextInputType.emailAddress,
+             controller: emailController,
+             validator: (value) {
+               if (value == null || value.isEmpty) {
+                 return AppTexts.emailRequired;
+               } else if (!value.contains('@')) {
+                 return AppTexts.invalidEmail;
+               }
+               return null;
+             },
+           ),
           const Gap(20),
           AuthButton(
             title: 'Reset Password',
