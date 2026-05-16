@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:furniture/core/utils/theme.dart';
-
+import 'core/utils/theme.dart';
 import 'core/utils/app_router.dart';
 
 void main() {
@@ -22,7 +21,6 @@ void main() {
 class Furniture extends StatelessWidget {
   const Furniture({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(

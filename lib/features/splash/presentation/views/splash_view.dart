@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:furniture/core/utils/app_router.dart';
-import 'package:furniture/core/utils/prefs_key.dart';
+import '../../../../core/utils/app_router.dart';
+import '../../../../core/utils/prefs_key.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../core/utils/app_texts.dart';
 import '../../../../../core/utils/constants.dart';
 
 class AlreadyHaveAccount extends StatelessWidget {
@@ -14,7 +15,7 @@ class AlreadyHaveAccount extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Already have an account ? ',
+          AppTexts.alreadyHaveAccount,
           style: AppConstants.bodyStyle.copyWith(
             color: Colors.grey.shade600,
           ),
@@ -25,7 +26,7 @@ class AlreadyHaveAccount extends StatelessWidget {
             GoRouter.of(context).pop();
           },
           child: const Text(
-            'Sign In',
+            AppTexts.signIn,
             style: TextStyle(
               color: AppConstants.primaryColor,
               fontWeight: FontWeight.w600,

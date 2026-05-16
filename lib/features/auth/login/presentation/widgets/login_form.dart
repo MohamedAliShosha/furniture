@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/app_icons.dart';
 import '../../../../../core/utils/app_router.dart';
+import '../../../../../core/utils/app_texts.dart';
 import '../../../auth_shared_widgets/auth_button.dart';
 import '../../../auth_shared_widgets/auth_divider.dart';
 import '../../../auth_shared_widgets/auth_text_field.dart';
@@ -30,15 +31,15 @@ class LoginForm extends StatelessWidget {
         children: [
           AuthTextField(
             controller: emailController,
-            label: 'Email',
-            hintText: 'Enter your email',
+            label: AppTexts.emailLabel,
+            hintText: AppTexts.emailHint,
             keyboardType: TextInputType.emailAddress,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter your email';
+                return AppTexts.emailRequired;
               }
               if (!value.contains('@')) {
-                return 'Please enter a valid email';
+                return AppTexts.invalidEmail;
               }
               return null;
             },
@@ -46,15 +47,15 @@ class LoginForm extends StatelessWidget {
           const Gap(20),
           AuthTextField(
             controller: passwordController,
-            label: 'Password',
-            hintText: 'Enter your password',
+            label: AppTexts.passwordLabel,
+            hintText: AppTexts.loginPasswordHint,
             isPassword: true,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter your password';
+                return AppTexts.passwordRequired;
               }
               if (value.length < 6) {
-                return 'Password must be at least 6 characters';
+                return AppTexts.passwordMinLength;
               }
               return null;
             },
@@ -67,14 +68,14 @@ class LoginForm extends StatelessWidget {
                 // navigate to forgot password screen
                 GoRouter.of(context).push(AppRouter.kForgetPasswordView);
               },
-              child: Text('Forgot Password ?',
+              child: Text(AppTexts.forgotPassword,
                   style: TextStyle(
                       color: Colors.grey[700], fontWeight: FontWeight.w500)),
             ),
           ),
           const Gap(12),
           AuthButton(
-            title: 'Login',
+            title: AppTexts.loginButtonTitle,
             onPressed: () {},
           ),
           const Gap(24),

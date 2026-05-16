@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:furniture/core/utils/app_router.dart';
+import '../../../../../core/utils/app_router.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/constants.dart';

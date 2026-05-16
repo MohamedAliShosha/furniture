@@ -35,4 +35,54 @@ class AppTexts {
   static const String skip = 'Skip';
   static const String next = 'Next';
   static const String getStarted = 'Get Started';
+  static const String loginButtonTitle = 'Login';
+
+  // Header texts
+  static const String hello = 'Hello,';
+  static const String guestUser = 'Guest User';
+
+  // Search bar texts
+  static const String searchLabel = 'Search';
+  static const String searchHint = 'Find Your Favorite Furniture';
+
+  // Offer card texts
+  static const String offerTitle = 'Offer Title';
+  static const String offerDiscount = 'Get 30% Off';
+  static const String offerDescription = 'Offer description';
+  static const String shopNowButton = 'Shop Now';
+
+  // Featured item card texts
+  static const String wingChair = 'Wing Chair';
+  static const String price250 = '\$250';
+  static const String addedToCart = 'Added to Cart';
+  static const String addToCart = 'Add to Cart';
+
+  // Featured items list view texts
+  static const String featuredItems = 'Featured Items';
+  static const String viewAll = 'View All';
+
+  // Categories list view texts
+  static const String categories = 'Categories';
+  static const String allCategory = 'All';
+  static const String chairsCategory = 'Chairs';
+  static const String tablesCategory = 'Tables';
+  static const String lightingsCategory = 'Lightings';
+  static const String decorationsCategory = 'Decorations';
+  static const String sofasCategory = 'SOFAS';
+
+  // Table service texts
+  static const String oakDiningTable = 'Oak Dining Table';
+  static const String minimalistCoffeeTable = 'Minimalist Coffee Table';
+  static const String glassConsoleTable = 'Glass Console Table';
+  static const String woodenStudyDesk = 'Wooden Study Desk';
+  static const String naturalOak = 'Natural Oak';
+  static const String minimalistModern = 'Minimalist Modern';
+  static const String contemporaryGlass = 'Contemporary Glass';
+  static const String classicWood = 'Classic Wood';
+
+  // Auth shared texts
+  static const String forgotPassword = 'Forgot Password ?';
+  static const String loginPasswordHint = 'Enter your password';
+  static const String alreadyHaveAccount = 'Already have an account ?';
+  static const String signIn = 'Sign In';
 }

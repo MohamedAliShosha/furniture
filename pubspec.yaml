@@ -31,10 +31,12 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
+  flutter_bloc: ^9.1.1
   gap: ^3.0.1
+  get_it: ^9.2.1
   go_router: null
   google_fonts: null
-  shared_preferences: 
+  shared_preferences: null
 
 dev_dependencies:
   flutter_lints: ^4.0.0
@@ -52,6 +54,12 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/images/beds/
+    - assets/images/chairs/
+    - assets/images/decoration/
+    - assets/images/lights/
+    - assets/images/sofa/
+    - assets/images/tables/
     - assets/images/
     - assets/icons/
   # An image asset can refer to one or more resolution-specific "variants", see
