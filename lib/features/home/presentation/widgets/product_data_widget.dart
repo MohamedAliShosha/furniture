@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../core/utils/constants.dart';
-import '../../services/add_to_cart_service.dart';
+import '../../services/cart_service.dart';
 import 'add_to_cart_button.dart';
 import 'featured_item_card.dart';
 import 'product_price_widget.dart';
@@ -15,7 +15,7 @@ class ProductDataWidget extends StatelessWidget {
   });
 
   final FeaturedItemCard widget;
-  final AddToCartService addToCartService;
+  final CartService addToCartService;
 
   @override
   Widget build(BuildContext context) {

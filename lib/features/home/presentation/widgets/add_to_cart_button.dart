@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/constants.dart';
 import '../../data/models/cart_item.dart';
 import '../../data/models/product_model.dart';
-import '../../services/add_to_cart_service.dart';
+import '../../services/cart_service.dart';
 
 class AddToCartButton extends StatefulWidget {
   const AddToCartButton({
@@ -13,7 +13,7 @@ class AddToCartButton extends StatefulWidget {
   });
 
   final ProductModel productModel;
-  final AddToCartService addToCartService;
+  final CartService addToCartService;
 
   @override
   State<AddToCartButton> createState() => _AddToCartButtonState();
