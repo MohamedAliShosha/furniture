@@ -24,12 +24,11 @@ class HomeViewBody extends StatelessWidget {
           child: Column(
             children: [
               const HomeHeader(),
-              const SizedBox(height: 16),
-              FeaturedItemsListView(products: featuredProducts),
-              const SizedBox(height: 24),
+              const SizedBox(height: 8),
               const CategoriesListView(),
               const SizedBox(height: 24),
               const OffersPageView(),
+              FeaturedItemsListView(products: featuredProducts),
               const SizedBox(height: 24),
             ],
           ),
