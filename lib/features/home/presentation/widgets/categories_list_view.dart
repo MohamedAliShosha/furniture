@@ -38,7 +38,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(bottom: 16),
+          padding: const EdgeInsets.only(bottom: 8, left: 16),
           child: Text(
             AppTexts.categories,
             style: AppConstants.titleStyle.copyWith(
