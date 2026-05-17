@@ -1,6 +1,6 @@
 import '../data/models/cart_item.dart';
 
-class AddToCartService {
+class CartService {
   // Will store the ids of the products that are added to the whishList
   final List<CartItem> cartItems = [];
 
