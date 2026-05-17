@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'data_loading_widget.dart';
+import 'data_loading_bloc_builder.dart';
 
 class HomeViewContent extends StatelessWidget {
   const HomeViewContent({super.key});
