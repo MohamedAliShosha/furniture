@@ -30,27 +30,27 @@ class CategoryResponseModel {
 }
 
 class ProductModel {
-  final String? id;
+  final String id;
   bool isFavorite;
-  final String? name;
+  final String name;
   final String? category;
-  final double? price;
+  final double price;
   final RatingModel? rating;
-  final ImagesModel? images;
+  final ImagesModel images;
   final DetailsModel? details;
   final List<String>? colors;
   final List<String>? specialOffersIds;
 
   ProductModel({
-    this.id,
-    this.name,
+    required this.id,
+    required this.name,
     this.category,
     this.isFavorite = false,
-    this.price,
+    required this.price,
     this.specialOffersIds = const [],
     this.rating,
     required this.colors,
-    this.images,
+    required this.images,
     this.details,
   });
 
@@ -65,8 +65,7 @@ class ProductModel {
       price: json['price'],
       rating:
           json['rating'] != null ? RatingModel.fromJson(json['rating']) : null,
-      images:
-          json['images'] != null ? ImagesModel.fromJson(json['images']) : null,
+      images: json['images'] = ImagesModel.fromJson(json['images']),
       details: json['details'] != null
           ? DetailsModel.fromJson(json['details'])
           : null,
@@ -74,7 +73,7 @@ class ProductModel {
   }
 
   double getDisCountPrice(double discountPercentage) {
-    return price! - ((price! * discountPercentage) / 100);
+    return price - ((price * discountPercentage) / 100);
   }
 
   bool get hasSpecialOffer => specialOffersIds!.isNotEmpty;
@@ -126,11 +125,11 @@ class RatingModel {
 
 class ImagesModel {
   final String? main;
-  final List<String>? gallery;
+  final List<String> gallery;
 
   ImagesModel({
     this.main,
-    this.gallery,
+    required this.gallery,
   });
 
   factory ImagesModel.fromJson(Map<String, dynamic> json) {
