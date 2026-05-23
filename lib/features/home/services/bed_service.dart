@@ -19,7 +19,6 @@ class BedService {
           main: AppImages.bed1,
           gallery: [
             AppImages.bed1,
-            AppImages.bed1,
           ],
         ),
         details: DetailsModel(
@@ -68,7 +67,6 @@ class BedService {
           main: AppImages.bed3,
           gallery: [
             AppImages.bed3,
-            AppImages.bed3,
           ],
         ),
         details: DetailsModel(
@@ -92,7 +90,6 @@ class BedService {
         images: ImagesModel(
           main: AppImages.bed4,
           gallery: [
-            AppImages.bed4,
             AppImages.bed4,
           ],
         ),
