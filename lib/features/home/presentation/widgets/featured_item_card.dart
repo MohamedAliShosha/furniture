@@ -25,8 +25,8 @@ class _FeaturedItemCardState extends State<FeaturedItemCard> {
 
   @override
   Widget build(BuildContext context) {
-    final bool isInWishList =
-        wishListService.isProductInWhishList(widget.productModel.id);
+    // final bool isInWishList =
+    //     wishListService.isProductInWhishList(widget.productModel.id);
 
     return GestureDetector(
       onTap: widget.onTap,

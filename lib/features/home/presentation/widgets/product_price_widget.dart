@@ -30,7 +30,7 @@ class ProductPrice extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '\$${productModel.price.toStringAsFixed(2) ?? '0.00'}',
+                      '\$${productModel.price.toStringAsFixed(2)}',
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         color: Colors.grey.shade600,
@@ -51,7 +51,7 @@ class ProductPrice extends StatelessWidget {
                 )
               : Text(
                   maxLines: 1,
-                  '\$${productModel.price.toStringAsFixed(2) ?? '0.00'}',
+                  '\$${productModel.price.toStringAsFixed(2)}',
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     color: AppConstants.primaryColor,
