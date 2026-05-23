@@ -10,7 +10,7 @@ class BedService {
           '#ffffff',
           '#fd4b4b',
         ],
-        id: '1',
+        id: '21',
         name: 'Queen Size Bed',
         category: 'BEDS',
         price: 1899.99,
@@ -18,8 +18,8 @@ class BedService {
         images: ImagesModel(
           main: AppImages.bed1,
           gallery: [
-            AppImages.bed2,
-            AppImages.bed3,
+            AppImages.bed1,
+            AppImages.bed1,
           ],
         ),
         details: DetailsModel(
@@ -35,15 +35,15 @@ class BedService {
           '#ffffff',
           '#fd4b4b',
         ],
-        id: '2',
+        id: '22',
         name: 'Single Size Bed',
         category: 'BEDS',
         price: 1299.99,
         rating: RatingModel(average: 4.6, count: 187),
         images: ImagesModel(
-          main: AppImages.bed3,
+          main: AppImages.bed2,
           gallery: [
-            AppImages.bed4,
+            AppImages.bed2,
           ],
         ),
         details: DetailsModel(
@@ -59,16 +59,16 @@ class BedService {
           '#ffffff',
           '#fd4b4b',
         ],
-        id: '3',
+        id: '23',
         name: 'Luxury Queen Bed',
         category: 'BEDS',
         price: 2499.99,
         rating: RatingModel(average: 4.9, count: 256),
         images: ImagesModel(
-          main: AppImages.bed2,
+          main: AppImages.bed3,
           gallery: [
-            AppImages.bed1,
-            AppImages.bed4,
+            AppImages.bed3,
+            AppImages.bed3,
           ],
         ),
         details: DetailsModel(
@@ -76,6 +76,30 @@ class BedService {
           designText: 'Upholstered Headboard',
           isOnlineSellable: true,
           badge: 'Premium',
+        ),
+      ),
+      ProductModel(
+        colors: [
+          '#f5f5f5',
+          '#ffffff',
+          '#fd4b4b',
+        ],
+        id: '24',
+        name: 'King Size Bed',
+        category: 'BEDS',
+        price: 2999.99,
+        rating: RatingModel(average: 4.7, count: 156),
+        images: ImagesModel(
+          main: AppImages.bed4,
+          gallery: [
+            AppImages.bed4,
+            AppImages.bed4,
+          ],
+        ),
+        details: DetailsModel(
+          itemMeasureReferenceText: 'H: 110cm W: 180cm D: 220cm',
+          designText: 'Luxury King',
+          isOnlineSellable: true,
         ),
       ),
     ];

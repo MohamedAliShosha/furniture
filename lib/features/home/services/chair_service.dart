@@ -18,8 +18,7 @@ class ChairService {
         images: ImagesModel(
           main: AppImages.chair1,
           gallery: [
-            'assets/images/chairs/chair2.png',
-            'assets/images/chairs/chair3.png',
+            AppImages.chair1,
           ],
         ),
         details: DetailsModel(
@@ -41,10 +40,9 @@ class ChairService {
         price: 199.99,
         rating: RatingModel(average: 4.2, count: 89),
         images: ImagesModel(
-          main: 'assets/images/chairs/chair2.png',
+          main: AppImages.chair2,
           gallery: [
-            'assets/images/chairs/chair3.png',
-            'assets/images/chairs/chair4.png',
+            AppImages.chair2,
           ],
         ),
         details: DetailsModel(
@@ -65,10 +63,9 @@ class ChairService {
         price: 379.99,
         rating: RatingModel(average: 4.8, count: 256),
         images: ImagesModel(
-          main: 'assets/images/chairs/chair3.png',
+          main: AppImages.chair3,
           gallery: [
-            'assets/images/chairs/chair4.png',
-            'assets/images/chairs/chair5.png',
+            AppImages.chair3,
           ],
         ),
         details: DetailsModel(
@@ -90,10 +87,9 @@ class ChairService {
         price: 399.99,
         rating: RatingModel(average: 4.6, count: 167),
         images: ImagesModel(
-          main: 'assets/images/chairs/chair4.png',
+          main: AppImages.chair4,
           gallery: [
-            'assets/images/chairs/chair5.png',
-            'assets/images/chairs/chair6.png',
+            AppImages.chair4,
           ],
         ),
         details: DetailsModel(
