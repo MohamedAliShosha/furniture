@@ -40,7 +40,7 @@ class ProductImage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(12),
                 child: Image.asset(
-                  productModel.images?.main ?? '',
+                  productModel.images.main ?? '',
                   fit: BoxFit.contain,
                 ),
               ),
@@ -50,7 +50,7 @@ class ProductImage extends StatelessWidget {
         Positioned(
           top: 8,
           right: 8,
-          child: FavoriteButton(productId: productModel.id ?? ''),
+          child: FavoriteButton(productId: productModel.id),
         )
       ],
     );

@@ -26,7 +26,7 @@ class ProductDataWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              widget.productModel.name ?? '',
+              widget.productModel.name,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: AppConstants.bodyStyle.copyWith(
@@ -57,7 +57,6 @@ class ProductDataWidget extends StatelessWidget {
                 // cart button
                 AddToCartButton(
                   productModel: widget.productModel,
-                  addToCartService: addToCartService,
                 ),
               ],
             ),
