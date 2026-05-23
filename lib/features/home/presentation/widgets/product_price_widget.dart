@@ -17,9 +17,9 @@ class ProductPrice extends StatelessWidget {
     final specialOffersService = SpecialOffersService();
     final bestOffer = specialOffersService.getBestOffer(productModel);
     final discountedPrice = bestOffer != null
-        ? productModel.price! -
-            ((productModel.price! * bestOffer.discountPercentage) / 100)
-        : productModel.price!;
+        ? productModel.price -
+            ((productModel.price * bestOffer.discountPercentage) / 100)
+        : productModel.price;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -30,7 +30,7 @@ class ProductPrice extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '\$${productModel.price?.toStringAsFixed(2) ?? '0.00'}',
+                      '\$${productModel.price.toStringAsFixed(2) ?? '0.00'}',
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         color: Colors.grey.shade600,
@@ -51,7 +51,7 @@ class ProductPrice extends StatelessWidget {
                 )
               : Text(
                   maxLines: 1,
-                  '\$${productModel.price?.toStringAsFixed(2) ?? '0.00'}',
+                  '\$${productModel.price.toStringAsFixed(2) ?? '0.00'}',
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     color: AppConstants.primaryColor,
