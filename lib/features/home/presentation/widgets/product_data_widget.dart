@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../core/utils/constants.dart';
-import '../../services/add_to_cart_service.dart';
+import '../../services/cart_service.dart';
 import 'add_to_cart_button.dart';
 import 'featured_item_card.dart';
 import 'product_price_widget.dart';
@@ -15,7 +15,7 @@ class ProductDataWidget extends StatelessWidget {
   });
 
   final FeaturedItemCard widget;
-  final AddToCartService addToCartService;
+  final CartService addToCartService;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class ProductDataWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              widget.productModel.name ?? '',
+              widget.productModel.name,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: AppConstants.bodyStyle.copyWith(
@@ -57,7 +57,6 @@ class ProductDataWidget extends StatelessWidget {
                 // cart button
                 AddToCartButton(
                   productModel: widget.productModel,
-                  addToCartService: addToCartService,
                 ),
               ],
             ),

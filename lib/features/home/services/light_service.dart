@@ -6,20 +6,20 @@ class LightService {
     return [
       ProductModel(
         colors: [
-          '#FF0000',
-          '#00FF00',
-          '#0000FF',
-        ],
+           '#FFD700',
+           '#FFA500',
+           '#FF8C00',
+         ],
         id: '9',
         name: 'Pendant Light Cluster',
         category: 'LIGHTINGS',
         price: 599.99,
+        specialOffersIds: const ['premium_discount'],
         rating: RatingModel(average: 4.6, count: 156),
         images: ImagesModel(
           main: AppImages.light1,
           gallery: [
-            'assets/images/lights/light2.png',
-            'assets/images/lights/light3.png',
+            AppImages.light1,
           ],
         ),
         details: DetailsModel(
@@ -30,20 +30,19 @@ class LightService {
       ),
       ProductModel(
         colors: [
-          '#FF0000',
-          '#00FF00',
-          '#0000FF',
-        ],
+           '#FFD700',
+           '#FFA500',
+           '#FF8C00',
+         ],
         id: '10',
         name: 'Arc Floor Lamp',
         category: 'LIGHTINGS',
         price: 399.99,
         rating: RatingModel(average: 4.7, count: 203),
         images: ImagesModel(
-          main: 'assets/images/lights/light2.png',
+          main: AppImages.light2,
           gallery: [
-            'assets/images/lights/light3.png',
-            'assets/images/lights/light4.png',
+            AppImages.light2,
           ],
         ),
         details: DetailsModel(
@@ -55,20 +54,19 @@ class LightService {
       ),
       ProductModel(
         colors: [
-          '#FF0000',
-          '#00FF00',
-          '#0000FF',
-        ],
+           '#FFD700',
+           '#FFA500',
+           '#FF8C00',
+         ],
         id: '11',
         name: 'Table Lamp Vintage',
         category: 'LIGHTINGS',
         price: 299.99,
         rating: RatingModel(average: 4.2, count: 98),
         images: ImagesModel(
-          main: 'assets/images/lights/light3.png',
+          main: AppImages.light3,
           gallery: [
-            'assets/images/lights/light4.png',
-            'assets/images/lights/light5.png',
+            AppImages.light3,
           ],
         ),
         details: DetailsModel(
@@ -79,20 +77,19 @@ class LightService {
       ),
       ProductModel(
         colors: [
-          '#FF0000',
-          '#00FF00',
-          '#0000FF',
-        ],
+           '#FFD700',
+           '#FFA500',
+           '#FF8C00',
+         ],
         id: '12',
         name: 'LED Desk Lamp',
         category: 'LIGHTINGS',
         price: 499.99,
         rating: RatingModel(average: 4.4, count: 312),
         images: ImagesModel(
-          main: 'assets/images/lights/light4.png',
+          main: AppImages.light4,
           gallery: [
-            'assets/images/lights/light5.png',
-            'assets/images/lights/light6.png',
+            AppImages.light4,
           ],
         ),
         details: DetailsModel(

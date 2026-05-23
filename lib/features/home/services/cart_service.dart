@@ -1,20 +1,21 @@
 import '../data/models/cart_item.dart';
 
-class AddToCartService {
+class CartService {
   // Will store the ids of the products that are added to the whishList
-  final List<CartItem> cartItems = [];
+  final List<CartItemModel> cartItems = [];
 
   // Returns the the cart items
-  List<CartItem> getCartItems() => cartItems;
+  List<CartItemModel> getCartItems() => cartItems;
 
   // Returns the total price of the cart
-  double get total => cartItems.fold(0, (sum, item) => sum + item.totalPrice);
+  double get totalPrice =>
+      cartItems.fold(0, (sum, item) => sum + item.totalPrice);
 
   // Returns the number of items in the cart
-  int getCartItemsCount() => cartItems.length;
+  int get cartItemsCount => cartItems.length;
 
   // Adds a product to the cart
-  void addToCart(CartItem cartItem) {
+  void addToCart(CartItemModel cartItem) {
     // Getting the index of the product in the cart
     final existingIndex = cartItems.indexWhere(
       (item) =>
@@ -55,5 +56,7 @@ class AddToCartService {
     }
   }
 
-  void clearCart() => cartItems.clear();
+  void clearCart() => {
+        cartItems.clear(),
+      };
 }

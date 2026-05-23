@@ -12,33 +12,28 @@ class DataLoadingBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FeaturedItemsCubit, FeaturedItemsState>(
-      builder: (context, state) {
-        if (state is FeaturedItemsLoading) {
-          return const Center(child: CircularProgressIndicator());
-        } else if (state is FeaturedItemsSuccess) {
-          return BlocBuilder<AllProductsCubit, AllProductsState>(
-            builder: (context, allProductsState) {
-              if (allProductsState is AllProductsLoading) {
-                return const Center(child: CircularProgressIndicator());
-              } else if (allProductsState is AllProductsSuccess) {
-                return HomeViewBody(
-                  featuredProducts: state.products,
-                  allProducts: allProductsState.products,
-                );
-              } else {
-                return HomeViewBody(
-                  featuredProducts: state.products,
-                  allProducts: const [], // fallback
-                );
-              }
-            },
-          );
-        } else {
-          return const HomeViewBody(
-            featuredProducts: [],
-            allProducts: [],
-          ); // Initial state
-        }
+      builder: (context, featuredState) {
+        return BlocBuilder<AllProductsCubit, AllProductsState>(
+          builder: (context, allProductsState) {
+            // Show header and other components immediately
+            // Only show loading state for actual product data
+            final featuredProducts = (featuredState is FeaturedItemsSuccess)
+                ? featuredState.products
+                : <dynamic>[];
+            final allProducts = (allProductsState is AllProductsSuccess)
+                ? allProductsState.products
+                : <dynamic>[];
+            final isFeaturedLoading = featuredState is FeaturedItemsLoading;
+            final isAllProductsLoading = allProductsState is AllProductsLoading;
+
+            return HomeViewBody(
+              featuredProducts: featuredProducts,
+              allProducts: allProducts,
+              isFeaturedLoading: isFeaturedLoading,
+              isAllProductsLoading: isAllProductsLoading,
+            );
+          },
+        );
       },
     );
   }

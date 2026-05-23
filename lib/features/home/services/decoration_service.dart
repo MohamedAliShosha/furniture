@@ -6,10 +6,10 @@ class DecorationService {
     return [
       ProductModel(
         colors: [
-          '#ff0000',
-          '#00ff00',
-          '#0000ff',
-        ],
+           '#9370DB',
+           '#8A2BE2',
+           '#9400D3',
+         ],
         id: '13',
         name: 'Ceramic Vase Set',
         category: 'DECORATION',
@@ -18,8 +18,7 @@ class DecorationService {
         images: ImagesModel(
           main: AppImages.deco1,
           gallery: [
-            AppImages.deco2,
-            'assets/images/decoration/deco3.png',
+            AppImages.deco1,
           ],
         ),
         details: DetailsModel(
@@ -30,20 +29,19 @@ class DecorationService {
       ),
       ProductModel(
         colors: [
-          '#ff0000',
-          '#00ff00',
-          '#0000ff',
-        ],
+           '#9370DB',
+           '#8A2BE2',
+           '#9400D3',
+         ],
         id: '14',
         name: 'Wall Mirror Round',
         category: 'DECORATION',
         price: 569.99,
         rating: RatingModel(average: 4.6, count: 134),
         images: ImagesModel(
-          main: 'assets/images/decoration/deco2.png',
+          main: AppImages.deco2,
           gallery: [
-            'assets/images/decoration/deco3.png',
-            'assets/images/decoration/deco4.png',
+            AppImages.deco2,
           ],
         ),
         details: DetailsModel(
@@ -54,10 +52,10 @@ class DecorationService {
       ),
       ProductModel(
         colors: [
-          '#ff0000',
-          '#00ff00',
-          '#0000ff',
-        ],
+           '#9370DB',
+           '#8A2BE2',
+           '#9400D3',
+         ],
         id: '15',
         name: 'Art Canvas Abstract',
         category: 'DECORATION',
@@ -66,8 +64,7 @@ class DecorationService {
         images: ImagesModel(
           main: AppImages.deco3,
           gallery: [
-            AppImages.deco4,
-            AppImages.deco5,
+            AppImages.deco3,
           ],
         ),
         details: DetailsModel(
@@ -78,10 +75,10 @@ class DecorationService {
       ),
       ProductModel(
         colors: [
-          '#ff0000',
-          '#00ff00',
-          '#0000ff',
-        ],
+           '#9370DB',
+           '#8A2BE2',
+           '#9400D3',
+         ],
         id: '16',
         name: 'Decorative Cushion Set',
         category: 'DECORATION',
@@ -90,8 +87,7 @@ class DecorationService {
         images: ImagesModel(
           main: AppImages.deco4,
           gallery: [
-            AppImages.deco5,
-            AppImages.deco6,
+            AppImages.deco4,
           ],
         ),
         details: DetailsModel(

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'core/utils/theme.dart';
 import 'core/utils/app_router.dart';
+import 'features/cart/presentation/cubit/cart_cubit.dart';
+import 'features/home/services/cart_service.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,10 +26,13 @@ class Furniture extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      theme: AppTheme.lightTheme,
-      debugShowCheckedModeBanner: false,
-      routerConfig: AppRouter.router,
+    return BlocProvider(
+      create: (context) => CartCubit(CartService()),
+      child: MaterialApp.router(
+        theme: AppTheme.lightTheme,
+        debugShowCheckedModeBanner: false,
+        routerConfig: AppRouter.router,
+      ),
     );
   }
 }

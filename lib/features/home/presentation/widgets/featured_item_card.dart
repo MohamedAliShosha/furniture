@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../core/utils/constants.dart';
 import '../../data/models/product_model.dart';
-import '../../services/add_to_cart_service.dart';
+import '../../services/cart_service.dart';
 import '../../services/special_offers_service.dart';
 import '../../services/wishlist_service.dart';
 import 'product_data_widget.dart';
@@ -20,13 +20,13 @@ class FeaturedItemCard extends StatefulWidget {
 class _FeaturedItemCardState extends State<FeaturedItemCard> {
   bool isAddedToCart = false;
   WishListService wishListService = WishListService();
-  AddToCartService addToCartService = AddToCartService();
+  CartService addToCartService = CartService();
   SpecialOffersService specialOffersService = SpecialOffersService();
 
   @override
   Widget build(BuildContext context) {
-    final bool isInWishList =
-        wishListService.isProductInWhishList(widget.productModel.id);
+    // final bool isInWishList =
+    //     wishListService.isProductInWhishList(widget.productModel.id);
 
     return GestureDetector(
       onTap: widget.onTap,

@@ -14,7 +14,7 @@ class HomeHeader extends StatelessWidget {
     final user = userService.user;
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: 8,
+        horizontal: 16,
         vertical: 8,
       ),
       child: Row(

@@ -1,5 +1,7 @@
 import 'package:furniture/features/home/data/models/user_model.dart';
 
+bool isLoggedInUser = true;
+
 class UserService {
   UserModel? _user; // instance of the user model
 

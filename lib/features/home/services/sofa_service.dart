@@ -6,21 +6,21 @@ class SofaService {
     return [
       ProductModel(
         colors: [
-          '#FFFFFF',
-          '#000000',
-          '#FF0000',
-          '#00FF00',
-        ],
+           '#4B0082',
+           '#800080',
+           '#9400D3',
+         ],
         id: '17',
         name: 'L-Shaped Sectional Sofa',
         category: 'SOFAS',
         price: 1299.99,
+        specialOffersIds: const ['summer_sale', 'premium_discount'],
         rating: RatingModel(average: 4.8, count: 345),
         images: ImagesModel(
           main: AppImages.sofa1,
           gallery: [
-            AppImages.sofa2,
-            'assets/images/sofa/sofa3.png',
+            AppImages.sofa1,
+            AppImages.sofa1,
           ],
         ),
         details: DetailsModel(
@@ -32,21 +32,21 @@ class SofaService {
       ),
       ProductModel(
         colors: [
-          '#FFFFFF',
-          '#000000',
-          '#FF0000',
-          '#00FF00',
-        ],
+           '#4B0082',
+           '#800080',
+           '#9400D3',
+         ],
         id: '18',
         name: 'Two-Seater Loveseat',
         category: 'SOFAS',
         price: 459.99,
+        specialOffersIds: const ['summer_sale'],
         rating: RatingModel(average: 4.5, count: 189),
         images: ImagesModel(
-          main: 'assets/images/sofa/sofa2.png',
+          main: AppImages.sofa1,
           gallery: [
-            'assets/images/sofa/sofa3.png',
-            'assets/images/sofa/sofa4.png',
+            AppImages.sofa1,
+            AppImages.sofa1,
           ],
         ),
         details: DetailsModel(
@@ -57,21 +57,21 @@ class SofaService {
       ),
       ProductModel(
         colors: [
-          '#FFFFFF',
-          '#000000',
-          '#FF0000',
-          '#00FF00',
-        ],
+           '#4B0082',
+           '#800080',
+           '#9400D3',
+         ],
         id: '19',
         name: 'Leather Recliner',
         category: 'SOFAS',
         price: 699.99,
+        specialOffersIds: const ['summer_sale', 'premium_discount'],
         rating: RatingModel(average: 4.6, count: 156),
         images: ImagesModel(
-          main: 'assets/images/sofa/sofa3.png',
+          main: AppImages.sofa2,
           gallery: [
-            'assets/images/sofa/sofa4.png',
-            'assets/images/sofa/sofa5.png',
+            AppImages.sofa2,
+            AppImages.sofa2,
           ],
         ),
         details: DetailsModel(
@@ -82,21 +82,21 @@ class SofaService {
       ),
       ProductModel(
         colors: [
-          '#FFFFFF',
-          '#000000',
-          '#FF0000',
-          '#00FF00',
-        ],
+           '#4B0082',
+           '#800080',
+           '#9400D3',
+         ],
         id: '20',
         name: 'Velvet Sofa 3-Seater',
         category: 'SOFAS',
         price: 449.99,
+        specialOffersIds: const ['summer_sale'],
         rating: RatingModel(average: 4.7, count: 223),
         images: ImagesModel(
-          main: 'assets/images/sofa/sofa4.png',
+          main: AppImages.sofa3,
           gallery: [
-            'assets/images/sofa/sofa5.png',
-            'assets/images/sofa/sofa6.png',
+            AppImages.sofa3,
+            AppImages.sofa3,
           ],
         ),
         details: DetailsModel(

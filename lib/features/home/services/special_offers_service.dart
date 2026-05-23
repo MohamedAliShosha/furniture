@@ -63,15 +63,25 @@ class SpecialOffersService {
   }
 
   List<SpecialOfferModel> getApplicableOffers(ProductModel product) {
-    final offers = specialOffers
-        .where((offer) {
-          final isApplicable = offer.isApplicableToProduct(
-              product.id!, product.category!, product.price!, product.specialOffersIds!);
-          debugPrint('Offer ${offer.id} applicable to ${product.id}: $isApplicable');
-          return isApplicable;
-        })
-        .toList();
-    debugPrint('Found ${offers.length} applicable offers for product ${product.id}');
+    // Add null checks before proceeding
+    if (product.category == null || product.specialOffersIds == null) {
+      debugPrint('Product ${product.id} has null category or specialOffersIds');
+      return [];
+    }
+
+    final offers = specialOffers.where((offer) {
+      final isApplicable = offer.isApplicableToProduct(
+        product.id,
+        product.category!, // Safe now because we checked above
+        product.price,
+        product.specialOffersIds!, // Safe now because we checked above
+      );
+      debugPrint(
+          'Offer ${offer.id} applicable to ${product.id}: $isApplicable');
+      return isApplicable;
+    }).toList();
+    debugPrint(
+        'Found ${offers.length} applicable offers for product ${product.id}');
     return offers;
   }
 
@@ -87,9 +97,9 @@ class SpecialOffersService {
   double getDiscountedPrice(ProductModel product) {
     final bestOffer = getBestOffer(product);
     if (bestOffer == null) {
-      return product.price!;
+      return product.price;
     }
-    return product.price! -
-        ((product.price! * bestOffer.discountPercentage) / 100);
+    return product.price -
+        ((product.price * bestOffer.discountPercentage) / 100);
   }
 }
