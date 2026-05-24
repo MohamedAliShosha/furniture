@@ -6,10 +6,10 @@ class DecorationService {
     return [
       ProductModel(
         colors: [
-          '#ff0000',
-          '#00ff00',
-          '#0000ff',
-        ],
+           '#9370DB',
+           '#8A2BE2',
+           '#9400D3',
+         ],
         id: '13',
         name: 'Ceramic Vase Set',
         category: 'DECORATION',
@@ -29,10 +29,10 @@ class DecorationService {
       ),
       ProductModel(
         colors: [
-          '#ff0000',
-          '#00ff00',
-          '#0000ff',
-        ],
+           '#9370DB',
+           '#8A2BE2',
+           '#9400D3',
+         ],
         id: '14',
         name: 'Wall Mirror Round',
         category: 'DECORATION',
@@ -52,10 +52,10 @@ class DecorationService {
       ),
       ProductModel(
         colors: [
-          '#ff0000',
-          '#00ff00',
-          '#0000ff',
-        ],
+           '#9370DB',
+           '#8A2BE2',
+           '#9400D3',
+         ],
         id: '15',
         name: 'Art Canvas Abstract',
         category: 'DECORATION',
@@ -75,10 +75,10 @@ class DecorationService {
       ),
       ProductModel(
         colors: [
-          '#ff0000',
-          '#00ff00',
-          '#0000ff',
-        ],
+           '#9370DB',
+           '#8A2BE2',
+           '#9400D3',
+         ],
         id: '16',
         name: 'Decorative Cushion Set',
         category: 'DECORATION',

@@ -6,15 +6,15 @@ class SofaService {
     return [
       ProductModel(
         colors: [
-          '#FFFFFF',
-          '#000000',
-          '#FF0000',
-          '#00FF00',
-        ],
+           '#4B0082',
+           '#800080',
+           '#9400D3',
+         ],
         id: '17',
         name: 'L-Shaped Sectional Sofa',
         category: 'SOFAS',
         price: 1299.99,
+        specialOffersIds: const ['summer_sale', 'premium_discount'],
         rating: RatingModel(average: 4.8, count: 345),
         images: ImagesModel(
           main: AppImages.sofa1,
@@ -32,15 +32,15 @@ class SofaService {
       ),
       ProductModel(
         colors: [
-          '#FFFFFF',
-          '#000000',
-          '#FF0000',
-          '#00FF00',
-        ],
+           '#4B0082',
+           '#800080',
+           '#9400D3',
+         ],
         id: '18',
         name: 'Two-Seater Loveseat',
         category: 'SOFAS',
         price: 459.99,
+        specialOffersIds: const ['summer_sale'],
         rating: RatingModel(average: 4.5, count: 189),
         images: ImagesModel(
           main: AppImages.sofa1,
@@ -57,15 +57,15 @@ class SofaService {
       ),
       ProductModel(
         colors: [
-          '#FFFFFF',
-          '#000000',
-          '#FF0000',
-          '#00FF00',
-        ],
+           '#4B0082',
+           '#800080',
+           '#9400D3',
+         ],
         id: '19',
         name: 'Leather Recliner',
         category: 'SOFAS',
         price: 699.99,
+        specialOffersIds: const ['summer_sale', 'premium_discount'],
         rating: RatingModel(average: 4.6, count: 156),
         images: ImagesModel(
           main: AppImages.sofa2,
@@ -82,15 +82,15 @@ class SofaService {
       ),
       ProductModel(
         colors: [
-          '#FFFFFF',
-          '#000000',
-          '#FF0000',
-          '#00FF00',
-        ],
+           '#4B0082',
+           '#800080',
+           '#9400D3',
+         ],
         id: '20',
         name: 'Velvet Sofa 3-Seater',
         category: 'SOFAS',
         price: 449.99,
+        specialOffersIds: const ['summer_sale'],
         rating: RatingModel(average: 4.7, count: 223),
         images: ImagesModel(
           main: AppImages.sofa3,

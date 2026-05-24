@@ -6,14 +6,15 @@ class BedService {
     return [
       ProductModel(
         colors: [
-          '#f5f5f5',
-          '#ffffff',
-          '#fd4b4b',
-        ],
+           '#8B4513',
+           '#A0522D',
+           '#CD853F',
+         ],
         id: '21',
         name: 'Queen Size Bed',
         category: 'BEDS',
         price: 1899.99,
+        specialOffersIds: const ['premium_discount'],
         rating: RatingModel(average: 4.8, count: 324),
         images: ImagesModel(
           main: AppImages.bed1,
@@ -30,14 +31,15 @@ class BedService {
       ),
       ProductModel(
         colors: [
-          '#f5f5f5',
-          '#ffffff',
-          '#fd4b4b',
-        ],
+           '#8B4513',
+           '#A0522D',
+           '#CD853F',
+         ],
         id: '22',
         name: 'Single Size Bed',
         category: 'BEDS',
         price: 1299.99,
+        specialOffersIds: const ['premium_discount'],
         rating: RatingModel(average: 4.6, count: 187),
         images: ImagesModel(
           main: AppImages.bed2,
@@ -54,14 +56,15 @@ class BedService {
       ),
       ProductModel(
         colors: [
-          '#f5f5f5',
-          '#ffffff',
-          '#fd4b4b',
-        ],
+           '#8B4513',
+           '#A0522D',
+           '#CD853F',
+         ],
         id: '23',
         name: 'Luxury Queen Bed',
         category: 'BEDS',
         price: 2499.99,
+        specialOffersIds: const ['premium_discount'],
         rating: RatingModel(average: 4.9, count: 256),
         images: ImagesModel(
           main: AppImages.bed3,
@@ -78,14 +81,15 @@ class BedService {
       ),
       ProductModel(
         colors: [
-          '#f5f5f5',
-          '#ffffff',
-          '#fd4b4b',
-        ],
+           '#8B4513',
+           '#A0522D',
+           '#CD853F',
+         ],
         id: '24',
         name: 'King Size Bed',
         category: 'BEDS',
         price: 2999.99,
+        specialOffersIds: const ['premium_discount'],
         rating: RatingModel(average: 4.7, count: 156),
         images: ImagesModel(
           main: AppImages.bed4,

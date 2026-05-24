@@ -6,14 +6,15 @@ class TableService {
     return [
       ProductModel(
         colors: [
-          '#f5f5f5',
-          '#ffffff',
-          '#fd4b4b',
+          '#556B2F',
+          '#6B8E23',
+          '#808000',
         ],
         id: '5',
         name: 'Oak Dining Table',
         category: 'TABLES',
         price: 2499.99,
+        specialOffersIds: const ['premium_discount'],
         rating: RatingModel(average: 4.7, count: 198),
         images: ImagesModel(
           main: AppImages.diningTable1,
@@ -30,14 +31,15 @@ class TableService {
       ),
       ProductModel(
         colors: [
-          '#f5f5f5',
-          '#ffffff',
-          '#fd4b4b',
+          '#556B2F',
+          '#6B8E23',
+          '#808000',
         ],
         id: '6',
         name: 'Oak Dining Table',
         category: 'TABLES',
         price: 1299.99,
+        specialOffersIds: const ['premium_discount'],
         rating: RatingModel(average: 4.7, count: 198),
         images: ImagesModel(
           main: AppImages.diningTable2,
@@ -53,14 +55,16 @@ class TableService {
         ),
       ),
       ProductModel(
+        category: 'TABLES',
         price: 899.99,
         colors: [
-          '#f5f5f5',
-          '#ffffff',
-          '#fd4b4b',
+          '#556B2F',
+          '#6B8E23',
+          '#808000',
         ],
         id: '7',
         name: 'Glass Console Table',
+        specialOffersIds: const ['premium_discount'],
         rating: RatingModel(average: 4.4, count: 145),
         images: ImagesModel(
           main: AppImages.diningTable3,
@@ -74,9 +78,9 @@ class TableService {
       ),
       ProductModel(
         colors: [
-          '#f5f5f5',
-          '#ffffff',
-          '#fd4b4b',
+          '#556B2F',
+          '#6B8E23',
+          '#808000',
         ],
         id: '8',
         name: 'Coffee Table Set',

@@ -9,11 +9,12 @@ class ChairService {
         name: 'Modern Lounge Chair',
         category: 'CHAIRS',
         price: 280.99,
+        specialOffersIds: const ['summer_sale'],
         colors: [
-          '#E5E5E5',
-          '#C4C4C4',
-          '#9B9B9B',
-        ],
+           '#2F4F4F',
+           '#696969',
+           '#778899',
+         ],
         rating: RatingModel(average: 4.5, count: 128),
         images: ImagesModel(
           main: AppImages.chair1,
@@ -30,14 +31,15 @@ class ChairService {
       ),
       ProductModel(
         colors: [
-          '#E5E5E5',
-          '#C4C4C4',
-          '#9B9B9B',
-        ],
+           '#2F4F4F',
+           '#696969',
+           '#778899',
+         ],
         id: '2',
         name: 'Classic Dining Chair',
         category: 'CHAIRS',
         price: 199.99,
+        specialOffersIds: const ['summer_sale'],
         rating: RatingModel(average: 4.2, count: 89),
         images: ImagesModel(
           main: AppImages.chair2,
@@ -53,14 +55,15 @@ class ChairService {
       ),
       ProductModel(
         colors: [
-          '#E5E5E5',
-          '#C4C4C4',
-          '#9B9B9B',
-        ],
+           '#2F4F4F',
+           '#696969',
+           '#778899',
+         ],
         id: '3',
         name: 'Ergonomic Office Chair',
         category: 'CHAIRS',
         price: 379.99,
+        specialOffersIds: const ['summer_sale'],
         rating: RatingModel(average: 4.8, count: 256),
         images: ImagesModel(
           main: AppImages.chair3,
@@ -77,14 +80,15 @@ class ChairService {
       ),
       ProductModel(
         colors: [
-          '#E5E5E5',
-          '#C4C4C4',
-          '#9B9B9B',
-        ],
+           '#2F4F4F',
+           '#696969',
+           '#778899',
+         ],
         id: '4',
         name: 'Velvet Accent Chair',
         category: 'CHAIRS',
         price: 399.99,
+        specialOffersIds: const ['summer_sale'],
         rating: RatingModel(average: 4.6, count: 167),
         images: ImagesModel(
           main: AppImages.chair4,

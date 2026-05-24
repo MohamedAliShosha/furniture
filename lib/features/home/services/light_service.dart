@@ -6,14 +6,15 @@ class LightService {
     return [
       ProductModel(
         colors: [
-          '#FF0000',
-          '#00FF00',
-          '#0000FF',
-        ],
+           '#FFD700',
+           '#FFA500',
+           '#FF8C00',
+         ],
         id: '9',
         name: 'Pendant Light Cluster',
         category: 'LIGHTINGS',
         price: 599.99,
+        specialOffersIds: const ['premium_discount'],
         rating: RatingModel(average: 4.6, count: 156),
         images: ImagesModel(
           main: AppImages.light1,
@@ -29,10 +30,10 @@ class LightService {
       ),
       ProductModel(
         colors: [
-          '#FF0000',
-          '#00FF00',
-          '#0000FF',
-        ],
+           '#FFD700',
+           '#FFA500',
+           '#FF8C00',
+         ],
         id: '10',
         name: 'Arc Floor Lamp',
         category: 'LIGHTINGS',
@@ -53,10 +54,10 @@ class LightService {
       ),
       ProductModel(
         colors: [
-          '#FF0000',
-          '#00FF00',
-          '#0000FF',
-        ],
+           '#FFD700',
+           '#FFA500',
+           '#FF8C00',
+         ],
         id: '11',
         name: 'Table Lamp Vintage',
         category: 'LIGHTINGS',
@@ -76,10 +77,10 @@ class LightService {
       ),
       ProductModel(
         colors: [
-          '#FF0000',
-          '#00FF00',
-          '#0000FF',
-        ],
+           '#FFD700',
+           '#FFA500',
+           '#FF8C00',
+         ],
         id: '12',
         name: 'LED Desk Lamp',
         category: 'LIGHTINGS',
