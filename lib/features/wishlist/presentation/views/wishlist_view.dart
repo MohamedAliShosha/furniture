@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import '../widgets/wishlist_view_body.dart';
 
 class WishlistView extends StatelessWidget {
   const WishlistView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Wishlist View',
-        ),
+    return const Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: WishListViewBody(),
       ),
     );
   }
