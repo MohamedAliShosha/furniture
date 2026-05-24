@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class EmptyCartWidget extends StatelessWidget {
-  const EmptyCartWidget({super.key});
+  const EmptyCartWidget({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,7 @@ class EmptyCartWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(
-            Icons.shopping_cart_rounded,
+            Icons.shopping_cart_outlined,
             size: 64,
             color: Colors.grey[400],
           ),
