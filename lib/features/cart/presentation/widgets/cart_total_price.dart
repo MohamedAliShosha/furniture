@@ -3,9 +3,12 @@ import 'package:furniture/core/utils/constants.dart';
 import 'package:furniture/features/home/data/models/cart_item.dart';
 import 'package:gap/gap.dart';
 
-class CartTotalItems extends StatelessWidget {
-  const CartTotalItems(
-      {super.key, required this.total, required this.cartItems});
+class CartTotalItemsPrice extends StatelessWidget {
+  const CartTotalItemsPrice({
+    super.key,
+    required this.total,
+    required this.cartItems,
+  });
 
   final double total;
   final List<CartItemModel> cartItems;
