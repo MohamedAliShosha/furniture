@@ -63,9 +63,19 @@ class SpecialOffersService {
   }
 
   List<SpecialOfferModel> getApplicableOffers(ProductModel product) {
+    // Add null checks before proceeding
+    if (product.category == null || product.specialOffersIds == null) {
+      debugPrint('Product ${product.id} has null category or specialOffersIds');
+      return [];
+    }
+
     final offers = specialOffers.where((offer) {
-      final isApplicable = offer.isApplicableToProduct(product.id,
-          product.category!, product.price, product.specialOffersIds!);
+      final isApplicable = offer.isApplicableToProduct(
+        product.id,
+        product.category!, // Safe now because we checked above
+        product.price,
+        product.specialOffersIds!, // Safe now because we checked above
+      );
       debugPrint(
           'Offer ${offer.id} applicable to ${product.id}: $isApplicable');
       return isApplicable;
