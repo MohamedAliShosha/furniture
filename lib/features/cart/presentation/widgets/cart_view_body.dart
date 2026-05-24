@@ -10,7 +10,7 @@ import '../../../../core/utils/constants.dart';
 import '../cubit/cart_cubit.dart';
 import '../cubit/cart_state.dart';
 import 'cart_item_card.dart';
-import 'cart_total_price.dart';
+import 'cart_total_items_price.dart';
 import 'empty_cart_widget.dart';
 
 class CartViewBody extends StatefulWidget {
@@ -177,9 +177,33 @@ class _CartViewBodyState extends State<CartViewBody> {
                   },
                 ),
         ),
-        CartTotalItems(
-          cartItems: context.read<CartCubit>().getCartItems(),
-          total: context.read<CartCubit>().getTotalPrice(),
+        BlocBuilder<CartCubit, CartState>(
+          builder: (context, state) {
+            /*
+            Changed CartViewBody to use BlocBuilder<CartCubit, CartState> 
+            around CartTotalItemsPrice
+            The total now recalculates dynamically from state.cartItems.fold() 
+            based on each item's totalPrice
+            When quantity changes, the cart state updates → 
+            BlocBuilder rebuilds → total price updates automatically
+            */
+
+            if (state is CartSuccess) {
+              final total = state.cartItems.fold<double>(
+                0,
+                (sum, item) => sum + item.totalPrice,
+              );
+              return CartTotalItemsPrice(
+                cartItems: state.cartItems,
+                total: total,
+              );
+            }
+            // Return empty total widget if not success state
+            return const CartTotalItemsPrice(
+              cartItems: [],
+              total: 0,
+            );
+          },
         ),
       ],
     );
