@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../services/wishlist_service.dart';
+import '../../../wishlist/presentation/cubit/wishlist_cubit.dart';
 
 class FavoriteButton extends StatefulWidget {
   const FavoriteButton({
@@ -16,12 +17,12 @@ class FavoriteButton extends StatefulWidget {
 
 class _FavoriteButtonState extends State<FavoriteButton> {
   bool isInWishList = false;
-  final WishListService wishListService = WishListService();
 
   @override
   void initState() {
     super.initState();
-    isInWishList = wishListService.isProductInWhishList(widget.productId);
+    isInWishList =
+        context.read<WishlistCubit>().isProductInWishlist(widget.productId);
   }
 
   @override
@@ -41,9 +42,10 @@ class _FavoriteButtonState extends State<FavoriteButton> {
       child: InkWell(
         onTap: () {
           setState(() {
-            wishListService.toggleWhishList(widget.productId);
             isInWishList = !isInWishList;
           });
+          // Toggle wishlist through the cubit
+          context.read<WishlistCubit>().toggleWishlistById(widget.productId);
         },
         child: Icon(
           isInWishList ? Icons.favorite : Icons.favorite_border,
