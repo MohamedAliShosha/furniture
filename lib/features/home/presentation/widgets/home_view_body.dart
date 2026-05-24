@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import '../widgets/all_products_grid_view.dart';
 import '../widgets/categories_list_view.dart';
 import '../widgets/featured_items_list_view.dart';
