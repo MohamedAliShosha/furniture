@@ -13,111 +13,49 @@ class WishlistCubit extends Cubit<WishlistState> {
     this.availableProducts = availableProducts ?? [];
   }
 
+  /// This method is used to set the available products in the cubit. It can be called when the products are fetched from the API or when the app is initialized.
   void setAvailableProducts(List<ProductModel> products) {
     availableProducts = products;
   }
 
-  Future<void> fetchWishlist() async {
-    emit(WishlistLoading());
+  /// This method updates the wishlist and emits the new state. It fetches all products, filters them based on the wishlist ids, and emits the success state with the featured items. If there's an error, it emits the failure state with the error message.
+  Future<void> _updateAndEmitWishlist() async {
     try {
-      // fetch all products to make sure we have the latest data, and to be able to filter the wishlist items based on the latest products list
       final allProducts = AllProductsService.getAllProducts();
-      // this line is to make sure that the availableProducts is always up to date with the latest products, in case there are any changes in the products list
       availableProducts = allProducts;
-      // get the wishlist ids from the service, and then filter the products based on those ids to get the wishlist items
-      final wishlistIds = wishlistService.getWhishListIds();
-      // filter the products based on the wishlist ids to get the wishlist items, and then emit the success state with the wishlist items
-      final featuredItems = allProducts
+      final wishlistIds = wishlistService.getWishlistIds();
+      final wishlistItems = allProducts
           .where((product) => wishlistIds.contains(product.id))
           .toList();
-      emit(
-        WishlistSuccess(
-          featuredItems,
-        ),
-      );
-    } catch (e) {
-      emit(
-        WishlistFailure(
-          e.toString(),
-        ),
-      );
-    }
-  }
-
-  Future<void> addToWishlist(ProductModel product) async {
-    try {
-      // Toggle wishlist through the service
-      wishlistService.toggleWhishList(product.id);
-      // fetch all products to make sure we have the latest data, and to be able to filter the wishlist items based on the latest products list
-      final allProducts = AllProductsService.getAllProducts();
-      // this line is to make sure that the availableProducts is always up to date with the latest products, in case there are any changes in the products list
-      availableProducts = allProducts;
-      // get the wishlist ids from the service, and then filter the products based on those ids to get the wishlist items
-      final wishlistIds = wishlistService.getWhishListIds();
-      final featuredItems =
-          allProducts.where((p) => wishlistIds.contains(p.id)).toList();
-      emit(
-        WishlistSuccess(
-          featuredItems,
-        ),
-      );
-    } catch (e) {
-      emit(
-        WishlistFailure(
-          e.toString(),
-        ),
-      );
-    }
-  }
-
-  Future<void> removeFromWishlist(String productId) async {
-    try {
-      // Toggle wishlist through the service
-      wishlistService.removeFromWhishList(productId);
-      // fetch all products to make sure we have the latest data, and to be able to filter the wishlist items based on the latest products list
-      final allProducts = AllProductsService.getAllProducts();
-      // this line is to make sure that the availableProducts is always up to date with the latest products, in case there are any changes in the products list
-      availableProducts = allProducts;
-      // get the wishlist ids from the service, and then filter the products based on those ids to get the wishlist items, and then emit the success state with the wishlist items
-      final wishlistIds = wishlistService.getWhishListIds();
-      final featuredItems = allProducts
-          .where((product) => wishlistIds.contains(product.id))
-          .toList();
-      emit(
-        WishlistSuccess(
-          featuredItems,
-        ),
-      );
-    } catch (e) {
-      emit(
-        WishlistFailure(
-          e.toString(),
-        ),
-      );
-    }
-  }
-
-  Future<void> toggleWishlist(ProductModel product) async {
-    await toggleWishlistById(product.id);
-  }
-
-  Future<void> toggleWishlistById(String productId) async {
-    try {
-      wishlistService.toggleWhishList(productId);
-      final allProducts = AllProductsService.getAllProducts();
-      availableProducts = allProducts;
-      final wishlistIds = wishlistService.getWhishListIds();
-      final featuredItems =
-          allProducts.where((p) => wishlistIds.contains(p.id)).toList();
-      emit(WishlistSuccess(featuredItems));
+      emit(WishlistSuccess(wishlistItems));
     } catch (e) {
       emit(WishlistFailure(e.toString()));
     }
   }
 
+  Future<void> fetchWishlist() async {
+    emit(WishlistLoading());
+    await _updateAndEmitWishlist();
+  }
+
+  Future<void> addToWishlist(ProductModel product) async {
+    wishlistService.toggleWishlist(product.id);
+    await _updateAndEmitWishlist();
+  }
+
+  Future<void> removeFromWishlist(String productId) async {
+    wishlistService.removeFromWishlist(productId);
+    await _updateAndEmitWishlist();
+  }
+
+  Future<void> toggleWishlistById(String productId) async {
+    wishlistService.toggleWishlist(productId);
+    await _updateAndEmitWishlist();
+  }
+
   Future<void> clearWishlist() async {
     try {
-      wishlistService.clearWhishList();
+      wishlistService.clearWishlist();
       emit(const WishlistSuccess([]));
     } catch (e) {
       emit(WishlistFailure(e.toString()));
@@ -125,26 +63,12 @@ class WishlistCubit extends Cubit<WishlistState> {
   }
 
   List<ProductModel> getWishlistItems() {
-    final wishlistIds = wishlistService.getWhishListIds();
+    final wishlistIds = wishlistService.getWishlistIds();
     return availableProducts
         .where((product) => wishlistIds.contains(product.id))
         .toList();
   }
 
   bool isProductInWishlist(String productId) =>
-      wishlistService.isProductInWhishList(productId);
-
-  void refreshWishlist() {
-    try {
-      final allProducts = AllProductsService.getAllProducts();
-      availableProducts = allProducts;
-      final wishlistIds = wishlistService.getWhishListIds();
-      final featuredItems = allProducts
-          .where((product) => wishlistIds.contains(product.id))
-          .toList();
-      emit(WishlistSuccess(featuredItems));
-    } catch (e) {
-      emit(WishlistFailure(e.toString()));
-    }
-  }
+      wishlistService.isProductInWishlist(productId);
 }

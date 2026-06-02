@@ -1,12 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:furniture/features/home/services/user_service.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/app_router.dart';
 import '../../../../core/utils/constants.dart';
+import '../../../home/services/user_service.dart';
 import '../cubit/wishlist_cubit.dart';
 import 'wishlist_items_bloc_builder.dart';
 
@@ -23,7 +22,9 @@ class _WishListViewBodyState extends State<WishListViewBody> {
   @override
   void initState() {
     super.initState();
-    context.read<WishlistCubit>().fetchWishlist();
+    if (isLoggedInUser) {
+      context.read<WishlistCubit>().fetchWishlist();
+    }
   }
 
   @override
@@ -46,45 +47,46 @@ class _WishListViewBodyState extends State<WishListViewBody> {
                 'Wishlist',
                 style: AppConstants.headingStyle,
               ),
-              IconButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog(
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: const Text(
-                              'CANCEL',
+              if (isLoggedInUser)
+                IconButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Text(
+                                'CANCEL',
+                              ),
                             ),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              context.read<WishlistCubit>().clearWishlist();
-                              Navigator.pop(context);
-                            },
-                            child: const Text(
-                              'CLEAR',
+                            TextButton(
+                              onPressed: () {
+                                context.read<WishlistCubit>().clearWishlist();
+                                Navigator.pop(context);
+                              },
+                              child: const Text(
+                                'CLEAR',
+                              ),
                             ),
+                          ],
+                          content: const Text(
+                            'Are you sure you want to clear your wishlist?',
                           ),
-                        ],
-                        content: const Text(
-                          'Are you sure you want to clear your wishlist?',
-                        ),
-                        title: const Text(
-                          'Clear Wishlist',
-                        ),
-                      );
-                    },
-                  );
-                },
-                icon: const Icon(
-                  Icons.delete_outline,
+                          title: const Text(
+                            'Clear Wishlist',
+                          ),
+                        );
+                      },
+                    );
+                  },
+                  icon: const Icon(
+                    Icons.delete_outline,
+                  ),
                 ),
-              ),
             ],
           ),
         ),
