@@ -1,19 +1,35 @@
 class WishListService {
-  // Will store the ids of the products that are added to the whishList
-  final Set<String> whishListIds = {};
+  // Will store the ids of the products that are added to the wishlist
+  final Set<String> wishlistIds = {};
 
-  // Returns the ids of the products that are added to the whishList
-  Set<String> getWhishListIds() => whishListIds;
+  // Singleton instance
+  static final WishListService _instance = WishListService._internal();
 
-  bool isProductInWhishList(String? furnitureId) =>
-      whishListIds.contains(furnitureId);
+  // Private constructor
+  WishListService._internal();
 
-  void toggleWhishList(String furnitureId) => whishListIds.contains(furnitureId)
-      ? whishListIds.remove(furnitureId)
-      : whishListIds.add(furnitureId);
+  // Factory constructor
+  factory WishListService() {
+    return _instance;
+  }
 
-  void removeFromWhishList(String? furnitureId) =>
-      whishListIds.remove(furnitureId);
+  // Returns the ids of the products that are added to the wishlist
+  Set<String> getWishlistIds() => wishlistIds;
 
-  void clearWhishList() => whishListIds.clear();
+  bool isProductInWishlist(String? productId) {
+    if (productId == null) return false;
+    return wishlistIds.contains(productId);
+  }
+
+  void toggleWishlist(String productId) => wishlistIds.contains(productId)
+      ? wishlistIds.remove(productId)
+      : wishlistIds.add(productId);
+
+  void removeFromWishlist(String? furnitureId) {
+    if (furnitureId != null) {
+      wishlistIds.remove(furnitureId);
+    }
+  }
+
+  void clearWishlist() => wishlistIds.clear();
 }

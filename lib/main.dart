@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'core/utils/app_bloc_observer.dart';
 import 'core/utils/theme.dart';
 import 'core/utils/app_router.dart';
 import 'features/cart/presentation/cubit/cart_cubit.dart';
 import 'features/home/services/cart_service.dart';
+import 'features/wishlist/presentation/cubit/wishlist_cubit.dart';
+import 'features/home/services/wishlist_service.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,6 +21,7 @@ void main() {
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   // make the app only displayed on the phone
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  Bloc.observer = AppBlocObserver();
   runApp(const Furniture());
 }
 
@@ -26,8 +30,15 @@ class Furniture extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CartCubit(CartService()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => CartCubit(CartService()),
+        ),
+        BlocProvider(
+          create: (context) => WishlistCubit(WishListService()),
+        ),
+      ],
       child: MaterialApp.router(
         theme: AppTheme.lightTheme,
         debugShowCheckedModeBanner: false,

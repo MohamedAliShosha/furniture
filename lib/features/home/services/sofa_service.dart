@@ -6,10 +6,10 @@ class SofaService {
     return [
       ProductModel(
         colors: [
-           '#4B0082',
-           '#800080',
-           '#9400D3',
-         ],
+          '#4B0082',
+          '#800080',
+          '#9400D3',
+        ],
         id: '17',
         name: 'L-Shaped Sectional Sofa',
         category: 'SOFAS',
@@ -19,7 +19,6 @@ class SofaService {
         images: ImagesModel(
           main: AppImages.sofa1,
           gallery: [
-            AppImages.sofa1,
             AppImages.sofa1,
           ],
         ),
@@ -32,10 +31,10 @@ class SofaService {
       ),
       ProductModel(
         colors: [
-           '#4B0082',
-           '#800080',
-           '#9400D3',
-         ],
+          '#4B0082',
+          '#800080',
+          '#9400D3',
+        ],
         id: '18',
         name: 'Two-Seater Loveseat',
         category: 'SOFAS',
@@ -43,10 +42,9 @@ class SofaService {
         specialOffersIds: const ['summer_sale'],
         rating: RatingModel(average: 4.5, count: 189),
         images: ImagesModel(
-          main: AppImages.sofa1,
+          main: AppImages.sofa2,
           gallery: [
-            AppImages.sofa1,
-            AppImages.sofa1,
+            AppImages.sofa2,
           ],
         ),
         details: DetailsModel(
@@ -57,10 +55,10 @@ class SofaService {
       ),
       ProductModel(
         colors: [
-           '#4B0082',
-           '#800080',
-           '#9400D3',
-         ],
+          '#4B0082',
+          '#800080',
+          '#9400D3',
+        ],
         id: '19',
         name: 'Leather Recliner',
         category: 'SOFAS',
@@ -68,10 +66,9 @@ class SofaService {
         specialOffersIds: const ['summer_sale', 'premium_discount'],
         rating: RatingModel(average: 4.6, count: 156),
         images: ImagesModel(
-          main: AppImages.sofa2,
+          main: AppImages.sofa3,
           gallery: [
-            AppImages.sofa2,
-            AppImages.sofa2,
+            AppImages.sofa3,
           ],
         ),
         details: DetailsModel(
@@ -82,10 +79,10 @@ class SofaService {
       ),
       ProductModel(
         colors: [
-           '#4B0082',
-           '#800080',
-           '#9400D3',
-         ],
+          '#4B0082',
+          '#800080',
+          '#9400D3',
+        ],
         id: '20',
         name: 'Velvet Sofa 3-Seater',
         category: 'SOFAS',
@@ -93,10 +90,9 @@ class SofaService {
         specialOffersIds: const ['summer_sale'],
         rating: RatingModel(average: 4.7, count: 223),
         images: ImagesModel(
-          main: AppImages.sofa3,
+          main: AppImages.sofa4,
           gallery: [
-            AppImages.sofa3,
-            AppImages.sofa3,
+            AppImages.sofa4,
           ],
         ),
         details: DetailsModel(
