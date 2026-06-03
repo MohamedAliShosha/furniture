@@ -1,4 +1,9 @@
 class AppImages {
+  // blogs images
+  static const String blog1 = 'assets/images/blogs/blog1.jpg';
+  static const String blog2 = 'assets/images/blogs/blog2.jpg';
+  static const String blog3 = 'assets/images/blogs/blog3.jpg';
+
   // Onboarding images
   static const String onboarding1 = 'assets/images/onboarding1.png';
   static const String onboarding2 = 'assets/images/onboarding2.png';

@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 
-class AnimatedFeaturedItem extends StatefulWidget {
-  const AnimatedFeaturedItem(
-      {super.key,
-      required this.child,
-      required this.index,
-      required this.isVertical});
+class AnimatedListItem extends StatefulWidget {
+  const AnimatedListItem({
+    super.key,
+    required this.child,
+    required this.index,
+    this.isVertical = true,
+  });
   final Widget child;
   final int index;
   final bool isVertical;
 
   @override
-  State<AnimatedFeaturedItem> createState() => _AnimatedFeaturedItemState();
+  State<AnimatedListItem> createState() => _AnimatedListItemState();
 }
 
-class _AnimatedFeaturedItemState extends State<AnimatedFeaturedItem>
+class _AnimatedListItemState extends State<AnimatedListItem>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _slideAnimation;
