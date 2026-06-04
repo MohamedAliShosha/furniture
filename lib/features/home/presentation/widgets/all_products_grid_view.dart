@@ -3,7 +3,7 @@ import 'package:gap/gap.dart';
 
 import '../../../../core/utils/constants.dart';
 import '../../data/models/product_model.dart';
-import 'animated_featured_item.dart';
+import 'animated_list_item.dart';
 import 'featured_item_card.dart';
 
 class AllProductsGridView extends StatelessWidget {
@@ -59,7 +59,7 @@ class AllProductsGridView extends StatelessWidget {
       ),
       itemBuilder: (context, index) {
         final ProductModel product = products[index];
-        return AnimatedFeaturedItem(
+        return AnimatedListItem(
           isVertical: false,
           index: index,
           child: Hero(

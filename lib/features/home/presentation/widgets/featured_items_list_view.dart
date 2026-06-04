@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 import '../../data/models/product_model.dart';
-import 'animated_featured_item.dart';
+import 'animated_list_item.dart';
 import 'featured_item_card.dart';
 
 class FeaturedItemsListView extends StatelessWidget {
@@ -67,7 +67,7 @@ class FeaturedItemsListView extends StatelessWidget {
                       ? 0
                       : AppConstants.defaultPadding,
                 ),
-                child: AnimatedFeaturedItem(
+                child: AnimatedListItem(
                   index: index,
                   isVertical: true,
                   child: Hero(
