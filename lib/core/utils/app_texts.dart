@@ -85,4 +85,17 @@ class AppTexts {
   static const String loginPasswordHint = 'Enter your password';
   static const String alreadyHaveAccount = 'Already have an account ?';
   static const String signIn = 'Sign In';
+
+  // Wishlist texts
+  static const String wishlistTitle = 'Wishlist';
+  static const String cancelButtonTitle = 'CANCEL';
+  static const String clearButtonTitle = 'CLEAR';
+  static const String clearWishlistTitle = 'Clear Wishlist';
+  static const String clearWishlistConfirmation =
+      'Are you sure you want to clear your wishlist?';
+  static const String signInToViewWishlist = 'Sign in to view your wishlist';
+  static const String createAccountToShop =
+      'Create an account to start shopping';
+  static const String signInButtonTitle = 'SIGN IN';
+  static const String errorPrefix = 'Error:';
 }
