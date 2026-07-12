@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furniture/features/home/services/user_service.dart';
 import '../../../../core/utils/app_images.dart';
+import '../../../../core/utils/service_locator.dart';
 
 import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
@@ -10,7 +11,7 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final UserService userService = UserService();
+    final UserService userService = getIt<UserService>();
     final user = userService.user;
     return Padding(
       padding: const EdgeInsets.symmetric(

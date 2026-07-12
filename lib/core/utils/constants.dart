@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'app_colors.dart';
+
 class AppConstants {
   // Colors
-  static const Color primaryColor = Color(0xFFFFB800);
-  static const Color secondaryColor = Color(0xFF1A1A1A);
-  static const Color backgroundColor = Colors.white;
-  static const Color textColor = Color(0xFF1A1A1A);
-  static const Color greyColor = Color(0xFFF5F5F5);
+  static const Color primaryColor = AppColors.primary;
+  static const Color secondaryColor = AppColors.secondaryText;
+  static const Color backgroundColor = AppColors.white;
+  static const Color textColor = AppColors.secondaryText;
+  static const Color greyColor = AppColors.softGrey;
 
   // Text Styles
   static TextStyle get headingStyle => GoogleFonts.poppins(

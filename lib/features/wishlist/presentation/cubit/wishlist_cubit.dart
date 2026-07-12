@@ -68,6 +68,8 @@ class WishlistCubit extends Cubit<WishlistState> {
         .where((product) => wishlistIds.contains(product.id))
         .toList();
   }
+  
+  int get wishlistCount => wishlistService.getWishlistIds().length;
 
   bool isProductInWishlist(String productId) =>
       wishlistService.isProductInWishlist(productId);

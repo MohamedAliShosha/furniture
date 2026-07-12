@@ -8,6 +8,7 @@ import 'core/utils/service_locator.dart';
 import 'features/blog/presentation/cubit/blog_cubit.dart';
 import 'features/cart/presentation/cubit/cart_cubit.dart';
 import 'features/wishlist/presentation/cubit/wishlist_cubit.dart';
+import 'features/home/presentation/cubit/user/user_cubit.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +34,9 @@ class Furniture extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (context) => getIt<UserCubit>(),
+        ),
         BlocProvider(
           create: (context) => getIt<BlogCubit>(),
         ),

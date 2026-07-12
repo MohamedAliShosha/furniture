@@ -78,7 +78,9 @@ class _OnboardingViewState extends State<OnboardingView> {
           Positioned(
             top: MediaQuery.of(context).padding.top + 16,
             right: 16,
-            child: TextButton(
+            child: currentView == 2
+                ? const SizedBox.shrink()
+                : TextButton(
               // When the user clicks skip => make onboarding seen then navigate to the login
               onPressed: _navigateToLogin,
               child: Text(

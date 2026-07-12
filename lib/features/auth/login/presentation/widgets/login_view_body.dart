@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import '../../../../../core/utils/app_texts.dart';
 import '../../../auth_shared_widgets/auth_header.dart';
 import 'login_form.dart';
 
@@ -29,14 +30,15 @@ class _LoginViewBodyState extends State<LoginViewBody> {
           children: [
             const Gap(40),
             const AuthHeader(
-              title: 'Welcome Back',
-              subtitle: 'Sign in to continue shopping',
+              title: AppTexts.welcomeBack,
+              subtitle: AppTexts.signInToContinueShopping,
             ),
             const Gap(32),
             LoginForm(
-                formKey: _formKey,
-                emailController: emailController,
-                passwordController: passwordController),
+              formKey: _formKey,
+              emailController: emailController,
+              passwordController: passwordController,
+            ),
           ],
         ),
       ),

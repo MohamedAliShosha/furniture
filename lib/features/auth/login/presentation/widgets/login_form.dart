@@ -10,6 +10,7 @@ import '../../../auth_shared_widgets/auth_divider.dart';
 import '../../../auth_shared_widgets/auth_text_field.dart';
 import '../../../auth_shared_widgets/social_auth_button.dart';
 import 'dont_have_account.dart';
+import 'guest_button.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -78,13 +79,15 @@ class LoginForm extends StatelessWidget {
             title: AppTexts.loginButtonTitle,
             onPressed: () {},
           ),
+          const Gap(16),
+          const GuestButton(),
           const Gap(24),
           const AuthDivider(),
           Row(
             children: [
               Expanded(
                 child: SocialAuthButton(
-                  title: 'Google',
+                  title: AppTexts.googleButtonTitle,
                   icon: AppIcons.googleIcon,
                   onPressed: () {},
                 ),
@@ -92,7 +95,7 @@ class LoginForm extends StatelessWidget {
               const Gap(16),
               Expanded(
                 child: SocialAuthButton(
-                  title: 'Facebook',
+                  title: AppTexts.facebookButtonTitle,
                   icon: AppIcons.facebookIcon,
                   onPressed: () {},
                 ),

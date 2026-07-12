@@ -9,6 +9,7 @@ import '../../../auth_shared_widgets/auth_button.dart';
 import '../../../auth_shared_widgets/auth_divider.dart';
 import '../../../auth_shared_widgets/auth_text_field.dart';
 import '../../../auth_shared_widgets/social_auth_button.dart';
+import '../../../login/presentation/widgets/guest_button.dart';
 import 'already_have_account.dart';
 
 class SignUpForm extends StatelessWidget {
@@ -97,9 +98,13 @@ class SignUpForm extends StatelessWidget {
           AuthButton(
             title: AppTexts.signUpButtonTitle,
             onPressed: () {
-              GoRouter.of(context).pushReplacement(AppRouter.kMainView);
+              GoRouter.of(context).pushReplacement(
+                AppRouter.kMainView,
+              );
             },
           ),
+          const Gap(16),
+          const GuestButton(),
           const Gap(24),
           const AuthDivider(),
           const Gap(24),
