@@ -42,6 +42,8 @@ class AppTexts {
   static const String welcomeBack = 'Welcome Back!';
   static const String signInToContinueShopping = 'Sign in to continue shopping';
   static const String continueAsGuest = 'Continue as Guest';
+  static const String noEmail = 'No email';
+  static const String notSignedIn = 'Not signed in';
   static const String guestUser = 'Guest User';
 
   // Search bar texts
