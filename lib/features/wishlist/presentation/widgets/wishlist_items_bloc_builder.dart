@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../cart/presentation/widgets/empty_wishlist_widget.dart';
 import '../../../home/presentation/widgets/featured_item_card.dart';
@@ -21,7 +22,7 @@ class WisListItemsBloBuilder extends StatelessWidget {
           );
         } else if (state is WishlistFailure) {
           return Center(
-            child: Text('Error: ${state.message}'),
+            child: Text('${AppTexts.errorPrefix} ${state.message}'),
           );
         } else if (state is WishlistSuccess) {
           if (state.wishListedItems.isEmpty) {
