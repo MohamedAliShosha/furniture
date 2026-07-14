@@ -1,3 +1,4 @@
+import 'package:furniture/features/featured_products/presentation/views/featured_products_view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/auth/forget_password/presentation/views/forget_password_view.dart';
@@ -15,6 +16,7 @@ class AppRouter {
   static const kSignUpView = '/signUpView';
   static const kMainView = '/mainView';
   static const kProductDetailsView = '/productDetailsView';
+  static const kFeaturedProductsView = '/featuredProductsView';
   static const kForgetPasswordView = '/forgetPasswordView';
 
   static GoRouter router = GoRouter(
@@ -42,6 +44,10 @@ class AppRouter {
       GoRoute(
         path: kMainView,
         builder: (context, state) => const MainView(),
+      ),
+      GoRoute(
+        path: kFeaturedProductsView,
+        builder: (context, state) => const FeaturedProductsView(),
       ),
       GoRoute(
         path: kProductDetailsView,

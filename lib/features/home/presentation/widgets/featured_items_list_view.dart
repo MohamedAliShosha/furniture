@@ -40,9 +40,12 @@ class FeaturedItemsListView extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  // navigate to featured products screen
+                  GoRouter.of(context).push(AppRouter.kFeaturedProductsView);
+                },
                 child: const Text(
-                  'View All',
+                  AppTexts.viewAll,
                   style: TextStyle(
                     color: AppConstants.primaryColor,
                     fontWeight: FontWeight.w600,
