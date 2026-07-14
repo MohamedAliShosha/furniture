@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/app_icons.dart';
 import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/app_texts.dart';
+import '../../../../home/data/models/user_model.dart';
+import '../../../../home/presentation/cubit/user/user_cubit.dart';
 import '../../../auth_shared_widgets/auth_button.dart';
 import '../../../auth_shared_widgets/auth_divider.dart';
 import '../../../auth_shared_widgets/auth_text_field.dart';
@@ -98,9 +101,19 @@ class SignUpForm extends StatelessWidget {
           AuthButton(
             title: AppTexts.signUpButtonTitle,
             onPressed: () {
-              GoRouter.of(context).pushReplacement(
-                AppRouter.kMainView,
-              );
+              if (_formKey.currentState?.validate() ?? false) {
+                final user = UserModel(
+                  name: nameController.text.trim(),
+                  email: emailController.text.trim(),
+                  phoneNumber: null,
+                  profileImage: null,
+                );
+
+                context.read<UserCubit>().setUser(user);
+                GoRouter.of(context).pushReplacement(
+                  AppRouter.kMainView,
+                );
+              }
             },
           ),
           const Gap(16),

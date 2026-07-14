@@ -6,8 +6,8 @@ import '../../../../core/utils/constants.dart';
 import '../../data/models/cart_item.dart';
 import '../../data/models/product_model.dart';
 
-class AddToCartButton extends StatefulWidget {
-  const AddToCartButton({
+class AddToCartIcon extends StatefulWidget {
+  const AddToCartIcon({
     super.key,
     required this.productModel,
   });
@@ -15,10 +15,10 @@ class AddToCartButton extends StatefulWidget {
   final ProductModel productModel;
 
   @override
-  State<AddToCartButton> createState() => _AddToCartButtonState();
+  State<AddToCartIcon> createState() => _AddToCartIconState();
 }
 
-class _AddToCartButtonState extends State<AddToCartButton> {
+class _AddToCartIconState extends State<AddToCartIcon> {
   bool isAddedToCart = false;
 
   void addToCart() {

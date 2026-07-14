@@ -27,6 +27,8 @@ class SofaService {
           designText: 'Modern Sectional',
           isOnlineSellable: true,
           badge: 'Best Seller',
+          description:
+              'A spacious L-shaped sectional sofa built for comfort, entertaining, and relaxed family lounging.',
         ),
       ),
       ProductModel(
@@ -51,6 +53,8 @@ class SofaService {
           itemMeasureReferenceText: 'H: 80cm W: 160cm D: 85cm',
           designText: 'Classic Fabric',
           isOnlineSellable: true,
+          description:
+              'A cozy two-seater loveseat with soft fabric upholstery and balanced proportions for compact spaces.',
         ),
       ),
       ProductModel(
@@ -75,6 +79,8 @@ class SofaService {
           itemMeasureReferenceText: 'H: 100cm W: 90cm D: 95cm',
           designText: 'Premium Leather',
           isOnlineSellable: true,
+          description:
+              'A premium leather recliner designed for comfort, support, and a refined lounging experience.',
         ),
       ),
       ProductModel(
@@ -100,6 +106,8 @@ class SofaService {
           designText: 'Luxury Velvet',
           isOnlineSellable: true,
           badge: 'New',
+          description:
+              'A plush three-seater velvet sofa that adds a luxe touch and welcoming feel to any living room.',
         ),
       ),
     ];

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../core/utils/app_router.dart';
 import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 import '../../data/models/product_model.dart';
@@ -74,7 +76,11 @@ class FeaturedItemsListView extends StatelessWidget {
                     tag: 'featured ${products[index].id}',
                     child: FeaturedItemCard(
                       productModel: products[index],
-                      onTap: () {},
+                      onTap: () {
+                        // navigate to product details screen
+                        GoRouter.of(context).push(AppRouter.kProductDetailsView,
+                            extra: products[index]);
+                      },
                     ),
                   ),
                 ),
