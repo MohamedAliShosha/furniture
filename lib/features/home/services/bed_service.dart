@@ -6,10 +6,10 @@ class BedService {
     return [
       ProductModel(
         colors: [
-           '#8B4513',
-           '#A0522D',
-           '#CD853F',
-         ],
+          '#8B4513',
+          '#A0522D',
+          '#CD853F',
+        ],
         id: '21',
         name: 'Queen Size Bed',
         category: 'BEDS',
@@ -27,14 +27,16 @@ class BedService {
           designText: 'Modern Wooden Frame',
           isOnlineSellable: true,
           badge: 'Best Seller',
+          description:
+              'A refined queen-size bed featuring a sleek wooden frame and restful, everyday comfort.',
         ),
       ),
       ProductModel(
         colors: [
-           '#8B4513',
-           '#A0522D',
-           '#CD853F',
-         ],
+          '#8B4513',
+          '#A0522D',
+          '#CD853F',
+        ],
         id: '22',
         name: 'Single Size Bed',
         category: 'BEDS',
@@ -52,14 +54,16 @@ class BedService {
           designText: 'Simple Wooden Frame',
           isOnlineSellable: true,
           badge: 'New Arrival',
+          description:
+              'A compact single bed designed for practical comfort, space efficiency, and minimalist styling.',
         ),
       ),
       ProductModel(
         colors: [
-           '#8B4513',
-           '#A0522D',
-           '#CD853F',
-         ],
+          '#8B4513',
+          '#A0522D',
+          '#CD853F',
+        ],
         id: '23',
         name: 'Luxury Queen Bed',
         category: 'BEDS',
@@ -77,14 +81,16 @@ class BedService {
           designText: 'Upholstered Headboard',
           isOnlineSellable: true,
           badge: 'Premium',
+          description:
+              'An elegant upholstered queen bed with a plush headboard and premium finish for a hotel-style feel.',
         ),
       ),
       ProductModel(
         colors: [
-           '#8B4513',
-           '#A0522D',
-           '#CD853F',
-         ],
+          '#8B4513',
+          '#A0522D',
+          '#CD853F',
+        ],
         id: '24',
         name: 'King Size Bed',
         category: 'BEDS',
@@ -101,6 +107,8 @@ class BedService {
           itemMeasureReferenceText: 'H: 110cm W: 180cm D: 220cm',
           designText: 'Luxury King',
           isOnlineSellable: true,
+          description:
+              'A statement king-size bed with a roomy silhouette, luxurious finish, and supportive, durable construction.',
         ),
       ),
     ];

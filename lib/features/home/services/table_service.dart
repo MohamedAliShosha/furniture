@@ -27,6 +27,8 @@ class TableService {
           designText: 'Natural Oak',
           isOnlineSellable: true,
           badge: 'Popular',
+          description:
+              'A warm natural oak dining table with generous seating space for family gatherings and everyday hosting.',
         ),
       ),
       ProductModel(
@@ -52,6 +54,8 @@ class TableService {
           designText: 'Natural Oak',
           isOnlineSellable: true,
           badge: 'Popular',
+          description:
+              'A sturdy oak dining table with clean lines and practical durability for strong everyday use.',
         ),
       ),
       ProductModel(
@@ -74,6 +78,8 @@ class TableService {
           itemMeasureReferenceText: 'H: 45cm W: 100cm D: 60cm',
           designText: 'Minimalist Modern',
           isOnlineSellable: true,
+          description:
+              'A sleek glass console table that brings brightness, elegance, and modern edge to entryways or living spaces.',
         ),
       ),
       ProductModel(
@@ -97,6 +103,8 @@ class TableService {
           itemMeasureReferenceText: 'H: 80cm W: 120cm D: 35cm',
           designText: 'Contemporary Set (2 pieces)',
           isOnlineSellable: true,
+          description:
+              'A contemporary coffee table set that pairs polished surfaces with a clean, social-friendly design.',
         ),
       ),
     ];
