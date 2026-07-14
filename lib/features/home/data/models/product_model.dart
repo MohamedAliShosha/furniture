@@ -146,12 +146,14 @@ class DetailsModel {
   final String? designText;
   final bool? isOnlineSellable;
   final String? badge;
+  final String? description;
 
   DetailsModel({
     this.itemMeasureReferenceText,
     this.designText,
     this.isOnlineSellable,
     this.badge,
+    this.description,
   });
 
   factory DetailsModel.fromJson(Map<String, dynamic> json) {
@@ -160,6 +162,7 @@ class DetailsModel {
       designText: json['designText'],
       isOnlineSellable: json['isOnlineSellable'],
       badge: json['badge'],
+      description: json['description'],
     );
   }
 }
