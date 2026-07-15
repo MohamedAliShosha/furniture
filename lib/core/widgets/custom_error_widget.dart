@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:furniture/core/utils/constants.dart';
+import '../utils/constants.dart';
 import 'package:gap/gap.dart';
 
 class CustomErrorWidget extends StatelessWidget {

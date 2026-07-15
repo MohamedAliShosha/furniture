@@ -1,5 +1,5 @@
-import 'package:furniture/features/home/data/repositories/product_repo.dart';
-import 'package:furniture/features/home/services/bed_service.dart';
+import 'product_repo.dart';
+import '../../services/bed_service.dart';
 import '../../../../features/home/data/models/product_model.dart';
 import '../../../../features/home/services/chair_service.dart';
 import '../../../../features/home/services/decoration_service.dart';

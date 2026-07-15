@@ -1,4 +1,4 @@
-import 'package:furniture/features/home/data/models/user_model.dart';
+import '../data/models/user_model.dart';
 
 // bool isLoggedInUser = true;
 

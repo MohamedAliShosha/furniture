@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:furniture/features/home/services/user_service.dart';
+import '../../services/user_service.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/service_locator.dart';
 

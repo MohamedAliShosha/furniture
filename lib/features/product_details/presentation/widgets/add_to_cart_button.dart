@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:furniture/core/utils/app_colors.dart';
-import 'package:furniture/features/cart/presentation/cubit/cart_cubit.dart';
-import 'package:furniture/features/home/data/models/cart_item.dart';
-import 'package:furniture/features/home/data/models/product_model.dart';
-import 'package:furniture/features/home/presentation/cubit/user/user_cubit.dart';
-import 'package:furniture/features/profile/presentation/widgets/auth_bottom_sheet.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../cart/presentation/cubit/cart_cubit.dart';
+import '../../../home/data/models/cart_item.dart';
+import '../../../home/data/models/product_model.dart';
+import '../../../home/presentation/cubit/user/user_cubit.dart';
+import '../../../profile/presentation/widgets/auth_bottom_sheet.dart';
 
 class AddToCartButton extends StatefulWidget {
   const AddToCartButton({

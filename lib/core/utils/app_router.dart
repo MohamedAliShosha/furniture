@@ -1,4 +1,4 @@
-import 'package:furniture/features/featured_products/presentation/views/featured_products_view.dart';
+import '../../features/featured_products/presentation/views/featured_products_view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/auth/forget_password/presentation/views/forget_password_view.dart';

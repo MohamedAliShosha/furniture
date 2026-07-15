@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:furniture/features/home/data/models/product_model.dart';
-import 'package:furniture/features/profile/presentation/widgets/auth_bottom_sheet.dart';
-import 'package:furniture/features/wishlist/presentation/cubit/wishlist_cubit.dart';
-import 'package:furniture/features/wishlist/presentation/cubit/wishlist_state.dart';
+import '../../../home/data/models/product_model.dart';
+import '../../../profile/presentation/widgets/auth_bottom_sheet.dart';
+import '../../../wishlist/presentation/cubit/wishlist_cubit.dart';
+import '../../../wishlist/presentation/cubit/wishlist_state.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../home/presentation/cubit/user/user_cubit.dart';
@@ -85,9 +85,8 @@ class _ProductImageGalleryState extends State<ProductImageGallery> {
                         state.wishListedItems
                             .any((item) => item.id == widget.product.id);
                     return CircularIconButton(
-                      iconData: isInWishlist
-                          ? Icons.favorite
-                          : Icons.favorite_border,
+                      iconData:
+                          isInWishlist ? Icons.favorite : Icons.favorite_border,
                       onTap: () {
                         final userCubit = context.read<UserCubit>();
                         if (!userCubit.userService.isUserLoggedIn) {

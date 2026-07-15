@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:furniture/core/utils/app_colors.dart';
-import 'package:furniture/core/utils/constants.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/constants.dart';
 
 class ColorSelector extends StatefulWidget {
   const ColorSelector({
@@ -51,9 +51,7 @@ class _ColorSelectorState extends State<ColorSelector> {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: isSelected
-                        ? AppColors.primary
-                        : Colors.transparent,
+                    color: isSelected ? AppColors.primary : Colors.transparent,
                     width: 2,
                   ),
                 ),

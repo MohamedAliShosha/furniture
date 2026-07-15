@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:furniture/core/utils/constants.dart';
+import '../../../../core/utils/constants.dart';
 import 'package:gap/gap.dart';
 
 class EmptyWisListWidget extends StatelessWidget {

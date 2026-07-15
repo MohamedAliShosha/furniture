@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:furniture/core/utils/service_locator.dart';
+import '../../../../core/utils/service_locator.dart';
 
 import '../cubit/featured_items/featured_items_cubit.dart';
 import '../cubit/all_products/all_products_cubit.dart';

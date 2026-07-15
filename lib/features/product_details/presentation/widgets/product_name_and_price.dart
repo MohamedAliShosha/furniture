@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:furniture/core/utils/app_colors.dart';
-import 'package:furniture/core/utils/constants.dart';
-import 'package:furniture/features/home/data/models/product_model.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/constants.dart';
+import '../../../home/data/models/product_model.dart';
 
 class ProductNameAndPrice extends StatelessWidget {
   const ProductNameAndPrice({

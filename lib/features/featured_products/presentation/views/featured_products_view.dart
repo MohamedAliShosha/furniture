@@ -1,6 +1,6 @@
 ﻿import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:furniture/features/home/presentation/cubit/featured_items/featured_items_cubit.dart';
+import '../../../home/presentation/cubit/featured_items/featured_items_cubit.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';

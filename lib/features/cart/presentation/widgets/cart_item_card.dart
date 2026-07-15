@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:furniture/core/utils/constants.dart';
-import 'package:furniture/features/cart/presentation/cubit/cart_cubit.dart';
-import 'package:furniture/features/home/data/models/cart_item.dart';
+import '../../../../core/utils/constants.dart';
+import '../cubit/cart_cubit.dart';
+import '../../../home/data/models/cart_item.dart';
 import 'package:gap/gap.dart';
 
 class CartItemCard extends StatelessWidget {

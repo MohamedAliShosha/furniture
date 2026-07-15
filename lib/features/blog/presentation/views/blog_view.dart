@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:furniture/features/blog/presentation/cubit/blog_cubit.dart';
+import '../cubit/blog_cubit.dart';
 import '../widgets/blog_view_body.dart';
 
 class BlogView extends StatefulWidget {

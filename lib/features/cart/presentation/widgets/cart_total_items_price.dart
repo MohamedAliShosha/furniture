@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:furniture/core/utils/constants.dart';
-import 'package:furniture/features/home/data/models/cart_item.dart';
+import '../../../../core/utils/constants.dart';
+import '../../../home/data/models/cart_item.dart';
 import 'package:gap/gap.dart';
 
 class CartTotalItemsPrice extends StatelessWidget {

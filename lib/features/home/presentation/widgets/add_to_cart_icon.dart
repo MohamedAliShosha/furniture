@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:furniture/features/cart/presentation/cubit/cart_cubit.dart';
+import '../../../cart/presentation/cubit/cart_cubit.dart';
 
 import '../../../../core/utils/constants.dart';
 import '../../data/models/cart_item.dart';

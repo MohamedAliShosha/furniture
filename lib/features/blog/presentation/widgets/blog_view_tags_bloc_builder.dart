@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:furniture/features/blog/presentation/cubit/blog_cubit.dart';
+import '../cubit/blog_cubit.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../core/utils/constants.dart';

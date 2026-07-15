@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:furniture/core/utils/constants.dart';
-import 'package:furniture/features/home/presentation/widgets/favorite_button.dart';
+import '../../../../core/utils/constants.dart';
+import 'favorite_button.dart';
 
 import '../../data/models/product_model.dart';
 
