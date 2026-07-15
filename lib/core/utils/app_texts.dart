@@ -148,4 +148,10 @@ class AppTexts {
       'Get help and support for your account';
   static const String aboutUs = 'About Us';
   static const String learnMoreAboutCompany = 'Learn more about our company';
+
+  // Featured Products
+  static const String featuredProducts = 'Featured Products';
+  static const String seeAll = 'See All';
+  static const String noFeaturedProductsAvailable =
+      'No featured products available';
 }
