@@ -2,35 +2,20 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
+import '../../../../features/home/data/models/category_model.dart';
 import 'category_chip.dart';
 
-class CategoriesListView extends StatefulWidget {
-  const CategoriesListView({super.key});
+class CategoriesListView extends StatelessWidget {
+  final List<dynamic> categories;
+  final ValueChanged<String>? onCategoryTap;
+  final String selectedCategory;
 
-  @override
-  State<CategoriesListView> createState() => _CategoriesListViewState();
-}
-
-class _CategoriesListViewState extends State<CategoriesListView> {
-  String _selectedCategory = 'All'; // Default selected category
-
-  // List that holds the categories
-  final List<String> categories = [
-    'All',
-    'Chairs',
-    'Tables',
-    'Lightings',
-    'Decorations',
-    'SOFAS',
-    'BEDS',
-  ];
-
-  // Function to handle category selection
-  void _onCategorySelected(String category) {
-    setState(() {
-      _selectedCategory = category;
-    });
-  }
+  const CategoriesListView({
+    super.key,
+    required this.categories,
+    this.onCategoryTap,
+    this.selectedCategory = 'All',
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -52,14 +37,27 @@ class _CategoriesListViewState extends State<CategoriesListView> {
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 12),
-            itemCount: categories.length,
+            itemCount: categories.length + 1,
             itemBuilder: (context, index) {
+              if (index == 0) {
+                const title = 'All';
+                return Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: CategoryChip(
+                    title: title,
+                    isSelected: selectedCategory == title,
+                    onTap: () => onCategoryTap?.call(title),
+                  ),
+                );
+              }
+              final category = categories[index - 1] as CategoryModel;
+              final title = category.name;
               return Padding(
                 padding: const EdgeInsets.only(right: 8),
                 child: CategoryChip(
-                  title: categories[index],
-                  isSelected: _selectedCategory == categories[index],
-                  onTap: () => _onCategorySelected(categories[index]),
+                  title: title,
+                  isSelected: selectedCategory == title,
+                  onTap: () => onCategoryTap?.call(title),
                 ),
               );
             },

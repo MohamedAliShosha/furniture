@@ -5,10 +5,10 @@ import '../../../home/presentation/cubit/featured_items/featured_items_state.dar
 import 'package:gap/gap.dart';
 import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
-import 'featured_products_grid_view.dart';
+import 'featured_items_grid_view.dart';
 
-class FeaturedProductsViewBlocBuilder extends StatelessWidget {
-  const FeaturedProductsViewBlocBuilder({
+class FeaturedProductsBlocBuilder extends StatelessWidget {
+  const FeaturedProductsBlocBuilder({
     super.key,
   });
 

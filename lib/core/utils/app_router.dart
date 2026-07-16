@@ -7,6 +7,7 @@ import '../../features/auth/sign_up/presentation/views/sign_up_view.dart';
 import '../../features/home/data/models/product_model.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/product_details/presentation/views/product_details_view.dart';
+import '../../features/search/presentation/views/search_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 import '../../main_view.dart';
 
@@ -15,6 +16,7 @@ class AppRouter {
   static const kLoginView = '/loginView';
   static const kSignUpView = '/signUpView';
   static const kMainView = '/mainView';
+  static const kSearchView = '/searchView';
   static const kProductDetailsView = '/productDetailsView';
   static const kFeaturedProductsView = '/featuredProductsView';
   static const kForgetPasswordView = '/forgetPasswordView';
@@ -28,6 +30,10 @@ class AppRouter {
       GoRoute(
         path: kOnboardingView,
         builder: (context, state) => const OnboardingView(),
+      ),
+      GoRoute(
+        path: kSearchView,
+        builder: (context, state) => const SearchView(),
       ),
       GoRoute(
         path: kLoginView,

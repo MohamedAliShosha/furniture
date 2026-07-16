@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'featured_products_view_bloc_builder.dart';
+import 'featured_products_bloc_builder.dart';
 
 class FeaturedProductViewBody extends StatelessWidget {
   const FeaturedProductViewBody({
@@ -8,6 +8,6 @@ class FeaturedProductViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const FeaturedProductsViewBlocBuilder();
+    return const FeaturedProductsBlocBuilder();
   }
 }

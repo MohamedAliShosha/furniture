@@ -27,7 +27,7 @@ class FeaturedProductsView extends StatelessWidget {
             },
           ),
           title: Text(
-            AppTexts.featuredProducts,
+            AppTexts.featuredItems,
             style: AppConstants.headingStyle,
           ),
         ),

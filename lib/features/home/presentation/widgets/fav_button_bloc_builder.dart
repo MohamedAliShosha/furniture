@@ -31,6 +31,8 @@ class FavButtonBlocBuilder extends StatelessWidget {
               ),
             ],
           ),
+          child: Material(
+          color: Colors.transparent,
           child: InkWell(
             onTap: () {
               // Toggle wishlist through the cubit
@@ -42,6 +44,7 @@ class FavButtonBlocBuilder extends StatelessWidget {
               size: 18,
             ),
           ),
+        ),
         );
       },
     );

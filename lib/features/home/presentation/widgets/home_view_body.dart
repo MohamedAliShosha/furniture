@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:furniture/features/home/presentation/widgets/custom_search_bar.dart';
+import 'package:gap/gap.dart';
 import '../widgets/all_products_grid_view.dart';
 import '../widgets/categories_list_view.dart';
 import '../widgets/featured_items_list_view.dart';
@@ -8,15 +10,23 @@ import '../widgets/offers_page_view.dart';
 class HomeViewBody extends StatelessWidget {
   final List<dynamic> featuredProducts;
   final List<dynamic> allProducts;
+  final List<dynamic> categories;
   final bool isFeaturedLoading;
   final bool isAllProductsLoading;
+  final bool isCategoriesLoading;
+  final ValueChanged<String>? onCategoryTap;
+  final String selectedCategory;
 
   const HomeViewBody({
     super.key,
     required this.featuredProducts,
     required this.allProducts,
+    this.categories = const [],
     this.isFeaturedLoading = false,
     this.isAllProductsLoading = false,
+    this.isCategoriesLoading = false,
+    this.onCategoryTap,
+    this.selectedCategory = 'All',
   });
 
   @override
@@ -27,9 +37,22 @@ class HomeViewBody extends StatelessWidget {
           child: Column(
             children: [
               const HomeHeader(),
-              const SizedBox(height: 8),
-              const CategoriesListView(),
-              const SizedBox(height: 24),
+              const Gap(8),
+              const CustomSearchBar(),
+              const Gap(8),
+              isCategoriesLoading
+                  ? const SizedBox(
+                      height: 45,
+                      child: Center(
+                        child: CupertinoActivityIndicator(),
+                      ),
+                    )
+                   : CategoriesListView(
+                      categories: categories,
+                      onCategoryTap: onCategoryTap,
+                      selectedCategory: selectedCategory,
+                    ),
+              const Gap(24),
               const OffersPageView(),
               // Featured items with loading indicator
               isFeaturedLoading

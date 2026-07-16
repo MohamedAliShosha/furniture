@@ -6,6 +6,7 @@ import '../../../../core/utils/service_locator.dart';
 import '../cubit/featured_items/featured_items_cubit.dart';
 import '../cubit/all_products/all_products_cubit.dart';
 import '../cubit/products_by_category/products_by_category_cubit.dart';
+import '../cubit/categories/categories_cubit.dart';
 import '../widgets/home_view_content.dart';
 
 class HomeView extends StatelessWidget {
@@ -34,6 +35,9 @@ class HomeView extends StatelessWidget {
           ),
           BlocProvider(
             create: (_) => getIt<ProductsByCategoryCubit>(),
+          ),
+          BlocProvider(
+            create: (_) => getIt<CategoriesCubit>()..fetchCategories(),
           ),
         ],
         child: const HomeViewContent(),
