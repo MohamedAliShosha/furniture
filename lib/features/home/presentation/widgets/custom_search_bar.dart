@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:furniture/core/utils/app_router.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
+import '../../services/get_all_products_service.dart';
 
 class CustomSearchBar extends StatelessWidget {
   const CustomSearchBar({super.key});
@@ -11,7 +14,10 @@ class CustomSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        // clear any existing search query
+        AllProductsService().setSearchQuery('');
         // Navigate to search screen
+        GoRouter.of(context).push(AppRouter.kSearchView);
       },
       child: Container(
         decoration: BoxDecoration(
