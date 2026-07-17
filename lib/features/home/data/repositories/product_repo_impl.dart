@@ -1,7 +1,5 @@
 import 'product_repo.dart';
-import '../../services/category_service.dart';
 import '../../services/bed_service.dart';
-import '../../../../features/home/data/models/category_model.dart';
 import '../../../../features/home/data/models/product_model.dart';
 import '../../../../features/home/services/chair_service.dart';
 import '../../../../features/home/services/decoration_service.dart';
@@ -34,11 +32,6 @@ class ProductRepoImpl implements ProductRepo {
       ...BedService.getBeds(),
     ];
     return items;
-  }
-
-  @override
-  List<CategoryModel> getCategories() {
-    return CategoryService.getCategories();
   }
 
   @override
