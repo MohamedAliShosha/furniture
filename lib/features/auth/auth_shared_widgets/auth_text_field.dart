@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/constants.dart';
 import 'package:gap/gap.dart';
 
-class AuthTextField extends StatelessWidget {
+class AuthTextField extends StatefulWidget {
   const AuthTextField({
     super.key,
     required this.hintText,
@@ -23,12 +24,19 @@ class AuthTextField extends StatelessWidget {
   final bool enabled;
 
   @override
+  State<AuthTextField> createState() => _AuthTextFieldState();
+}
+
+class _AuthTextFieldState extends State<AuthTextField> {
+  bool _obscureText = true;
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          label,
+          widget.label,
           style: AppConstants.bodyStyle.copyWith(
             color: Colors.grey.shade700,
             fontWeight: FontWeight.w400,
@@ -41,16 +49,17 @@ class AuthTextField extends StatelessWidget {
           },
           cursorColor: Colors.black,
           cursorHeight: 15,
-          controller: controller,
-          validator: validator,
-          keyboardType: keyboardType,
-          obscureText: isPassword,
-          enabled: enabled,
+          controller: widget.controller,
+          validator: widget.validator,
+          keyboardType: widget.keyboardType,
+          obscureText: widget.isPassword ? _obscureText : false,
+          enabled: widget.enabled,
           style: AppConstants.bodyStyle,
           decoration: InputDecoration(
             filled: true,
-            fillColor: enabled ? Colors.grey.shade100 : Colors.grey.shade50,
-            hintText: hintText,
+            fillColor:
+                widget.enabled ? Colors.grey.shade100 : Colors.grey.shade50,
+            hintText: widget.hintText,
             hintStyle: AppConstants.bodyStyle.copyWith(
               color: Colors.grey.shade400,
             ),
@@ -61,6 +70,19 @@ class AuthTextField extends StatelessWidget {
             ),
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            suffixIcon: widget.isPassword
+                ? IconButton(
+                    icon: Icon(
+                      _obscureText ? Icons.visibility_off : Icons.visibility,
+                      color: AppColors.primary,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                    },
+                  )
+                : null,
           ),
         ),
       ],

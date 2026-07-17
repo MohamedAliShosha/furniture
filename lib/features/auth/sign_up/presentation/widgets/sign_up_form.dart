@@ -87,6 +87,7 @@ class SignUpForm extends StatelessWidget {
             controller: confirmPasswordController,
             label: AppTexts.confirmPasswordLabel,
             hintText: AppTexts.confirmPasswordHint,
+            isPassword: true,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return AppTexts.passwordRequired;
