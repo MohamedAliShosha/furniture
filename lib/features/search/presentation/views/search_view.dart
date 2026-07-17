@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture/core/utils/service_locator.dart';
 import 'package:gap/gap.dart';
 import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../home/presentation/cubit/all_products/all_products_cubit.dart';
 import '../../../home/presentation/cubit/categories/categories_cubit.dart';
@@ -89,7 +90,7 @@ class _SearchViewState extends State<SearchView> {
                             AllProductsService().setSearchQuery(value);
                           },
                           decoration: InputDecoration(
-                            hintText: 'Search furniture...',
+                            hintText: AppTexts.searchFieldHint,
                             suffixIcon: _searchController.text.isEmpty
                                 ? IconButton(
                                     onPressed: () {
