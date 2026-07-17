@@ -49,6 +49,24 @@ class AppTexts {
   // Search bar texts
   static const String searchLabel = 'Search';
   static const String searchHint = 'Find Your Favorite Furniture';
+  static const String searchFieldHint = 'Search furniture...';
+
+  // Search view texts
+  static const String popularCategories = 'Popular Categories';
+  static const String popularSearches = 'Popular Searches';
+  static const String noItemsFound = 'No items found';
+  static const String trySearchWithDifferentKeywords =
+      'Try search with different keywords';
+
+  // Popular search terms
+  static const String modernChair = 'Modern Chair';
+  static const String sofaSet = 'Sofa Set';
+  static const String diningTable = 'Dining Table';
+  static const String bed = 'Bed';
+  static const String storage = 'Storage';
+  static const String officeChair = 'Office Chair';
+  static const String tvCabinet = 'TV Cabinet';
+  static const String coffeeTable = 'Coffee Table';
 
   // Offer card texts
   static const String offerTitle = 'Offer Title';
