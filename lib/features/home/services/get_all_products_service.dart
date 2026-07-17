@@ -1,4 +1,6 @@
 import '../data/models/product_model.dart';
+import '../data/models/category_model.dart';
+import 'category_service.dart';
 import 'chair_service.dart';
 import 'table_service.dart';
 import 'light_service.dart';
@@ -28,6 +30,10 @@ class AllProductsService {
       ...SofaService.getSofas(),
       ...BedService.getBeds(),
     ];
+  }
+
+  static List<CategoryModel> getCategories() {
+    return CategoryService.getCategories();
   }
 
   static List<ProductModel> getProductsByCategory(String category) {
