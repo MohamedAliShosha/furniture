@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:furniture/core/utils/app_texts.dart';
 import 'package:furniture/core/utils/constants.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
