@@ -92,6 +92,8 @@ class AppTexts {
   static const String lightingsCategory = 'Lightings';
   static const String decorationsCategory = 'Decorations';
   static const String sofasCategory = 'SOFAS';
+  static const String noItemsFoundForThisCategory =
+      'No items found in this category';
 
   // Table service texts
   static const String oakDiningTable = 'Oak Dining Table';
@@ -162,6 +164,7 @@ class AppTexts {
   static const String myOrders = 'My Orders';
   static const String myOrdersSubtitle = 'View your order history';
   static const String helpCenter = 'Help Center';
+  static const String failedToLoadData = 'Failed to load data';
   static const String getHelpAndSupport =
       'Get help and support for your account';
   static const String aboutUs = 'About Us';
@@ -170,6 +173,9 @@ class AppTexts {
   // Featured Products
   static const String featuredProducts = 'Featured Products';
   static const String seeAll = 'See All';
+  static const String noProductsFound = 'No products found';
+  static const String trySearchingForSomething =
+      'Try searching for something or adjusting your filters';
   static const String noFeaturedProductsAvailable =
       'No featured products available';
 }
