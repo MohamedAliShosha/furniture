@@ -1,108 +1,11 @@
-import 'package:flutter/cupertino.dart';
-import 'package:furniture/features/home/presentation/widgets/custom_search_bar.dart';
-import 'package:gap/gap.dart';
-import '../widgets/all_products_grid_view.dart';
-import '../widgets/categories_list_view.dart';
-import '../widgets/featured_items_list_view.dart';
-import '../widgets/home_header.dart';
-import '../widgets/offers_page_view.dart';
+import 'package:flutter/material.dart';
+import '../widgets/home_view_bloc_builder.dart';
 
 class HomeViewBody extends StatelessWidget {
-  final List<dynamic> featuredProducts;
-  final List<dynamic> allProducts;
-  final List<dynamic> categories;
-  final List<dynamic> productsByCategory;
-  final bool isFeaturedLoading;
-  final bool isAllProductsLoading;
-  final bool isCategoriesLoading;
-  final bool isProductsByCategoryLoading;
-  final ValueChanged<String>? onCategoryTap;
-  final String selectedCategory;
-
-  const HomeViewBody({
-    super.key,
-    required this.featuredProducts,
-    required this.allProducts,
-    this.categories = const [],
-    this.productsByCategory = const [],
-    this.isFeaturedLoading = false,
-    this.isAllProductsLoading = false,
-    this.isCategoriesLoading = false,
-    this.isProductsByCategoryLoading = false,
-    this.onCategoryTap,
-    this.selectedCategory = 'All',
-  });
+  const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: Column(
-            children: [
-              const HomeHeader(),
-              const Gap(8),
-              const CustomSearchBar(),
-              const Gap(8),
-              isCategoriesLoading
-                  ? const SizedBox(
-                      height: 45,
-                      child: Center(
-                        child: CupertinoActivityIndicator(),
-                      ),
-                    )
-                   : CategoriesListView(
-                      categories: categories,
-                      onCategoryTap: onCategoryTap,
-                      selectedCategory: selectedCategory,
-                    ),
-              const Gap(24),
-              const OffersPageView(),
-              // Featured items with loading indicator
-              isFeaturedLoading
-                  ? const SizedBox(
-                      height: 200,
-                      child: Center(
-                        child: CupertinoActivityIndicator(),
-                      ),
-                    )
-                  : FeaturedItemsListView(
-                      products: featuredProducts.cast(),
-                    ),
-              const SizedBox(height: 24),
-            ],
-          ),
-        ),
-        // All products with loading indicator
-        SliverPadding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          sliver: selectedCategory == 'All'
-              ? (isAllProductsLoading
-                  ? const SliverToBoxAdapter(
-                      child: SizedBox(
-                        height: 400,
-                        child: Center(
-                          child: CupertinoActivityIndicator(),
-                        ),
-                      ),
-                    )
-                  : AllProductsGridView(
-                      products: allProducts.cast(),
-                    ))
-              : (isProductsByCategoryLoading
-                  ? const SliverToBoxAdapter(
-                      child: SizedBox(
-                        height: 400,
-                        child: Center(
-                          child: CupertinoActivityIndicator(),
-                        ),
-                      ),
-                    )
-                  : AllProductsGridView(
-                      products: productsByCategory.cast(),
-                    )),
-        ),
-      ],
-    );
+    return const HomeViewBlocBuilder();
   }
 }
