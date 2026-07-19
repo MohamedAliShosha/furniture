@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/app_router.dart';
+import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 import '../../data/models/product_model.dart';
 import 'animated_list_item.dart';
@@ -31,7 +32,7 @@ class AllProductsGridView extends StatelessWidget {
               ),
               const Gap(16),
               Text(
-                'No products found',
+                AppTexts.noProductsFound,
                 style: AppConstants.titleStyle.copyWith(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
@@ -40,7 +41,7 @@ class AllProductsGridView extends StatelessWidget {
               ),
               const Gap(8),
               Text(
-                'Try searching for something or adjusting your filters',
+                AppTexts.trySearchingForSomething,
                 style: AppConstants.bodyStyle.copyWith(
                   color: Colors.grey[500],
                 ),
