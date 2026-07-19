@@ -9,6 +9,7 @@ import '../../features/home/data/repositories/product_repo.dart';
 import '../../features/home/data/repositories/product_repo_impl.dart';
 import '../../features/home/data/repositories/category_repo.dart';
 import '../../features/home/data/repositories/category_repo_impl.dart';
+import '../../features/home/presentation/cubit/home_cubit.dart';
 import '../../features/home/presentation/cubit/all_products/all_products_cubit.dart';
 import '../../features/home/presentation/cubit/featured_items/featured_items_cubit.dart';
 import '../../features/home/presentation/cubit/products_by_category/products_by_category_cubit.dart';
@@ -81,6 +82,13 @@ void setupServiceLocator() {
 
   getIt.registerFactory<CategoriesCubit>(
     () => CategoriesCubit(
+      getIt<CategoryRepo>(),
+    ),
+  );
+
+  getIt.registerFactory<HomeCubit>(
+    () => HomeCubit(
+      getIt<ProductRepo>(),
       getIt<CategoryRepo>(),
     ),
   );
