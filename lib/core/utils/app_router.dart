@@ -1,3 +1,4 @@
+import '../../features/category/presentation/views/category_view.dart';
 import '../../features/featured_products/presentation/views/featured_products_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,6 +15,7 @@ import '../../main_view.dart';
 class AppRouter {
   static const kOnboardingView = '/onboardingView';
   static const kLoginView = '/loginView';
+  static const kCategoryView = '/categoryView';
   static const kSignUpView = '/signUpView';
   static const kMainView = '/mainView';
   static const kSearchView = '/searchView';
@@ -30,6 +32,16 @@ class AppRouter {
       GoRoute(
         path: kOnboardingView,
         builder: (context, state) => const OnboardingView(),
+      ),
+      GoRoute(
+        path: kCategoryView,
+        builder: (context, state) {
+          final category = state.extra as String;
+          return CategoryView(
+            // Pass the product data to the ProductDetailsView if needed
+            category: category,
+          );
+        },
       ),
       GoRoute(
         path: kSearchView,
