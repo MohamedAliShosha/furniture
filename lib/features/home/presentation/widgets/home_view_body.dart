@@ -11,9 +11,11 @@ class HomeViewBody extends StatelessWidget {
   final List<dynamic> featuredProducts;
   final List<dynamic> allProducts;
   final List<dynamic> categories;
+  final List<dynamic> productsByCategory;
   final bool isFeaturedLoading;
   final bool isAllProductsLoading;
   final bool isCategoriesLoading;
+  final bool isProductsByCategoryLoading;
   final ValueChanged<String>? onCategoryTap;
   final String selectedCategory;
 
@@ -22,9 +24,11 @@ class HomeViewBody extends StatelessWidget {
     required this.featuredProducts,
     required this.allProducts,
     this.categories = const [],
+    this.productsByCategory = const [],
     this.isFeaturedLoading = false,
     this.isAllProductsLoading = false,
     this.isCategoriesLoading = false,
+    this.isProductsByCategoryLoading = false,
     this.onCategoryTap,
     this.selectedCategory = 'All',
   });
@@ -72,18 +76,31 @@ class HomeViewBody extends StatelessWidget {
         // All products with loading indicator
         SliverPadding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          sliver: isAllProductsLoading
-              ? const SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: 400,
-                    child: Center(
-                      child: CupertinoActivityIndicator(),
-                    ),
-                  ),
-                )
-              : AllProductsGridView(
-                  products: allProducts.cast(),
-                ),
+          sliver: selectedCategory == 'All'
+              ? (isAllProductsLoading
+                  ? const SliverToBoxAdapter(
+                      child: SizedBox(
+                        height: 400,
+                        child: Center(
+                          child: CupertinoActivityIndicator(),
+                        ),
+                      ),
+                    )
+                  : AllProductsGridView(
+                      products: allProducts.cast(),
+                    ))
+              : (isProductsByCategoryLoading
+                  ? const SliverToBoxAdapter(
+                      child: SizedBox(
+                        height: 400,
+                        child: Center(
+                          child: CupertinoActivityIndicator(),
+                        ),
+                      ),
+                    )
+                  : AllProductsGridView(
+                      products: productsByCategory.cast(),
+                    )),
         ),
       ],
     );
