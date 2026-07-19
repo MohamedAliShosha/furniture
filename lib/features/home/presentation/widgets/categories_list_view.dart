@@ -14,7 +14,7 @@ class CategoriesListView extends StatelessWidget {
     super.key,
     required this.categories,
     this.onCategoryTap,
-    this.selectedCategory = 'All',
+    this.selectedCategory = AppTexts.allCategory,
   });
 
   @override
@@ -40,7 +40,7 @@ class CategoriesListView extends StatelessWidget {
             itemCount: categories.length + 1,
             itemBuilder: (context, index) {
               if (index == 0) {
-                const title = 'All';
+                const title = AppTexts.allCategory;
                 return Padding(
                   padding: const EdgeInsets.only(right: 8),
                   child: CategoryChip(
