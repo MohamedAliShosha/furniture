@@ -3,6 +3,7 @@ import '../../features/blog/presentation/cubit/blog_cubit.dart';
 import '../../features/blog/services/blog_service.dart';
 import '../../features/cart/presentation/cubit/cart_cubit.dart';
 import '../../features/home/services/cart_service.dart';
+import '../../features/special_offer/presentation/cubit/special_offer_cubit.dart';
 import '../../features/wishlist/presentation/cubit/wishlist_cubit.dart';
 import '../../features/home/services/wishlist_service.dart';
 import '../../features/home/data/repositories/product_repo.dart';
@@ -16,6 +17,7 @@ import '../../features/home/presentation/cubit/products_by_category/products_by_
 import '../../features/home/presentation/cubit/categories/categories_cubit.dart';
 import '../../features/home/presentation/cubit/user/user_cubit.dart';
 import '../../features/home/services/user_service.dart';
+import '../../features/home/services/special_offers_service.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -101,6 +103,18 @@ void setupServiceLocator() {
   getIt.registerFactory<UserCubit>(
     () => UserCubit(
       getIt<UserService>(),
+    ),
+  );
+
+  // Special Offers Feature
+  getIt.registerLazySingleton<SpecialOffersService>(
+    () => SpecialOffersService(),
+  );
+
+  getIt.registerFactory<SpecialOfferCubit>(
+    () => SpecialOfferCubit(
+      getIt<SpecialOffersService>(),
+      getIt<ProductRepo>(),
     ),
   );
 }

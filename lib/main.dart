@@ -7,6 +7,7 @@ import 'core/utils/app_router.dart';
 import 'core/utils/service_locator.dart';
 import 'features/blog/presentation/cubit/blog_cubit.dart';
 import 'features/cart/presentation/cubit/cart_cubit.dart';
+import 'features/special_offer/presentation/cubit/special_offer_cubit.dart';
 import 'features/wishlist/presentation/cubit/wishlist_cubit.dart';
 import 'features/home/presentation/cubit/user/user_cubit.dart';
 
@@ -45,6 +46,9 @@ class Furniture extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getIt<WishlistCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<SpecialOfferCubit>(),
         ),
       ],
       child: MaterialApp.router(

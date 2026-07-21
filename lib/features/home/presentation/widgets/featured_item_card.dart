@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/constants.dart';
 import '../../data/models/product_model.dart';
 import '../../services/cart_service.dart';
-import '../../services/special_offers_service.dart';
 import '../../services/wishlist_service.dart';
 import 'product_data_widget.dart';
 import 'product_image.dart';
@@ -21,7 +20,6 @@ class _FeaturedItemCardState extends State<FeaturedItemCard> {
   bool isAddedToCart = false;
   WishListService wishListService = WishListService();
   CartService addToCartService = CartService();
-  SpecialOffersService specialOffersService = SpecialOffersService();
 
   @override
   Widget build(BuildContext context) {

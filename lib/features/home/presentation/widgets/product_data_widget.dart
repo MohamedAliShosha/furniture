@@ -27,7 +27,7 @@ class ProductDataWidget extends StatelessWidget {
           children: [
             Text(
               widget.productModel.name,
-              maxLines: 2,
+              maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: AppConstants.bodyStyle.copyWith(
                 fontSize: 14,

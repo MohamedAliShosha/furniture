@@ -12,16 +12,10 @@ class CartItemModel {
   });
 
   double get totalPrice {
-    if (product.hasSpecialOffer) {
-      return product.getDisCountPrice(20) * quantity;
-    }
     return product.price * quantity;
   }
 
   double get unitPrice {
-    if (product.hasSpecialOffer) {
-      return product.getDisCountPrice(20);
-    }
     return product.price;
   }
 }

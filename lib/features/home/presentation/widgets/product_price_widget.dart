@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/constants.dart';
+import '../../../special_offer/presentation/cubit/special_offer_cubit.dart';
 import '../../data/models/product_model.dart';
-import '../../services/special_offers_service.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductPrice extends StatelessWidget {
   const ProductPrice({
@@ -14,12 +15,9 @@ class ProductPrice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final specialOffersService = SpecialOffersService();
-    final bestOffer = specialOffersService.getBestOffer(productModel);
-    final discountedPrice = bestOffer != null
-        ? productModel.price -
-            ((productModel.price * bestOffer.discountPercentage) / 100)
-        : productModel.price;
+    final specialOfferCubit = context.read<SpecialOfferCubit>();
+    final bestOffer = specialOfferCubit.getBestOffer(productModel);
+    final discountedPrice = specialOfferCubit.getDiscountedPrice(productModel);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -73,6 +73,12 @@ class AppTexts {
   static const String offerDiscount = 'Get 30% Off';
   static const String offerDescription = 'Offer description';
   static const String shopNowButton = 'Shop Now';
+  static const String specialOffer = 'Special offer';
+  static const String offerNotFound = 'Offer not found';
+  static const String checkBackLaterForNewItems =
+      'Check back later for new items';
+  static const String noItemsAvailableForOffer =
+      'No items available for this offer';
 
   // Featured item card texts
   static const String wingChair = 'Wing Chair';
