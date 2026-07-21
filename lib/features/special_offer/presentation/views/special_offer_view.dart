@@ -27,6 +27,7 @@ class _SpecialOffersViewState extends State<SpecialOffersView> {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         backgroundColor: AppColors.white,
         leading: IconButton(
           onPressed: () {
