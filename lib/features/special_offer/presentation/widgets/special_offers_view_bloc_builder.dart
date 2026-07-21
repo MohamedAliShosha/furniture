@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture/core/utils/app_router.dart';
-import 'package:furniture/core/widgets/state_widgets.dart';
 import 'package:furniture/features/home/presentation/widgets/animated_list_item.dart';
 import 'package:furniture/features/home/presentation/widgets/featured_item_card.dart';
 import 'package:gap/gap.dart';
@@ -10,6 +9,10 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
+import '../../../../core/widgets/custom_empty_state.dart';
+import '../../../../core/widgets/custom_error_state.dart';
+import '../../../../core/widgets/custom_loading_state.dart';
+import '../../../../core/widgets/custom_success_state.dart';
 import '../cubit/special_offer_cubit.dart';
 import '../cubit/special_offer_state.dart';
 
