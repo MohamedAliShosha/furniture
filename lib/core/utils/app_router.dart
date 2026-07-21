@@ -1,3 +1,6 @@
+import 'package:furniture/features/blog/data/models/blog_model.dart';
+import 'package:furniture/features/blog/presentation/views/blog_details_view.dart';
+
 import '../../features/category/presentation/views/category_view.dart';
 import '../../features/featured_products/presentation/views/featured_products_view.dart';
 import 'package:go_router/go_router.dart';
@@ -16,6 +19,7 @@ import '../../main_view.dart';
 class AppRouter {
   static const kOnboardingView = '/onboardingView';
   static const kLoginView = '/loginView';
+  static const kBlogDetailsView = '/BlogDetailsView';
   static const kSpecialOfferView = '/specialOfferView';
   static const kCategoryView = '/categoryView';
   static const kSignUpView = '/signUpView';
@@ -55,6 +59,19 @@ class AppRouter {
       GoRoute(
         path: kSearchView,
         builder: (context, state) => const SearchView(),
+      ),
+      GoRoute(
+        path: kBlogDetailsView,
+        builder: (context, state) {
+          final blogModel = state.extra as BlogModel;
+          return BlogDetailsView(
+            title: blogModel.title,
+            imageUrl: blogModel.imageUrl,
+            date: blogModel.date,
+            readTime: blogModel.readTime,
+            blogId: blogModel.id,
+          );
+        },
       ),
       GoRoute(
         path: kLoginView,
