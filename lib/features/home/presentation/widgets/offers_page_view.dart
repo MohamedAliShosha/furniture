@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:furniture/core/utils/app_router.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../core/utils/constants.dart';
-import '../../services/special_offers_service.dart';
 import 'offer_card_widget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../features/special_offer/presentation/cubit/special_offer_cubit.dart';
 
 class OffersPageView extends StatefulWidget {
   const OffersPageView({super.key});
@@ -13,17 +16,9 @@ class OffersPageView extends StatefulWidget {
 class _OffersPageViewState extends State<OffersPageView> {
   int currentIndex = 0;
 
-  late final SpecialOffersService specialOffersService;
-
-  @override
-  void initState() {
-    super.initState();
-    specialOffersService = SpecialOffersService();
-  }
-
   @override
   Widget build(BuildContext context) {
-    final offers = specialOffersService.specialOffersList;
+    final offers = context.read<SpecialOfferCubit>().getOffers();
     if (offers.isEmpty) {
       return const SizedBox.shrink();
     }
@@ -42,9 +37,15 @@ class _OffersPageViewState extends State<OffersPageView> {
                 final offer = offers[index];
                 return Padding(
                   padding: const EdgeInsets.only(right: 8),
-                  child: OfferCardWidget(
-                    index: index,
-                    offer: offer,
+                  child: GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouter.kSpecialOfferView,
+                          extra: offers[index].id);
+                    },
+                    child: OfferCardWidget(
+                      index: index,
+                      offer: offer,
+                    ),
                   ),
                 );
               }),
