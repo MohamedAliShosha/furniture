@@ -9,12 +9,14 @@ import '../../features/home/data/models/product_model.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/product_details/presentation/views/product_details_view.dart';
 import '../../features/search/presentation/views/search_view.dart';
+import '../../features/special_offer/presentation/views/special_offer_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 import '../../main_view.dart';
 
 class AppRouter {
   static const kOnboardingView = '/onboardingView';
   static const kLoginView = '/loginView';
+  static const kSpecialOfferView = '/specialOfferView';
   static const kCategoryView = '/categoryView';
   static const kSignUpView = '/signUpView';
   static const kMainView = '/mainView';
@@ -32,6 +34,13 @@ class AppRouter {
       GoRoute(
         path: kOnboardingView,
         builder: (context, state) => const OnboardingView(),
+      ),
+      GoRoute(
+        path: kSpecialOfferView,
+        builder: (context, state) {
+          final offerId = state.extra as String;
+          return SpecialOffersView(offerId: offerId);
+        },
       ),
       GoRoute(
         path: kCategoryView,
