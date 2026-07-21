@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture/core/utils/app_texts.dart';
-
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/constants.dart';
-import '../../../../features/special_offer/presentation/cubit/special_offer_cubit.dart';
+import '../cubit/special_offer_cubit.dart';
 import '../widgets/special_offers_view_body.dart';
 
 class SpecialOffersView extends StatefulWidget {

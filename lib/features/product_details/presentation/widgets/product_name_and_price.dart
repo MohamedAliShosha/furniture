@@ -3,7 +3,8 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../home/data/models/product_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../features/special_offer/presentation/cubit/special_offer_cubit.dart';
+
+import '../../../special_offer/presentation/cubit/special_offer_cubit.dart';
 
 class ProductNameAndPrice extends StatelessWidget {
   const ProductNameAndPrice({
@@ -43,14 +44,14 @@ class ProductNameAndPrice extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 4),
-               Text(
-                 '\$${discountedPrice.toStringAsFixed(2)}',
-                 style: const TextStyle(
-                   fontSize: 24,
-                   fontWeight: FontWeight.bold,
-                   color: AppColors.primary,
-                 ),
-               ),
+              Text(
+                '\$${discountedPrice.toStringAsFixed(2)}',
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.primary,
+                ),
+              ),
             ] else ...[
               Text(
                 '\$${product.price.toStringAsFixed(2)}',

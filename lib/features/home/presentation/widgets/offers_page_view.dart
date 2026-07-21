@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:furniture/core/utils/app_router.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/utils/constants.dart';
+import '../../../special_offer/presentation/cubit/special_offer_cubit.dart';
 import 'offer_card_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../features/special_offer/presentation/cubit/special_offer_cubit.dart';
 
 class OffersPageView extends StatefulWidget {
   const OffersPageView({super.key});

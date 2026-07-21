@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/constants.dart';
+import '../../../special_offer/presentation/cubit/special_offer_cubit.dart';
 import '../cubit/cart_cubit.dart';
 import '../../../home/data/models/cart_item.dart';
 import 'package:gap/gap.dart';
-import '../../../../features/special_offer/presentation/cubit/special_offer_cubit.dart';
 
 class CartItemCard extends StatelessWidget {
   const CartItemCard({super.key, required this.cartItem, this.onUndo});
@@ -15,7 +15,8 @@ class CartItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final specialOfferCubit = context.read<SpecialOfferCubit>();
-    final discountedPrice = specialOfferCubit.getDiscountedPrice(cartItem.product);
+    final discountedPrice =
+        specialOfferCubit.getDiscountedPrice(cartItem.product);
     return Dismissible(
       key: Key(cartItem.product.id),
       direction: DismissDirection.endToStart,

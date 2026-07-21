@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/constants.dart';
+import '../../../special_offer/presentation/cubit/special_offer_cubit.dart';
 import '../../data/models/product_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../features/special_offer/presentation/cubit/special_offer_cubit.dart';
 
 class ProductPrice extends StatelessWidget {
   const ProductPrice({
