@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:furniture/core/utils/app_router.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/constants.dart';
 import '../../../home/presentation/widgets/animated_list_item.dart';
@@ -118,6 +120,10 @@ class BlogCard extends StatelessWidget {
         ),
         onTap: () {
           // Navigate to blog details page
+          GoRouter.of(context).push(
+            AppRouter.kBlogDetailsView,
+            extra: blog,
+          );
         },
       ),
     );
