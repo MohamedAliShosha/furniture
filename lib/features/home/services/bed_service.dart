@@ -1,5 +1,6 @@
 import '../../../core/utils/app_images.dart';
 import '../data/models/product_model.dart';
+import '../data/models/product_rating_model.dart';
 
 class BedService {
   static List<ProductModel> getBeds() {
@@ -15,7 +16,7 @@ class BedService {
         category: 'BEDS',
         price: 1899.99,
         specialOffersIds: const ['premium_discount'],
-        rating: RatingModel(average: 4.8, count: 324),
+        rating: ProductRatingModel(average: 4.8, count: 324),
         images: ImagesModel(
           main: AppImages.bed1,
           gallery: [
@@ -42,7 +43,7 @@ class BedService {
         category: 'BEDS',
         price: 1299.99,
         specialOffersIds: const ['premium_discount'],
-        rating: RatingModel(average: 4.6, count: 187),
+        rating: ProductRatingModel(average: 4.6, count: 187),
         images: ImagesModel(
           main: AppImages.bed2,
           gallery: [
@@ -69,7 +70,7 @@ class BedService {
         category: 'BEDS',
         price: 2499.99,
         specialOffersIds: const ['premium_discount'],
-        rating: RatingModel(average: 4.9, count: 256),
+        rating: ProductRatingModel(average: 4.9, count: 256),
         images: ImagesModel(
           main: AppImages.bed3,
           gallery: [
@@ -96,7 +97,7 @@ class BedService {
         category: 'BEDS',
         price: 2999.99,
         specialOffersIds: const ['premium_discount'],
-        rating: RatingModel(average: 4.7, count: 156),
+        rating: ProductRatingModel(average: 4.7, count: 156),
         images: ImagesModel(
           main: AppImages.bed4,
           gallery: [

@@ -3,6 +3,8 @@ import '../../features/blog/presentation/cubit/blog_cubit.dart';
 import '../../features/blog/services/blog_service.dart';
 import '../../features/cart/presentation/cubit/cart_cubit.dart';
 import '../../features/home/services/cart_service.dart';
+import '../../features/orders/presentation/cubit/orders_cubit.dart';
+import '../../features/orders/services/orders_service.dart';
 import '../../features/special_offer/presentation/cubit/special_offer_cubit.dart';
 import '../../features/wishlist/presentation/cubit/wishlist_cubit.dart';
 import '../../features/home/services/wishlist_service.dart';
@@ -115,6 +117,16 @@ void setupServiceLocator() {
     () => SpecialOfferCubit(
       getIt<SpecialOffersService>(),
       getIt<ProductRepo>(),
+    ),
+  );
+
+  getIt.registerLazySingleton<OrdersService>(
+    () => OrdersService(),
+  );
+
+  getIt.registerFactory<OrdersCubit>(
+    () => OrdersCubit(
+      getIt<OrdersService>(),
     ),
   );
 }

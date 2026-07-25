@@ -184,4 +184,29 @@ class AppTexts {
       'Try searching for something or adjusting your filters';
   static const String noFeaturedProductsAvailable =
       'No featured products available';
+
+  // Orders Status
+  static const String active = 'Active';
+  static const String completed = 'Completed';
+  static const String canceled = 'Canceled';
+  static const String ordersKey = 'ordersKey';
+
+  // Orders texts
+  static const String trackOrder = 'Track order';
+  static const String cancelOrder = 'Cancel Order';
+  static const String cancelOrderConfirmation =
+      'Are you sure you want to cancel this order?';
+  static const String trackingNumber = 'Tracking number: ';
+  static const String totalAmount = 'Total Amount';
+  static const String items = 'items';
+  static const String processing = 'Processing';
+  static const String confirmed = 'Confirmed';
+  static const String shipped = 'Shipped';
+  static const String outOfDelivery = 'Out of delivery';
+  static const String delivered = 'Delivered';
+  static const String cancelled = 'Cancelled';
+  static const String noActiveOrdersFound = 'No active orders found';
+  static const String noCompletedOrdersFound = 'No completed orders found';
+  static const String noCancelledOrdersFound = 'No cancelled orders found';
+  static const String noOrdersFound = 'No orders found';
 }

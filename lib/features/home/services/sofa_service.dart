@@ -1,5 +1,6 @@
 import '../data/models/product_model.dart';
 import '../../../core/utils/app_images.dart';
+import '../data/models/product_rating_model.dart';
 
 class SofaService {
   static List<ProductModel> getSofas() {
@@ -15,7 +16,7 @@ class SofaService {
         category: 'SOFAS',
         price: 1299.99,
         specialOffersIds: const ['summer_sale', 'premium_discount'],
-        rating: RatingModel(average: 4.8, count: 345),
+        rating: ProductRatingModel(average: 4.8, count: 345),
         images: ImagesModel(
           main: AppImages.sofa1,
           gallery: [
@@ -42,7 +43,7 @@ class SofaService {
         category: 'SOFAS',
         price: 459.99,
         specialOffersIds: const ['summer_sale'],
-        rating: RatingModel(average: 4.5, count: 189),
+        rating: ProductRatingModel(average: 4.5, count: 189),
         images: ImagesModel(
           main: AppImages.sofa2,
           gallery: [
@@ -68,7 +69,7 @@ class SofaService {
         category: 'SOFAS',
         price: 699.99,
         specialOffersIds: const ['summer_sale', 'premium_discount'],
-        rating: RatingModel(average: 4.6, count: 156),
+        rating: ProductRatingModel(average: 4.6, count: 156),
         images: ImagesModel(
           main: AppImages.sofa3,
           gallery: [
@@ -94,7 +95,7 @@ class SofaService {
         category: 'SOFAS',
         price: 449.99,
         specialOffersIds: const ['summer_sale'],
-        rating: RatingModel(average: 4.7, count: 223),
+        rating: ProductRatingModel(average: 4.7, count: 223),
         images: ImagesModel(
           main: AppImages.sofa4,
           gallery: [

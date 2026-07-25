@@ -1,10 +1,9 @@
 import 'package:furniture/features/blog/data/models/blog_model.dart';
 import 'package:furniture/features/blog/presentation/views/blog_details_view.dart';
-
+import 'package:furniture/features/orders/presentation/views/orders_history_view.dart';
 import '../../features/category/presentation/views/category_view.dart';
 import '../../features/featured_products/presentation/views/featured_products_view.dart';
 import 'package:go_router/go_router.dart';
-
 import '../../features/auth/forget_password/presentation/views/forget_password_view.dart';
 import '../../features/auth/login/presentation/views/login_view.dart';
 import '../../features/auth/sign_up/presentation/views/sign_up_view.dart';
@@ -19,6 +18,7 @@ import '../../main_view.dart';
 class AppRouter {
   static const kOnboardingView = '/onboardingView';
   static const kLoginView = '/loginView';
+  static const kOrdersHistoryView = '/ordersView';
   static const kBlogDetailsView = '/BlogDetailsView';
   static const kSpecialOfferView = '/specialOfferView';
   static const kCategoryView = '/categoryView';
@@ -38,6 +38,10 @@ class AppRouter {
       GoRoute(
         path: kOnboardingView,
         builder: (context, state) => const OnboardingView(),
+      ),
+      GoRoute(
+        path: kOrdersHistoryView,
+        builder: (context, state) => const OrdersHistoryView(),
       ),
       GoRoute(
         path: kSpecialOfferView,
