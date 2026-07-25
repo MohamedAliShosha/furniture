@@ -1,5 +1,6 @@
 import '../data/models/product_model.dart';
 import '../../../core/utils/app_images.dart';
+import '../data/models/product_rating_model.dart';
 
 class TableService {
   static List<ProductModel> getTables() {
@@ -15,7 +16,7 @@ class TableService {
         category: 'TABLES',
         price: 2499.99,
         specialOffersIds: const ['premium_discount'],
-        rating: RatingModel(average: 4.7, count: 198),
+        rating: ProductRatingModel(average: 4.7, count: 198),
         images: ImagesModel(
           main: AppImages.diningTable1,
           gallery: [
@@ -42,7 +43,7 @@ class TableService {
         category: 'TABLES',
         price: 1299.99,
         specialOffersIds: const ['premium_discount'],
-        rating: RatingModel(average: 4.7, count: 198),
+        rating: ProductRatingModel(average: 4.7, count: 198),
         images: ImagesModel(
           main: AppImages.diningTable2,
           gallery: [
@@ -69,7 +70,7 @@ class TableService {
         id: '7',
         name: 'Glass Console Table',
         specialOffersIds: const ['premium_discount'],
-        rating: RatingModel(average: 4.4, count: 145),
+        rating: ProductRatingModel(average: 4.4, count: 145),
         images: ImagesModel(
           main: AppImages.diningTable3,
           gallery: [AppImages.diningTable3],
@@ -92,7 +93,7 @@ class TableService {
         name: 'Coffee Table Set',
         category: 'TABLES',
         price: 399.99,
-        rating: RatingModel(average: 4.3, count: 87),
+        rating: ProductRatingModel(average: 4.3, count: 87),
         images: ImagesModel(
           main: AppImages.coffeeTable,
           gallery: [

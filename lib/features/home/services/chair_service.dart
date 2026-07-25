@@ -1,5 +1,6 @@
 import '../data/models/product_model.dart';
 import '../../../core/utils/app_images.dart';
+import '../data/models/product_rating_model.dart';
 
 class ChairService {
   static List<ProductModel> getChairs() {
@@ -15,7 +16,7 @@ class ChairService {
           '#696969',
           '#778899',
         ],
-        rating: RatingModel(average: 4.5, count: 128),
+        rating: ProductRatingModel(average: 4.5, count: 128),
         images: ImagesModel(
           main: AppImages.chair1,
           gallery: [
@@ -42,7 +43,7 @@ class ChairService {
         category: 'CHAIRS',
         price: 199.99,
         specialOffersIds: const ['summer_sale'],
-        rating: RatingModel(average: 4.2, count: 89),
+        rating: ProductRatingModel(average: 4.2, count: 89),
         images: ImagesModel(
           main: AppImages.chair2,
           gallery: [
@@ -68,7 +69,7 @@ class ChairService {
         category: 'CHAIRS',
         price: 379.99,
         specialOffersIds: const ['summer_sale'],
-        rating: RatingModel(average: 4.8, count: 256),
+        rating: ProductRatingModel(average: 4.8, count: 256),
         images: ImagesModel(
           main: AppImages.chair3,
           gallery: [
@@ -95,7 +96,7 @@ class ChairService {
         category: 'CHAIRS',
         price: 399.99,
         specialOffersIds: const ['summer_sale'],
-        rating: RatingModel(average: 4.6, count: 167),
+        rating: ProductRatingModel(average: 4.6, count: 167),
         images: ImagesModel(
           main: AppImages.chair4,
           gallery: [
