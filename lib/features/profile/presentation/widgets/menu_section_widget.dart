@@ -23,6 +23,7 @@ Widget buildMenuSection(BuildContext context) {
             message: AppTexts.signInToViewOrderHistory,
             onAction: () {
               // Navigate to the order history page
+              GoRouter.of(context).push(AppRouter.kOrdersHistoryView);
             },
           );
         },
