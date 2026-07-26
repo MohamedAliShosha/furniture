@@ -1,41 +1,13 @@
-class CategoryResponseModel {
-  final bool? success;
-  final int? totalCategories;
-  final Map<String, List<ProductModel>>? data;
+import 'product_rating_model.dart';
 
-  CategoryResponseModel({
-    this.success,
-    this.totalCategories,
-    this.data,
-  });
-
-  factory CategoryResponseModel.fromJson(Map<String, dynamic> json) {
-    Map<String, List<ProductModel>> parsedData = {};
-
-    if (json['data'] != null) {
-      json['data'].forEach((key, value) {
-        parsedData[key] = value != null
-            ? List<ProductModel>.from(
-                value.map((e) => ProductModel.fromJson(e)))
-            : [];
-      });
-    }
-
-    return CategoryResponseModel(
-      success: json['success'],
-      totalCategories: json['total_categories'],
-      data: parsedData,
-    );
-  }
-}
-
+/// Contains product details including id, name, category, price, rating, images, and colors
 class ProductModel {
   final String id;
   bool isFavorite;
   final String name;
   final String? category;
   final double price;
-  final RatingModel? rating;
+  final ProductRatingModel? rating;
   final ImagesModel images;
   final DetailsModel? details;
   final List<String>? colors;
@@ -63,8 +35,9 @@ class ProductModel {
       name: json['name'],
       category: json['typeName'],
       price: json['price'],
-      rating:
-          json['rating'] != null ? RatingModel.fromJson(json['rating']) : null,
+      rating: json['rating'] != null
+          ? ProductRatingModel.fromJson(json['rating'])
+          : null,
       images: json['images'] = ImagesModel.fromJson(json['images']),
       details: json['details'] != null
           ? DetailsModel.fromJson(json['details'])
@@ -84,7 +57,7 @@ class ProductModel {
     String? name,
     String? category,
     double? price,
-    RatingModel? rating,
+    ProductRatingModel? rating,
     ImagesModel? images,
     DetailsModel? details,
     List<String>? colors,
@@ -101,24 +74,6 @@ class ProductModel {
       details: details ?? this.details,
       colors: colors ?? this.colors,
       specialOffersIds: specialOffersIds ?? this.specialOffersIds,
-    );
-  }
-}
-
-class RatingModel {
-  final double? average;
-  final int? count;
-
-  RatingModel({
-    this.average,
-    this.count,
-  });
-
-  factory RatingModel.fromJson(Map<String, dynamic> json) {
-    return RatingModel(
-      average:
-          json['average'] != null ? (json['average'] as num).toDouble() : null,
-      count: json['count'],
     );
   }
 }
