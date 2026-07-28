@@ -5,6 +5,8 @@ import '../../features/cart/presentation/cubit/cart_cubit.dart';
 import '../../features/home/services/cart_service.dart';
 import '../../features/orders/presentation/cubit/orders_cubit.dart';
 import '../../features/orders/services/orders_service.dart';
+import '../../features/shipping_address/presentation/cubit/shipping_address_cubit.dart';
+import '../../features/shipping_address/service/shipping_address_service.dart';
 import '../../features/special_offer/presentation/cubit/special_offer_cubit.dart';
 import '../../features/wishlist/presentation/cubit/wishlist_cubit.dart';
 import '../../features/home/services/wishlist_service.dart';
@@ -105,6 +107,16 @@ void setupServiceLocator() {
   getIt.registerFactory<UserCubit>(
     () => UserCubit(
       getIt<UserService>(),
+    ),
+  );
+
+  getIt.registerLazySingleton<ShippingAddressService>(
+    () => ShippingAddressService(),
+  );
+
+  getIt.registerLazySingleton<ShippingAddressCubit>(
+    () => ShippingAddressCubit(
+      getIt<ShippingAddressService>(),
     ),
   );
 

@@ -39,6 +39,7 @@ Widget buildMenuSection(BuildContext context) {
             message: AppTexts.signInToManageShippingAddresses,
             onAction: () {
               // Navigate to the shipping address management page
+              GoRouter.of(context).push(AppRouter.kShippingAddressView);
             },
           );
         },

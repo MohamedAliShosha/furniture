@@ -3,7 +3,7 @@ class ShippingAddressModel {
   final String name;
   final String address;
   final String city;
-  final String status;
+  final String state;
   final String zipcode;
   final String phone;
   final bool isDefault;
@@ -13,10 +13,10 @@ class ShippingAddressModel {
     required this.name,
     required this.address,
     required this.city,
-    required this.status,
+    required this.state,
     required this.zipcode,
     required this.phone,
-    required this.isDefault,
+    this.isDefault = false,
   });
 
   Map<String, dynamic> toJson() {
@@ -25,7 +25,7 @@ class ShippingAddressModel {
       'name': name,
       'address': address,
       'city': city,
-      'status': status,
+      'status': state,
       'zipcode': zipcode,
       'phone': phone,
       'isDefault': isDefault,
@@ -38,7 +38,7 @@ class ShippingAddressModel {
       name: jsonData['name'],
       address: jsonData['address'],
       city: jsonData['city'],
-      status: jsonData['status'],
+      state: jsonData['status'],
       zipcode: jsonData['zipcode'],
       phone: jsonData['phone'],
       isDefault: jsonData['isDefault'] ?? false,
@@ -60,7 +60,7 @@ class ShippingAddressModel {
       name: name ?? this.name,
       address: address ?? this.address,
       city: city ?? this.city,
-      status: status ?? this.status,
+      state: status ?? state,
       zipcode: zipcode ?? this.zipcode,
       phone: phone ?? this.phone,
       isDefault: isDefault ?? this.isDefault,

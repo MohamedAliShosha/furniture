@@ -11,6 +11,7 @@ import '../../features/home/data/models/product_model.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/product_details/presentation/views/product_details_view.dart';
 import '../../features/search/presentation/views/search_view.dart';
+import '../../features/shipping_address/presentation/views/shipping_address_view.dart';
 import '../../features/special_offer/presentation/views/special_offer_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 import '../../main_view.dart';
@@ -18,6 +19,7 @@ import '../../main_view.dart';
 class AppRouter {
   static const kOnboardingView = '/onboardingView';
   static const kLoginView = '/loginView';
+  static const kShippingAddressView = '/shippingAddressView';
   static const kOrdersHistoryView = '/ordersView';
   static const kBlogDetailsView = '/BlogDetailsView';
   static const kSpecialOfferView = '/specialOfferView';
@@ -42,6 +44,10 @@ class AppRouter {
       GoRoute(
         path: kOrdersHistoryView,
         builder: (context, state) => const OrdersHistoryView(),
+      ),
+      GoRoute(
+        path: kShippingAddressView,
+        builder: (context, state) => const ShippingAddressView(),
       ),
       GoRoute(
         path: kSpecialOfferView,

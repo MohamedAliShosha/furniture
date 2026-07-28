@@ -79,7 +79,7 @@ class OrdersService {
       name: 'Home',
       address: '123 Main Street',
       city: 'New York',
-      status: 'NY',
+      state: 'NY',
       zipcode: '1001',
       phone: '+1 (123) 456-789',
       isDefault: true,

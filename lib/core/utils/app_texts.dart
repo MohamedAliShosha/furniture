@@ -190,8 +190,36 @@ class AppTexts {
   static const String completed = 'Completed';
   static const String canceled = 'Canceled';
   static const String ordersKey = 'ordersKey';
+  static const String retry = 'Retry';
+  // Shipping Address
+  static const String addNewAddress = 'Add New Address';
+  static const String editAddress = 'Edit Address';
+  static const String addressNameLabel = 'Name (e.g., Home, Office)';
+  static const String addressNameRequired = 'Please enter a name';
+  static const String streetAddressLabel = 'Street Address';
+  static const String streetAddressRequired = 'Please enter an address';
+  static const String cityLabel = 'City';
+  static const String cityRequired = 'Please enter a city';
+  static const String stateLabel = 'State';
+  static const String stateRequired = 'Please enter a state';
+  static const String zipCodeLabel = 'ZIP Code';
+  static const String zipCodeRequired = 'Please enter a ZIP code';
+  static const String phoneNumberLabel = 'Phone Number';
+  static const String phoneNumberRequired = 'Please enter a phone number';
+  static const String setAsDefaultAddress = 'Set as default address';
+  static const String addButton = 'Add';
+  static const String saveButton = 'Save';
+  static const String makeDefault = 'Make Default';
+  static const String edit = 'Edit';
+  static const String delete = 'Delete';
+  static const String deleteAddressTitle = 'Delete Address';
+  static const String deleteAddressConfirmation =
+      'Are you sure you want to delete this address?';
+  static const String setAsDefault = 'Set as default';
+  static const String noAddressesAddedYet = 'No addresses added yet';
 
   // Orders texts
+  static const String shippingAddressesKey = 'shippingAddressesKey';
   static const String trackOrder = 'Track order';
   static const String cancelOrder = 'Cancel Order';
   static const String cancelOrderConfirmation =
@@ -199,6 +227,7 @@ class AppTexts {
   static const String trackingNumber = 'Tracking number: ';
   static const String totalAmount = 'Total Amount';
   static const String items = 'items';
+  static const String defaultText = 'Default';
   static const String processing = 'Processing';
   static const String confirmed = 'Confirmed';
   static const String shipped = 'Shipped';
