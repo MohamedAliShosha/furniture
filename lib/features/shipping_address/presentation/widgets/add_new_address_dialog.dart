@@ -73,28 +73,30 @@ class _AddAndEditAddressDialogState extends State<AddAndEditAddressDialog> {
             children: [
               TextFormField(
                 controller: _nameController,
-                decoration: InputDecoration(
-                    labelText: AppTexts.addressNameLabel),
-                validator: (value) =>
-                    value?.isEmpty == true ? AppTexts.addressNameRequired : null,
+                decoration:
+                    const InputDecoration(labelText: AppTexts.addressNameLabel),
+                validator: (value) => value?.isEmpty == true
+                    ? AppTexts.addressNameRequired
+                    : null,
               ),
               const Gap(16),
               TextFormField(
                 controller: _addressController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: AppTexts.streetAddressLabel,
                 ),
-                validator: (value) =>
-                    value?.isEmpty == true ? AppTexts.streetAddressRequired : null,
+                validator: (value) => value?.isEmpty == true
+                    ? AppTexts.streetAddressRequired
+                    : null,
               ),
               const Gap(16),
               TextFormField(
                 controller: _cityController,
                 decoration: const InputDecoration(
-                  labelText: 'City',
+                  labelText: AppTexts.cityLabel,
                 ),
                 validator: (value) =>
-                    value?.isEmpty == true ? 'Please enter a city' : null,
+                    value?.isEmpty == true ? AppTexts.cityRequired : null,
               ),
               const Gap(16),
               Row(
@@ -103,10 +105,10 @@ class _AddAndEditAddressDialogState extends State<AddAndEditAddressDialog> {
                     child: TextFormField(
                       controller: _stateController,
                       decoration: const InputDecoration(
-                        labelText: 'State',
+                        labelText: AppTexts.stateLabel,
                       ),
                       validator: (value) => value?.isEmpty == true
-                          ? 'Please enter a state'
+                          ? AppTexts.stateRequired
                           : null,
                     ),
                   ),
@@ -115,10 +117,10 @@ class _AddAndEditAddressDialogState extends State<AddAndEditAddressDialog> {
                     child: TextFormField(
                       controller: _zipCodeController,
                       decoration: const InputDecoration(
-                        labelText: 'ZIP Code',
+                        labelText: AppTexts.zipCodeLabel,
                       ),
                       validator: (value) => value?.isEmpty == true
-                          ? 'Please enter a ZIP code'
+                          ? AppTexts.zipCodeRequired
                           : null,
                     ),
                   ),
@@ -128,10 +130,10 @@ class _AddAndEditAddressDialogState extends State<AddAndEditAddressDialog> {
               TextFormField(
                 controller: _phoneController,
                 decoration: const InputDecoration(
-                  labelText: 'Phone Number',
+                  labelText: AppTexts.phoneNumberLabel,
                 ),
                 validator: (value) => value?.isEmpty == true
-                    ? 'Please enter a phone number'
+                    ? AppTexts.phoneNumberRequired
                     : null,
               ),
               const Gap(16),
@@ -145,7 +147,7 @@ class _AddAndEditAddressDialogState extends State<AddAndEditAddressDialog> {
                   );
                 },
                 title: const Text(
-                  'Set as default address',
+                  AppTexts.setAsDefaultAddress,
                 ),
                 contentPadding: EdgeInsets.zero,
                 controlAffinity: ListTileControlAffinity.leading,
@@ -189,7 +191,9 @@ class _AddAndEditAddressDialogState extends State<AddAndEditAddressDialog> {
             }
           },
           child: Text(
-            widget.shippingAddress == null ? 'Add' : 'Save',
+            widget.shippingAddress == null
+                ? AppTexts.addButton
+                : AppTexts.saveButton,
             style: const TextStyle(
               color: AppColors.white,
             ),
