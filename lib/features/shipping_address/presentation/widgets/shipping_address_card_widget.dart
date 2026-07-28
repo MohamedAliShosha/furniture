@@ -59,7 +59,7 @@ class ShippingAddressCardWidget extends StatelessWidget {
                       .read<ShippingAddressCubit>()
                       .setDefaultAddress(address.id);
                 },
-                child: Text(
+                child: const Text(
                   AppTexts.setAsDefault,
                 ),
               ),

@@ -90,10 +90,10 @@ class ShippingAddressListTile extends StatelessWidget {
               final shouldDelete = await showDialog<bool>(
                 context: context,
                 builder: (context) => AlertDialog(
-                  title: Text(
+                  title: const Text(
                     AppTexts.deleteAddressTitle,
                   ),
-                  content: Text(
+                  content: const Text(
                     AppTexts.deleteAddressConfirmation,
                   ),
                   actions: [
