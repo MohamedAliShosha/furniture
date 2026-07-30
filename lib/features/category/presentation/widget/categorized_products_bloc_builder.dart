@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gap/gap.dart';
 
 import '../../../../core/utils/app_texts.dart';
-import '../../../../core/utils/constants.dart';
+import '../../../../core/widgets/custom_empty_state.dart';
 import '../../../home/presentation/cubit/products_by_category/products_by_category_cubit.dart';
 import '../../../home/presentation/cubit/products_by_category/products_by_category_state.dart';
 import '../../../home/presentation/widgets/products_grid_view.dart';
@@ -37,22 +36,12 @@ class CategorizedProductsBlocBuilder extends StatelessWidget {
         final products =
             (state is ProductsByCategorySuccess) ? state.products : <dynamic>[];
         if (products.isEmpty) {
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.category_outlined,
-                  size: 64,
-                  color: Colors.grey[400],
-                ),
-                const Gap(16),
-                Text(
-                  AppTexts.noItemsFoundForThisCategory,
-                  style: AppConstants.titleStyle
-                      .copyWith(color: Colors.grey[600], fontSize: 18),
-                ),
-              ],
+          return CustomEmptyState(
+            message: AppTexts.noItemsFoundForThisCategory,
+            icon: Icon(
+              Icons.category_outlined,
+              size: 64,
+              color: Colors.grey[400],
             ),
           );
         }
