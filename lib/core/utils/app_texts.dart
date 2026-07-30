@@ -207,6 +207,7 @@ class AppTexts {
   static const String phoneNumberLabel = 'Phone Number';
   static const String phoneNumberRequired = 'Please enter a phone number';
   static const String setAsDefaultAddress = 'Set as default address';
+  static const String setAsDefaultCard = 'Set as default cards';
   static const String addButton = 'Add';
   static const String saveButton = 'Save';
   static const String makeDefault = 'Make Default';
@@ -217,6 +218,37 @@ class AppTexts {
       'Are you sure you want to delete this address?';
   static const String setAsDefault = 'Set as default';
   static const String noAddressesAddedYet = 'No addresses added yet';
+  static const String paymentMethodsKey = 'paymentMethodsKey';
+  static const String addNewCard = 'Add New Card';
+  static const String editCard = 'Edit Card';
+  static const String cardTypeLabel = 'Card Type (e.g., Visa, Mastercard)';
+  static const String cardTypeRequired = 'Please enter card type';
+  static const String cardNumberLabel = 'Card Number';
+  static const String cardNumberRequired = 'Please enter card number';
+  static const String expireDateLabel = 'Expire Date (MM/YY)';
+  static const String expireDateRequired = 'Please enter expire date';
+  static const String cardHolderNameLabel = 'Card Holder Name';
+  static const String cardHolderNameRequired = 'Please enter card holder name';
+  static const String cardColorsLabel = 'Card Colors (e.g., 1A1A1A,FFB800)';
+  static const String cardColorsRequired = 'Please enter card colors';
+  static const String deleteCard = 'Delete Card';
+  static const String deletePaymentMethodConfirmation =
+      'Are you sure you want to delete this card?';
+  static const String noPaymentMethodsAddedYet = 'No payment methods added yet';
+  static const String cardHolder = 'Card Holder';
+  static const String expires = 'Expires';
+  static const String cardType = 'Card Type';
+  static const String visa = 'Visa';
+  static const String mastercard = 'Mastercard';
+  static const String americanExpress = 'American Express';
+  static const String pleaseSelectCardType = 'Please select card type';
+  static const String pleaseEnterCardNumber = 'Please enter card number';
+  static const String pleaseEnterExpireDate = 'Please enter expire date';
+  static const String pleaseEnterCardHolderName = 'Please enter card holder name';
+  static const String cardColor = 'Card Color';
+  static const String blue = 'Blue';
+  static const String red = 'Red';
+  static const String green = 'Green';
 
   // Orders texts
   static const String shippingAddressesKey = 'shippingAddressesKey';
