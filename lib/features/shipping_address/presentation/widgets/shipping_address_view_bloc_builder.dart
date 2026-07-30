@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gap/gap.dart';
 
 import '../../../../core/utils/app_texts.dart';
-import '../../../../core/utils/constants.dart';
 import '../../../../core/widgets/custom_error_state.dart';
 import '../../../../core/widgets/custom_loading_state.dart';
+import '../../../../core/widgets/custom_empty_state.dart';
 import '../cubit/shipping_address_cubit.dart';
 import '../cubit/shipping_address_state.dart';
 import 'shipping_addresses_list_view.dart';
@@ -37,22 +36,13 @@ class ShippingAddressViewBlocBuilder extends StatelessWidget {
           final addresses = state.addresses;
 
           if (addresses.isEmpty) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.location_on_outlined,
-                  size: 64,
-                  color: Colors.grey[400],
-                ),
-                const Gap(16),
-                Text(
-                  AppTexts.noAddressesAddedYet,
-                  style: AppConstants.titleStyle.copyWith(
-                    color: Colors.grey[600],
-                  ),
-                ),
-              ],
+            return CustomEmptyState(
+              message: AppTexts.noAddressesAddedYet,
+              icon: Icon(
+                Icons.location_on_outlined,
+                size: 64,
+                color: Colors.grey[400],
+              ),
             );
           }
 
