@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../orders/data/models/shipping_address_model.dart';
@@ -30,7 +31,10 @@ class ShippingAddressListTile extends StatelessWidget {
               style: AppConstants.titleStyle.copyWith(fontSize: 16),
             ),
           ),
-          if (address.isDefault == true) const DefaultBadge(),
+          if (address.isDefault == true)
+            DefaultBadge(
+              boxDecorationColor: AppColors.primary.withOpacity(0.1),
+            ),
         ],
       ),
       subtitle: Column(

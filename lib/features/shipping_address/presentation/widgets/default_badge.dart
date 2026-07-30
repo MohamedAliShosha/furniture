@@ -7,7 +7,12 @@ import '../../../../core/utils/constants.dart';
 class DefaultBadge extends StatelessWidget {
   const DefaultBadge({
     super.key,
+    this.boxDecorationColor,
+    this.textColor,
   });
+
+  final Color? boxDecorationColor;
+  final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +22,13 @@ class DefaultBadge extends StatelessWidget {
         vertical: 4,
       ),
       decoration: BoxDecoration(
-        color: AppColors.primary.withOpacity(0.1),
+        color: boxDecorationColor ?? AppColors.primary,
         borderRadius: BorderRadius.circular(AppConstants.smallBorderRadius),
       ),
       child: Text(
         AppTexts.defaultText,
         style: AppConstants.bodyStyle.copyWith(
-          color: AppColors.primary,
+          color: textColor ?? AppColors.primary,
           fontSize: 12,
           fontWeight: FontWeight.w600,
         ),

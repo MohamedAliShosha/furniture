@@ -14,6 +14,7 @@ import '../../features/search/presentation/views/search_view.dart';
 import '../../features/shipping_address/presentation/views/shipping_address_view.dart';
 import '../../features/special_offer/presentation/views/special_offer_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
+import '../../features/payment_methods/presentation/views/payment_method_view.dart';
 import '../../main_view.dart';
 
 class AppRouter {
@@ -30,6 +31,7 @@ class AppRouter {
   static const kProductDetailsView = '/productDetailsView';
   static const kFeaturedProductsView = '/featuredProductsView';
   static const kForgetPasswordView = '/forgetPasswordView';
+  static const kPaymentMethodView = '/paymentMethodView';
 
   static GoRouter router = GoRouter(
     routes: [
@@ -94,6 +96,10 @@ class AppRouter {
       GoRoute(
         path: kForgetPasswordView,
         builder: (context, state) => const ForgetPasswordView(),
+      ),
+      GoRoute(
+        path: kPaymentMethodView,
+        builder: (context, state) => const PaymentMethodView(),
       ),
       GoRoute(
         path: kMainView,
