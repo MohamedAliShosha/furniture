@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gap/gap.dart';
-import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/app_texts.dart';
 import '../../../../core/widgets/custom_error_state.dart';
 import '../../../../core/widgets/custom_loading_state.dart';
+import '../../../../core/widgets/custom_empty_state.dart';
 import '../../data/enums/orders_type_enum.dart';
 import '../cubit/orders_cubit.dart';
 import '../cubit/orders_state.dart';
@@ -40,22 +39,13 @@ class OrdersListBlocBuilder extends StatelessWidget {
           };
 
           if (orders.isEmpty) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.shopping_bag_outlined,
-                  size: 64,
-                  color: Colors.grey[400],
-                ),
-                const Gap(16),
-                Text(
-                  _getEmptyStateText(),
-                  style: AppConstants.titleStyle.copyWith(
-                    color: Colors.grey[600],
-                  ),
-                ),
-              ],
+            return CustomEmptyState(
+              message: _getEmptyStateText(),
+              icon: Icon(
+                Icons.shopping_bag_outlined,
+                size: 64,
+                color: Colors.grey[400],
+              ),
             );
           }
 
