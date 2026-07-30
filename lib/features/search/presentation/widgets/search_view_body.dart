@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture/core/utils/app_texts.dart';
 import 'package:furniture/core/utils/constants.dart';
-import 'package:gap/gap.dart';
+import '../../../../core/widgets/custom_empty_state.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/utils/app_router.dart';
 import '../../../home/data/models/product_model.dart';
@@ -50,31 +50,13 @@ class SearchViewBody extends StatelessWidget {
                 );
               }
               if (searchResults.isEmpty) {
-                return Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.search_off_rounded,
-                        size: 64,
-                        color: Colors.grey[400],
-                      ),
-                      const Gap(16),
-                      Text(
-                        AppTexts.noItemsFound,
-                        style: AppConstants.titleStyle.copyWith(
-                          color: Colors.grey[600],
-                          fontSize: 18,
-                        ),
-                      ),
-                      const Gap(8),
-                      Text(
-                        AppTexts.trySearchWithDifferentKeywords,
-                        style: AppConstants.bodyStyle.copyWith(
-                          color: Colors.grey[500],
-                        ),
-                      ),
-                    ],
+                return CustomEmptyState(
+                  message: AppTexts.noItemsFound,
+                  subtitle: AppTexts.trySearchWithDifferentKeywords,
+                  icon: Icon(
+                    Icons.search_off_rounded,
+                    size: 64,
+                    color: Colors.grey[400],
                   ),
                 );
               }
