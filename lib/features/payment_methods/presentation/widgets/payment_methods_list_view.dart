@@ -19,7 +19,7 @@ class PaymentMethodsListView extends StatelessWidget {
       itemCount: paymentMethods.length,
       itemBuilder: (context, index) {
         final method = paymentMethods[index];
-        return PaymentMethodCardWidget(method: method);
+        return PaymentMethodCardWidget(paymentMethod: method);
       },
     );
   }
