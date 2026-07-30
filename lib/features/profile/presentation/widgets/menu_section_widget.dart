@@ -54,7 +54,7 @@ Widget buildMenuSection(BuildContext context) {
             context,
             message: AppTexts.signInToManageYourPaymentMethods,
             onAction: () {
-              // Navigate to the payment methods management page
+              GoRouter.of(context).push(AppRouter.kPaymentMethodView);
             },
           );
         },
