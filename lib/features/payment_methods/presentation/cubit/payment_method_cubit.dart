@@ -6,10 +6,10 @@ import 'payment_method_state.dart';
 class PaymentMethodCubit extends Cubit<PaymentMethodState> {
   final PaymentMethodService paymentMethodService;
 
-  PaymentMethodCubit(this.paymentMethodService)
-      : super(PaymentMethodInitial());
+  PaymentMethodCubit(this.paymentMethodService) : super(PaymentMethodInitial());
 
   Future<void> loadPaymentMethods() async {
+    if (isClosed) return;
     emit(PaymentMethodLoading());
     try {
       await paymentMethodService.loadPaymentMethods();
@@ -25,6 +25,8 @@ class PaymentMethodCubit extends Cubit<PaymentMethodState> {
   }
 
   Future<void> addPaymentMethod(PaymentMethodModel method) async {
+    // prevents any emit attempts on a closed cubit.
+    if (isClosed) return;
     try {
       await paymentMethodService.addPaymentMethod(method);
       final methods = paymentMethodService.getPaymentMethods();
@@ -39,6 +41,7 @@ class PaymentMethodCubit extends Cubit<PaymentMethodState> {
   }
 
   Future<void> updatePaymentMethod(PaymentMethodModel method) async {
+    if (isClosed) return;
     try {
       await paymentMethodService.updatePaymentMethod(method);
       final methods = paymentMethodService.getPaymentMethods();
@@ -53,6 +56,7 @@ class PaymentMethodCubit extends Cubit<PaymentMethodState> {
   }
 
   Future<void> deletePaymentMethod(String id) async {
+    if (isClosed) return;
     try {
       await paymentMethodService.deletePaymentMethod(id);
       final methods = paymentMethodService.getPaymentMethods();
@@ -67,6 +71,7 @@ class PaymentMethodCubit extends Cubit<PaymentMethodState> {
   }
 
   Future<void> setDefaultPaymentMethod(String id) async {
+    if (isClosed) return;
     try {
       await paymentMethodService.setDefaultPaymentMethod(id);
       final methods = paymentMethodService.getPaymentMethods();
