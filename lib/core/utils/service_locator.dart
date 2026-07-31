@@ -126,7 +126,7 @@ void setupServiceLocator() {
     () => PaymentMethodService(),
   );
 
-  getIt.registerLazySingleton<PaymentMethodCubit>(
+  getIt.registerFactory<PaymentMethodCubit>(
     () => PaymentMethodCubit(
       getIt<PaymentMethodService>(),
     ),
