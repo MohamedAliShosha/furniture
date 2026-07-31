@@ -31,7 +31,8 @@ class PaymentMethodService {
             .map<PaymentMethodModel>(
                 (method) => PaymentMethodModel.fromJson(method))
             .toList();
-      } else {
+      }
+      if (_paymentMethods.isEmpty) {
         await _addSamplePaymentMethods();
       }
     } on Exception catch (e) {
@@ -114,12 +115,17 @@ class PaymentMethodService {
 
       // If we removed the default method and there are other methods
       // make the first one the default
-
       if (wasDefault && _paymentMethods.isNotEmpty) {
         _paymentMethods[0] =
             _paymentMethods[0].paymentMethodModelCopy(isDefault: true);
       }
-      await _savePaymentMethods();
+
+      // If all methods are deleted, add sample methods
+      if (_paymentMethods.isEmpty) {
+        await _addSamplePaymentMethods();
+      } else {
+        await _savePaymentMethods();
+      }
     }
   }
 
