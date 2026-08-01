@@ -219,6 +219,7 @@ class AppTexts {
   static const String setAsDefault = 'Set as default';
   static const String noAddressesAddedYet = 'No addresses added yet';
   static const String paymentMethodsKey = 'paymentMethodsKey';
+  static const String promoCodesKey = 'promoCodesKey';
   static const String addNewCard = 'Add New Card';
   static const String editCard = 'Edit Card';
   static const String cardTypeLabel = 'Card Type (e.g., Visa, Mastercard)';
@@ -270,4 +271,41 @@ class AppTexts {
   static const String noCompletedOrdersFound = 'No completed orders found';
   static const String noCancelledOrdersFound = 'No cancelled orders found';
   static const String noOrdersFound = 'No orders found';
+
+  // Promo Codes
+  static const String availableTab = 'Available';
+  static const String usedTab = 'Used';
+  static const String noPromoCodesAvailable = 'No promo codes available.';
+  static const String noUsedPromoCodes = 'No used promo codes.';
+  static const String promoCodeCopiedToClipboard = 'Promo code copied to clipboard!';
+  static const String addPromoCode = 'Add Promo Code';
+  static const String codeLabel = 'Code';
+  static const String enterPromoCodeHint = 'Enter promo code';
+  static const String promoCodeAddedSuccessfully = 'Promo code added successfully.';
+  static const String invalidPromoCode = 'Invalid promo code.';
+  static const String invalidOrExpiredPromoCode = 'Invalid or expired promo code';
+  static const String applyButton = 'Apply';
+  static const String validUntil = 'Valid until: ';
+  static const String january = 'January';
+  static const String february = 'February';
+  static const String march = 'March';
+  static const String april = 'April';
+  static const String may = 'May';
+  static const String june = 'June';
+  static const String july = 'July';
+  static const String august = 'August';
+  static const String september = 'September';
+  static const String october = 'October';
+  static const String november = 'November';
+  static const String december = 'December';
+
+  // Promo Code Sample Data
+  static const String welcome10Discount = '10% OFF';
+  static const String welcome10Description = 'Welcome discount for new users';
+  static const String freeShipDiscount = 'FREE';
+  static const String freeShipDescription = 'Free shipping on orders above \$50';
+  static const String flat50Discount = '50';
+  static const String flat50Description = 'Flat \$50 off on minimum purchase of \$200';
+  static const String summer20Discount = '20';
+  static const String summer20Description = 'Summer sale - 20% off on all items';
 }

@@ -64,15 +64,15 @@ Widget buildMenuSection(BuildContext context) {
         icon: Icons.local_offer_outlined,
         title: AppTexts.promoCodes,
         subtitle: AppTexts.viewAvailableDiscounts,
-        onTap: () {
-          _handleAuthRequiredSection(
-            context,
-            message: AppTexts.signInToAccessAvailableDiscounts,
-            onAction: () {
-              // Navigate to the promo codes page
-            },
-          );
-        },
+          onTap: () {
+            _handleAuthRequiredSection(
+              context,
+              message: AppTexts.signInToAccessAvailableDiscounts,
+              onAction: () {
+                GoRouter.of(context).push(AppRouter.kPromoCodesView);
+              },
+            );
+          },
       ),
       buildMenuItem(
         context,
