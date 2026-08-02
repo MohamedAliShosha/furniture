@@ -4,6 +4,7 @@ import 'package:furniture/core/utils/app_texts.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/service_locator.dart';
+import '../../../../core/widgets/custom_app_bar.dart';
 import '../../data/enums/orders_type_enum.dart';
 import '../cubit/orders_cubit.dart';
 import '../widgets/orders_list_bloc_builder.dart';
@@ -17,21 +18,8 @@ class OrdersHistoryView extends StatelessWidget {
       create: (context) => getIt<OrdersCubit>()..loadOrders(),
       child: Scaffold(
         backgroundColor: AppColors.white,
-        appBar: AppBar(
-          backgroundColor: AppColors.white,
-          elevation: 0,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios,
-            ),
-          ),
-          title: Text(
-            AppTexts.myOrders,
-            style: AppConstants.titleStyle,
-          ),
+        appBar: const CustomAppBar(
+          title: AppTexts.myOrders,
         ),
         // DefaultTabController creates and owns the controller instead of creating a stateful widget and controllers for the taps
         body: DefaultTabController(
