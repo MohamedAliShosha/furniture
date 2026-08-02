@@ -1,3 +1,4 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture/features/blog/data/models/blog_model.dart';
 import 'package:furniture/features/blog/presentation/views/blog_details_view.dart';
 import 'package:furniture/features/orders/presentation/views/orders_history_view.dart';
@@ -15,6 +16,9 @@ import '../../features/shipping_address/presentation/views/shipping_address_view
 import '../../features/special_offer/presentation/views/special_offer_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 import '../../features/payment_methods/presentation/views/payment_method_view.dart';
+import '../../features/promo_codes/presentation/cubit/promo_code_cubit.dart';
+import '../../features/promo_codes/presentation/views/promo_codes_view.dart';
+import 'package:furniture/core/utils/service_locator.dart';
 import '../../main_view.dart';
 
 class AppRouter {
@@ -32,6 +36,7 @@ class AppRouter {
   static const kFeaturedProductsView = '/featuredProductsView';
   static const kForgetPasswordView = '/forgetPasswordView';
   static const kPaymentMethodView = '/paymentMethodView';
+  static const kPromoCodesView = '/promoCodesView';
 
   static GoRouter router = GoRouter(
     routes: [
@@ -100,6 +105,13 @@ class AppRouter {
       GoRoute(
         path: kPaymentMethodView,
         builder: (context, state) => const PaymentMethodView(),
+      ),
+      GoRoute(
+        path: kPromoCodesView,
+        builder: (context, state) => BlocProvider(
+          create: (_) => getIt<PromoCodeCubit>()..loadPromoCodes(),
+          child: const PromoCodesView(),
+        ),
       ),
       GoRoute(
         path: kMainView,
