@@ -24,6 +24,8 @@ import '../../features/home/services/user_service.dart';
 import '../../features/home/services/special_offers_service.dart';
 import '../../features/payment_methods/presentation/cubit/payment_method_cubit.dart';
 import '../../features/payment_methods/service/payment_method_service.dart';
+import '../../features/promo_codes/presentation/cubit/promo_code_cubit.dart';
+import '../../features/promo_codes/service/promo_code_service.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -129,6 +131,16 @@ void setupServiceLocator() {
   getIt.registerFactory<PaymentMethodCubit>(
     () => PaymentMethodCubit(
       getIt<PaymentMethodService>(),
+    ),
+  );
+
+  getIt.registerLazySingleton<PromoCodeService>(
+    () => PromoCodeService(),
+  );
+
+  getIt.registerFactory<PromoCodeCubit>(
+    () => PromoCodeCubit(
+      getIt<PromoCodeService>(),
     ),
   );
 
