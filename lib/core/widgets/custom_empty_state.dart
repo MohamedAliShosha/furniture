@@ -12,14 +12,14 @@ class CustomEmptyState extends StatelessWidget {
     this.subtitle,
     this.icon,
     this.iconColor,
-    this.textColor,
+    this.messageColor,
   });
 
   final String message;
   final String? subtitle;
   final Widget? icon;
   final Color? iconColor;
-  final Color? textColor;
+  final Color? messageColor;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class CustomEmptyState extends StatelessWidget {
               message,
               textAlign: TextAlign.center,
               style: AppConstants.titleStyle.copyWith(
-                color: textColor ?? AppColors.grey,
+                color: messageColor ?? AppColors.grey,
                 fontSize: 18,
               ),
             ),

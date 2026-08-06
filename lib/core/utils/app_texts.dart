@@ -245,7 +245,8 @@ class AppTexts {
   static const String pleaseSelectCardType = 'Please select card type';
   static const String pleaseEnterCardNumber = 'Please enter card number';
   static const String pleaseEnterExpireDate = 'Please enter expire date';
-  static const String pleaseEnterCardHolderName = 'Please enter card holder name';
+  static const String pleaseEnterCardHolderName =
+      'Please enter card holder name';
   static const String cardColor = 'Card Color';
   static const String blue = 'Blue';
   static const String red = 'Red';
@@ -277,13 +278,16 @@ class AppTexts {
   static const String usedTab = 'Used';
   static const String noPromoCodesAvailable = 'No promo codes available.';
   static const String noUsedPromoCodes = 'No used promo codes.';
-  static const String promoCodeCopiedToClipboard = 'Promo code copied to clipboard!';
+  static const String promoCodeCopiedToClipboard =
+      'Promo code copied to clipboard!';
   static const String addPromoCode = 'Add Promo Code';
   static const String codeLabel = 'Code';
   static const String enterPromoCodeHint = 'Enter promo code';
-  static const String promoCodeAddedSuccessfully = 'Promo code added successfully.';
+  static const String promoCodeAddedSuccessfully =
+      'Promo code added successfully.';
   static const String invalidPromoCode = 'Invalid promo code.';
-  static const String invalidOrExpiredPromoCode = 'Invalid or expired promo code';
+  static const String invalidOrExpiredPromoCode =
+      'Invalid or expired promo code';
   static const String applyButton = 'Apply';
   static const String validUntil = 'Valid until: ';
   static const String january = 'January';
@@ -303,9 +307,38 @@ class AppTexts {
   static const String welcome10Discount = '10% OFF';
   static const String welcome10Description = 'Welcome discount for new users';
   static const String freeShipDiscount = 'FREE';
-  static const String freeShipDescription = 'Free shipping on orders above \$50';
+  static const String freeShipDescription =
+      'Free shipping on orders above \$50';
   static const String flat50Discount = '50';
-  static const String flat50Description = 'Flat \$50 off on minimum purchase of \$200';
+  static const String flat50Description =
+      'Flat \$50 off on minimum purchase of \$200';
   static const String summer20Discount = '20';
-  static const String summer20Description = 'Summer sale - 20% off on all items';
+  static const String summer20Description =
+      'Summer sale - 20% off on all items';
+
+  // Notification
+  static const String notificationTitle = 'Notification';
+  static const String settings = 'Settings';
+  static const String pushNotifications = 'Push Notifications';
+  static const String receivePushNotifications = 'Receive push notifications';
+  static const String emailNotifications = 'Email Notifications';
+  static const String receiveEmailNotifications = 'Receive email notifications';
+  static const String notificationTypes = 'Notification Types';
+  static const String recentNotifications = 'Recent Notifications';
+  static const String clearAll = 'Clear All';
+  static const String noNotificationsYet = 'No notifications yet';
+  static const String youWillSeeNotificationsHere =
+      'You\'ll see your notifications here.';
+  static const String orderUpdates = 'Order Updates';
+  static const String promotions = 'Promotions';
+  static const String newArrivals = 'New Arrivals';
+  static const String deliveryStatus = 'Delivery status';
+  static const String receiveUpdatesAboutYourOrders =
+      'Receive updates about your orders';
+  static const String receivePromotionalOffersAndDiscounts =
+      'Receive promotional offers and discounts';
+  static const String getNotifiedAboutNewArrivalsInOurStore =
+      'Get notified about new arrivals in our store';
+  static const String receiveUpdatesAboutYourDeliveryStatus =
+      'Receive updates about your delivery status';
 }

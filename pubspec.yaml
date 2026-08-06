@@ -21,7 +21,8 @@ dependencies:
   equatable: ^2.0.5
   shared_preferences: null
   uuid: 
-  intl: 
+  intl:
+  timeago: ^3.7.1 
 
 dev_dependencies:
   flutter_launcher_icons: ^0.11.0
