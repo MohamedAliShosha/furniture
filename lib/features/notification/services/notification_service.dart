@@ -1,4 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../../../core/utils/app_keys.dart';
 import '../data/enums/notification_type_enum.dart';
 import '../data/model/notification_model.dart';
 
@@ -18,10 +19,18 @@ class NotificationService {
     NotificationType.delivery: true,
   };
 
-  // Keys for storing preferences in SharedPreferences
-  static const String _pushEnabledKey = 'push_enabled';
-  static const String _emailEnabledKey = 'email_enabled';
-  static const String _notificationPreferencesKey = 'notification_preferences';
+  String _getPreferenceKey(NotificationType type) {
+    switch (type) {
+      case NotificationType.order:
+        return AppKeys.notificationPreferencesOrderKey;
+      case NotificationType.promotion:
+        return AppKeys.notificationPreferencesPromotionKey;
+      case NotificationType.newArrival:
+        return AppKeys.notificationPreferencesNewArrivalKey;
+      case NotificationType.delivery:
+        return AppKeys.notificationPreferencesDeliveryKey;
+    }
+  }
 
   List<NotificationModel> get getNotifications => _notifications;
   bool get pushedEnabled => _pushedEnabled;
@@ -37,32 +46,31 @@ class NotificationService {
   Future<void> _loadNotificationPreferences() async {
     // Load the user's notification preferences from persistent storage (e.g., SharedPreferences).
     final prefs = await SharedPreferences.getInstance();
-    _pushedEnabled = prefs.getBool(_pushEnabledKey) ?? true;
-    _emailEnabled = prefs.getBool(_emailEnabledKey) ?? true;
+    _pushedEnabled = prefs.getBool(AppKeys.pushEnabledKey) ?? true;
+    _emailEnabled = prefs.getBool(AppKeys.emailEnabledKey) ?? true;
 
     for (var type in NotificationType.values) {
-      final prefKey = '${_notificationPreferencesKey}_${type.name}';
-      _notificationPreferences[type] = prefs.getBool(prefKey) ?? true;
+      _notificationPreferences[type] = prefs.getBool(_getPreferenceKey(type)) ?? true;
     }
   }
 
   Future<void> setPushEnabled(bool value) async {
     _pushedEnabled = value;
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(_pushEnabledKey, value);
+    await prefs.setBool(AppKeys.pushEnabledKey, value);
   }
 
   Future<void> setEmailEnabled(bool value) async {
     _emailEnabled = value;
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(_emailEnabledKey, value);
+    await prefs.setBool(AppKeys.emailEnabledKey, value);
   }
 
   Future<void> setNotificationPreference(
       NotificationType type, bool value) async {
     _notificationPreferences[type] = value;
     final prefs = await SharedPreferences.getInstance();
-    final prefKey = '${_notificationPreferencesKey}_${type.name}';
+    final prefKey = _getPreferenceKey(type);
     await prefs.setBool(prefKey, value);
   }
 
