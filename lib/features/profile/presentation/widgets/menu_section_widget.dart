@@ -84,7 +84,7 @@ Widget buildMenuSection(BuildContext context) {
             context,
             message: AppTexts.signInToCustomizeNotificationSettings,
             onAction: () {
-              // Navigate to the notification settings page
+              GoRouter.of(context).push(AppRouter.kNotificationView);
             },
           );
         },
