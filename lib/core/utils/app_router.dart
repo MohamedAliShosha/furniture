@@ -20,6 +20,8 @@ import '../../features/promo_codes/presentation/cubit/promo_code_cubit.dart';
 import '../../features/promo_codes/presentation/views/promo_codes_view.dart';
 import 'package:furniture/core/utils/service_locator.dart';
 import '../../main_view.dart';
+import '../../features/notification/presentation/views/notification_view.dart';
+import '../../features/notification/presentation/cubit/notification_cubit.dart';
 
 class AppRouter {
   static const kOnboardingView = '/onboardingView';
@@ -37,6 +39,7 @@ class AppRouter {
   static const kForgetPasswordView = '/forgetPasswordView';
   static const kPaymentMethodView = '/paymentMethodView';
   static const kPromoCodesView = '/promoCodesView';
+  static const kNotificationView = '/notificationView';
 
   static GoRouter router = GoRouter(
     routes: [
@@ -111,6 +114,13 @@ class AppRouter {
         builder: (context, state) => BlocProvider(
           create: (_) => getIt<PromoCodeCubit>()..loadPromoCodes(),
           child: const PromoCodesView(),
+        ),
+      ),
+      GoRoute(
+        path: kNotificationView,
+        builder: (context, state) => BlocProvider(
+          create: (_) => getIt<NotificationCubit>()..loadNotifications(),
+          child: const NotificationView(),
         ),
       ),
       GoRoute(
