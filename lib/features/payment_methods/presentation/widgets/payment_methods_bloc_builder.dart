@@ -41,7 +41,7 @@ class PaymentMethodsBlocBuilder extends StatelessWidget {
                 size: 64,
                 color: Colors.grey[400],
               ),
-              textColor: Colors.grey[600],
+              messageColor: Colors.grey[600],
               message: AppTexts.noPaymentMethodsAddedYet,
             );
           }
