@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/auth/forget_password/presentation/views/forget_password_view.dart';
 import '../../features/auth/login/presentation/views/login_view.dart';
 import '../../features/auth/sign_up/presentation/views/sign_up_view.dart';
+import '../../features/home/data/models/cart_item.dart';
 import '../../features/home/data/models/product_model.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/product_details/presentation/views/product_details_view.dart';
@@ -18,6 +19,7 @@ import '../../features/splash/presentation/views/splash_view.dart';
 import '../../features/payment_methods/presentation/views/payment_method_view.dart';
 import '../../features/promo_codes/presentation/cubit/promo_code_cubit.dart';
 import '../../features/promo_codes/presentation/views/promo_codes_view.dart';
+import '../../features/checkout/presentation/views/checkout_view.dart';
 import 'package:furniture/core/utils/service_locator.dart';
 import '../../main_view.dart';
 import '../../features/notification/presentation/views/notification_view.dart';
@@ -40,6 +42,7 @@ class AppRouter {
   static const kPaymentMethodView = '/paymentMethodView';
   static const kPromoCodesView = '/promoCodesView';
   static const kNotificationView = '/notificationView';
+  static const kCheckoutView = '/checkoutView';
 
   static GoRouter router = GoRouter(
     routes: [
@@ -138,6 +141,18 @@ class AppRouter {
           return ProductDetailsView(
             // Pass the product data to the ProductDetailsView if needed
             product: product,
+          );
+        },
+      ),
+      GoRoute(
+        path: kCheckoutView,
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>;
+          final cartItems = extra['cartItems'] as List<CartItemModel>;
+          final total = extra['total'] as double;
+          return CheckoutView(
+            cartItems: cartItems,
+            total: total,
           );
         },
       ),
