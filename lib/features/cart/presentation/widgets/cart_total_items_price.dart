@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../../../core/utils/constants.dart';
+import '../../../../core/utils/app_router.dart';
 import '../../../home/data/models/cart_item.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 class CartTotalItemsPrice extends StatelessWidget {
   const CartTotalItemsPrice({
@@ -59,7 +61,13 @@ class CartTotalItemsPrice extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  // Navigate to checkout page with cart items
+                  GoRouter.of(context).push(
+                    AppRouter.kCheckoutView,
+                    extra: {
+                      'cartItems': cartItems,
+                      'total': total,
+                    },
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppConstants.primaryColor,

@@ -129,6 +129,25 @@ class AppTexts {
       'Create an account to start shopping';
   static const String signInButtonTitle = 'SIGN IN';
   static const String errorPrefix = 'Error:';
+  static const String checkoutTitle = 'Checkout';
+  static const String continueButton = 'Continue';
+  static const String placeOrderButton = 'Place order';
+  static const String backButton = 'Back';
+  static const String selectPaymentMethod = 'Please select a payment method';
+  static const String orderPlacedSuccess = 'Order Placed Successfully';
+  static const String thankYouOrder =
+      'Thank you for your purchase, Your order will be delivered soon';
+  static const String okButton = 'OK';
+  static const String subtotal = 'Subtotal';
+  static const String shipping = 'Shipping';
+  static const String total = 'Total';
+  static const String deliveryInformationStepTitle = 'Delivery Information';
+  static const String orderSummaryStepTitle = 'Order Summary';
+  static const String paymentMethodStepTitle = 'Payment Method';
+  static const String noPaymentMethodsAdded = 'No payment methods added';
+  static const String addPaymentMethod = 'Add Payment Method';
+  static const String orderPlacedError = 'Error placing order';
+  static const String expiresPrefix = 'Expires';
 
   // Profile
   static const String profileTitle = 'Profile';
@@ -206,6 +225,8 @@ class AppTexts {
   static const String zipCodeRequired = 'Please enter a ZIP code';
   static const String phoneNumberLabel = 'Phone Number';
   static const String phoneNumberRequired = 'Please enter a phone number';
+  static const String fullNameRequired = 'Please enter your full name';
+  static const String noEmailAddress = 'No email';
   static const String setAsDefaultAddress = 'Set as default address';
   static const String setAsDefaultCard = 'Set as default cards';
   static const String addButton = 'Add';

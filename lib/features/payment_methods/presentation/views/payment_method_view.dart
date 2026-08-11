@@ -15,23 +15,31 @@ class PaymentMethodView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<PaymentMethodCubit>()..loadPaymentMethods(),
-      child: Scaffold(
-        backgroundColor: AppColors.white,
-        appBar: CustomAppBar(
-          title: AppTexts.paymentMethods,
-          actions: [
-            IconButton(
-              onPressed: () {
-                showAddAndEditCardDialog(context);
-              },
-              icon: const Icon(
-                color: AppColors.primary,
-                Icons.add,
-              ),
-            )
-          ],
-        ),
-        body: const PaymentMethodViewBody(),
+      child: Builder(
+        builder: (context) {
+          return Scaffold(
+            backgroundColor: AppColors.white,
+            appBar: CustomAppBar(
+              title: AppTexts.paymentMethods,
+              actions: [
+                IconButton(
+                  onPressed: () {
+                    final cubit = context.read<PaymentMethodCubit>();
+                    showAddAndEditCardDialog(
+                      context,
+                      cubit: cubit,
+                    );
+                  },
+                  icon: const Icon(
+                    color: AppColors.primary,
+                    Icons.add,
+                  ),
+                )
+              ],
+            ),
+            body: const PaymentMethodViewBody(),
+          );
+        },
       ),
     );
   }
