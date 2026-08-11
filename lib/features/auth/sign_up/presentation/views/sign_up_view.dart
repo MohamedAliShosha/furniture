@@ -9,6 +9,7 @@ class SignUpView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
