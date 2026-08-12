@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/auth/forget_password/presentation/views/forget_password_view.dart';
 import '../../features/auth/login/presentation/views/login_view.dart';
 import '../../features/auth/sign_up/presentation/views/sign_up_view.dart';
+import '../../features/help_center/presentation/views/help_center_view.dart';
 import '../../features/home/data/models/cart_item.dart';
 import '../../features/home/data/models/product_model.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
@@ -28,6 +29,7 @@ import '../../features/notification/presentation/cubit/notification_cubit.dart';
 class AppRouter {
   static const kOnboardingView = '/onboardingView';
   static const kLoginView = '/loginView';
+  static const kHelpCenterView = '/helpCenterView';
   static const kShippingAddressView = '/shippingAddressView';
   static const kOrdersHistoryView = '/ordersView';
   static const kBlogDetailsView = '/BlogDetailsView';
@@ -53,6 +55,10 @@ class AppRouter {
       GoRoute(
         path: kOnboardingView,
         builder: (context, state) => const OnboardingView(),
+      ),
+      GoRoute(
+        path: kHelpCenterView,
+        builder: (context, state) => const HelpCenterView(),
       ),
       GoRoute(
         path: kOrdersHistoryView,
