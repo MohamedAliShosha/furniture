@@ -189,11 +189,33 @@ class AppTexts {
   static const String myOrders = 'My Orders';
   static const String myOrdersSubtitle = 'View your order history';
   static const String helpCenter = 'Help Center';
-  static const String failedToLoadData = 'Failed to load data';
   static const String getHelpAndSupport =
       'Get help and support for your account';
   static const String aboutUs = 'About Us';
   static const String learnMoreAboutCompany = 'Learn more about our company';
+  static const String stillNeedHelp = 'Still Need Help';
+  static const String supportTeamAvailable247 =
+      'Our Support team is available 24/7 to help you with any questions or concerns';
+  static const String contactSupport = 'Contact Support';
+  static const String frequentlyAskedQuestions = 'Frequently Asked Questions';
+  static const String quickHelp = 'Quick Help';
+  static const String trackOrderHelp = 'Track Order';
+  static const String returnsHelp = 'Returns';
+  static const String paymentHelp = 'Payment';
+  static const String liveChatHelp = 'Live Chat';
+  static const String searchForHelpHint = 'Search for help';
+  static const String howDoITrackMyOrders = 'How do I track my orders';
+  static const String visitOrdersInYourAccount =
+      'Visit Orders in your account and tap the order to see its current delivery status.';
+  static const String whatIsTheReturnPolicy = 'What is the return policy?';
+  static const String returnPolicyDescription =
+      'Items can be returned within 30 days of delivery if they are unused and in their original packaging.';
+  static const String howLongDoesDeliveryTake = 'How long does delivery takes?';
+  static const String deliveryTypicalDuration =
+      'Delivery typically takes 5-7 business days depending on your location and product availability.';
+  static const String doYouOfferAssemblyServices = 'Do you offer assembly services?';
+  static const String assemblyServicesAnswer =
+      'Yes, assembly services are available for select furniture items and can be added during checkout or arranged through customer support.';
 
   // Featured Products
   static const String featuredProducts = 'Featured Products';
