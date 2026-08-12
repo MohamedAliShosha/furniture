@@ -64,15 +64,15 @@ Widget buildMenuSection(BuildContext context) {
         icon: Icons.local_offer_outlined,
         title: AppTexts.promoCodes,
         subtitle: AppTexts.viewAvailableDiscounts,
-          onTap: () {
-            _handleAuthRequiredSection(
-              context,
-              message: AppTexts.signInToAccessAvailableDiscounts,
-              onAction: () {
-                GoRouter.of(context).push(AppRouter.kPromoCodesView);
-              },
-            );
-          },
+        onTap: () {
+          _handleAuthRequiredSection(
+            context,
+            message: AppTexts.signInToAccessAvailableDiscounts,
+            onAction: () {
+              GoRouter.of(context).push(AppRouter.kPromoCodesView);
+            },
+          );
+        },
       ),
       buildMenuItem(
         context,
@@ -100,6 +100,7 @@ Widget buildMenuSection(BuildContext context) {
             message: AppTexts.signInToAccessHelpAndSupport,
             onAction: () {
               // Navigate to the help center page
+              GoRouter.of(context).push(AppRouter.kHelpCenterView);
             },
           );
         },
