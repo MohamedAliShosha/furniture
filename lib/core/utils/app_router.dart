@@ -15,6 +15,7 @@ import '../../features/home/data/models/product_model.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/product_details/presentation/views/product_details_view.dart';
 import '../../features/search/presentation/views/search_view.dart';
+import '../../features/settings/presentation/views/settings_view.dart';
 import '../../features/shipping_address/presentation/views/shipping_address_view.dart';
 import '../../features/special_offer/presentation/views/special_offer_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
@@ -47,6 +48,7 @@ class AppRouter {
   static const kPromoCodesView = '/promoCodesView';
   static const kNotificationView = '/notificationView';
   static const kCheckoutView = '/checkoutView';
+  static const kSettingsView = '/settingsView';
 
   static GoRouter router = GoRouter(
     routes: [
@@ -57,6 +59,10 @@ class AppRouter {
       GoRoute(
         path: kOnboardingView,
         builder: (context, state) => const OnboardingView(),
+      ),
+      GoRoute(
+        path: kSettingsView,
+        builder: (context, state) => const SettingsView(),
       ),
       GoRoute(
         path: kHelpCenterView,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
+import '../../../../core/utils/app_router.dart';
 import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 
@@ -33,6 +35,7 @@ class ProfileViewBody extends StatelessWidget {
               IconButton(
                 onPressed: () {
                   // Navigate to settings page
+                  GoRouter.of(context).push(AppRouter.kSettingsView);
                 },
                 icon: const Icon(
                   Icons.settings_outlined,
