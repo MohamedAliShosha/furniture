@@ -217,6 +217,44 @@ class AppTexts {
   static const String assemblyServicesAnswer =
       'Yes, assembly services are available for select furniture items and can be added during checkout or arranged through customer support.';
 
+  // About Us texts
+  static const String furnitureShop = 'Furniture Shop';
+  static const String furnitureShopTagline =
+      'Your one-shop destination for premium furniture';
+  static const String ourMission = 'Our Mission';
+  static const String missionDescription =
+      'To provide high-quality, stylish, and affordable furniture that transforms houses into homes. We believe everyone deserves to live in a space they love';
+  static const String ourValues = 'Our Values';
+  static const String qualityTitle = 'Quality';
+  static const String qualityDescription =
+      'We never compromise on the quality of our products';
+  static const String designTitle = 'Design';
+  static const String designDescription =
+      'Every piece is crafted with attention to detail';
+  static const String sustainabilityTitle = 'Sustainability';
+  static const String sustainabilityDescription =
+      'We care about the environment and use sustainable materials';
+  static const String serviceTitle = 'Service';
+  static const String serviceDescription =
+      'Customer satisfaction is our top priority';
+  static const String ourTeam = 'Our Team';
+  static const String teamDescription =
+      'We are a team of passionate designers, craftsmen, and customer service professionals dedicated to bringing you the best furniture shopping experience';
+  static const String connectWithUs = 'Connect with Us';
+  static const String facebook = 'Facebook';
+  static const String instagram = 'Instagram';
+  static const String contact = 'Contact';
+  static const String email = 'Email';
+  static const String version = 'Version 1.0.0';
+  static const String copyright = '© 2024 Furniture Shop. All rights are reserved.';
+  static const String privacyPolicy = 'Privacy Policy';
+  static const String termsOfService = 'Terms of Service';
+  static const String facebookUrl = 'https://facebook.com';
+  static const String instagramUrl = 'https://instagram.com';
+  static const String contactUrl = 'tel:+1234567890';
+  static const String emailUrl = 'mailto:support@furnitureshop.com';
+  static const String dotSeparator = '.';
+
   // Featured Products
   static const String featuredProducts = 'Featured Products';
   static const String seeAll = 'See All';

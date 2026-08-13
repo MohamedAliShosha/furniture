@@ -55,6 +55,7 @@ class ProductRepoImpl implements ProductRepo {
         break;
       case 'SOFAS':
         items = SofaService.getSofas();
+        break;
       case 'BEDS':
         items = BedService.getBeds();
         break;

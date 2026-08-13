@@ -15,7 +15,7 @@ class HomeCubit extends Cubit<HomeState> {
           HomeInitial(),
         );
 
-  Future<void> fetchAllHomeData() async {
+  Future<void> fetchAllHomeData({String category = AppTexts.allCategory}) async {
     emit(
       HomeLoading(),
     );
@@ -24,7 +24,7 @@ class HomeCubit extends Cubit<HomeState> {
       final allProducts = await _productRepository.getAllProducts();
       final categories = _categoryRepository.getCategories();
       final productsByCategory =
-          await _productRepository.getProductsByCategory(AppTexts.allCategory);
+          await _productRepository.getProductsByCategory(category);
 
       emit(HomeSuccess(
         featuredProducts: featuredProducts,
