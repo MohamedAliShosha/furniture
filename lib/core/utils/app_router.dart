@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture/features/blog/data/models/blog_model.dart';
 import 'package:furniture/features/blog/presentation/views/blog_details_view.dart';
 import 'package:furniture/features/orders/presentation/views/orders_history_view.dart';
+import '../../features/about_us/presentation/views/about_us_view.dart';
 import '../../features/category/presentation/views/category_view.dart';
 import '../../features/featured_products/presentation/views/featured_products_view.dart';
 import 'package:go_router/go_router.dart';
@@ -29,6 +30,7 @@ import '../../features/notification/presentation/cubit/notification_cubit.dart';
 class AppRouter {
   static const kOnboardingView = '/onboardingView';
   static const kLoginView = '/loginView';
+  static const kAboutUsView = '/aboutUsView';
   static const kHelpCenterView = '/helpCenterView';
   static const kShippingAddressView = '/shippingAddressView';
   static const kOrdersHistoryView = '/ordersView';
@@ -59,6 +61,10 @@ class AppRouter {
       GoRoute(
         path: kHelpCenterView,
         builder: (context, state) => const HelpCenterView(),
+      ),
+      GoRoute(
+        path: kAboutUsView,
+        builder: (context, state) => const AboutUsView(),
       ),
       GoRoute(
         path: kOrdersHistoryView,
