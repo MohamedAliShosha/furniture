@@ -116,6 +116,7 @@ Widget buildMenuSection(BuildContext context) {
             message: AppTexts.signInToAccessHelpAndSupport,
             onAction: () {
               // Navigate to the about us page
+              GoRouter.of(context).push(AppRouter.kAboutUsView);
             },
           );
         },
