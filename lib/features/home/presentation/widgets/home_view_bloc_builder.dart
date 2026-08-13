@@ -49,7 +49,7 @@ class _HomeViewBlocBuilderState extends State<HomeViewBlocBuilder> {
                         if (category == AppTexts.allCategory) {
                           context.read<HomeCubit>().fetchAllHomeData();
                         } else {
-                          context.read<HomeCubit>().fetchAllHomeData();
+                          context.read<HomeCubit>().fetchAllHomeData(category: category);
                           GoRouter.of(context).push(
                             AppRouter.kCategoryView,
                             extra: category,
