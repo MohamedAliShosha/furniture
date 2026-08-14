@@ -422,4 +422,20 @@ class AppTexts {
       'Get notified about new arrivals in our store';
   static const String receiveUpdatesAboutYourDeliveryStatus =
       'Receive updates about your delivery status';
+
+  // Settings texts
+  static const String settingsTitle = 'Settings';
+  static const String accountSection = 'Account';
+  static const String accountInformation = 'Account Information';
+  static const String changePassword = 'Change Password';
+  static const String changeYourAccountPassword =
+      'Change your account password';
+  static const String preferencesSection = 'Preferences';
+  static const String receiveValidationSettings =
+      'Receive validation settings';
+  static const String supportSection = 'Support';
+  static const String getHelpAndFindAnswers = 'Get help and find answers';
+  static const String readOurPrivacyPolicy = 'Read our privacy policy';
+  static const String readOurTermsOfService = 'Read our terms of service';
+  static const String dangerZone = 'Danger Zone';
 }
