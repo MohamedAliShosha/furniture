@@ -42,6 +42,20 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
+  /// Save the account password used for validation checks.
+  Future<void> setPassword(String password) async {
+    try {
+      userService.setPassword(password);
+      emit(UserSuccess(
+        user: userService.user,
+        isLoggedIn: userService.isUserLoggedIn,
+        isGuest: userService.isGuest,
+      ));
+    } catch (e) {
+      emit(UserFailure(e.toString()));
+    }
+  }
+
   /// Update user profile information
   Future<void> updateUser({
     String? name,
@@ -60,6 +74,33 @@ class UserCubit extends Cubit<UserState> {
       emit(UserSuccess(
         user: updatedUser,
         isLoggedIn: updatedUser != null,
+      ));
+    } catch (e) {
+      emit(UserFailure(e.toString()));
+    }
+  }
+
+  /// Change the current user's password after validating the existing password.
+  Future<void> changePassword({
+    required String currentPassword,
+    required String newPassword,
+  }) async {
+    try {
+      final success = userService.changePassword(
+        currentPassword: currentPassword,
+        newPassword: newPassword,
+      );
+
+      if (!success) {
+        emit(const UserFailure(
+            'Unable to change password. Please check your current password and try again.'));
+        return;
+      }
+
+      emit(UserSuccess(
+        user: userService.user,
+        isLoggedIn: userService.isUserLoggedIn,
+        isGuest: userService.isGuest,
       ));
     } catch (e) {
       emit(UserFailure(e.toString()));
