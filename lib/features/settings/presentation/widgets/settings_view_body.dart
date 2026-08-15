@@ -42,6 +42,7 @@ class SettingsViewBody extends StatelessWidget {
                 subTitle: user?.name ?? AppTexts.notSignedIn,
                 onTap: () {
                   // navigate to account info screen
+                  GoRouter.of(context).push(AppRouter.kAccountInfoView);
                 },
               );
             },
