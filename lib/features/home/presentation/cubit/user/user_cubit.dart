@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../core/utils/app_texts.dart';
 import '../../../data/models/user_model.dart';
 import '../../../services/user_service.dart';
 import 'user_state.dart';
@@ -92,8 +93,7 @@ class UserCubit extends Cubit<UserState> {
       );
 
       if (!success) {
-        emit(const UserFailure(
-            'Unable to change password. Please check your current password and try again.'));
+        emit(const UserFailure(AppTexts.changePasswordFailure));
         return;
       }
 
