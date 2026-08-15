@@ -58,6 +58,7 @@ class SettingsViewBody extends StatelessWidget {
                 subTitle: AppTexts.changeYourAccountPassword,
                 onTap: () {
                   // navigate to change password screen
+                  GoRouter.of(context).push(AppRouter.kChangePasswordView);
                 },
               );
             },
