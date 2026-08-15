@@ -109,7 +109,7 @@ class SignUpForm extends StatelessWidget {
                   phoneNumber: null,
                   profileImage: null,
                 );
-
+                context.read<UserCubit>().setPassword(passwordController.text);
                 context.read<UserCubit>().setUser(user);
                 GoRouter.of(context).pushReplacement(
                   AppRouter.kMainView,

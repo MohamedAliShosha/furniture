@@ -4,6 +4,7 @@ import 'package:furniture/features/blog/presentation/views/blog_details_view.dar
 import 'package:furniture/features/orders/presentation/views/orders_history_view.dart';
 import '../../features/about_us/presentation/views/about_us_view.dart';
 import '../../features/category/presentation/views/category_view.dart';
+import '../../features/change_password/presentation/views/change_password_view.dart';
 import '../../features/featured_products/presentation/views/featured_products_view.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/auth/forget_password/presentation/views/forget_password_view.dart';
@@ -31,6 +32,7 @@ import '../../features/notification/presentation/cubit/notification_cubit.dart';
 class AppRouter {
   static const kOnboardingView = '/onboardingView';
   static const kLoginView = '/loginView';
+  static const kChangePasswordView = '/changePasswordView';
   static const kAboutUsView = '/aboutUsView';
   static const kHelpCenterView = '/helpCenterView';
   static const kShippingAddressView = '/shippingAddressView';
@@ -59,6 +61,10 @@ class AppRouter {
       GoRoute(
         path: kOnboardingView,
         builder: (context, state) => const OnboardingView(),
+      ),
+      GoRoute(
+        path: kChangePasswordView,
+        builder: (context, state) => const ChangePasswordView(),
       ),
       GoRoute(
         path: kSettingsView,

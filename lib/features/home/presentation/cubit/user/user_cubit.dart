@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../core/utils/app_texts.dart';
 import '../../../data/models/user_model.dart';
 import '../../../services/user_service.dart';
 import 'user_state.dart';
@@ -42,6 +43,20 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
+  /// Save the account password used for validation checks.
+  Future<void> setPassword(String password) async {
+    try {
+      userService.setPassword(password);
+      emit(UserSuccess(
+        user: userService.user,
+        isLoggedIn: userService.isUserLoggedIn,
+        isGuest: userService.isGuest,
+      ));
+    } catch (e) {
+      emit(UserFailure(e.toString()));
+    }
+  }
+
   /// Update user profile information
   Future<void> updateUser({
     String? name,
@@ -60,6 +75,32 @@ class UserCubit extends Cubit<UserState> {
       emit(UserSuccess(
         user: updatedUser,
         isLoggedIn: updatedUser != null,
+      ));
+    } catch (e) {
+      emit(UserFailure(e.toString()));
+    }
+  }
+
+  /// Change the current user's password after validating the existing password.
+  Future<void> changePassword({
+    required String currentPassword,
+    required String newPassword,
+  }) async {
+    try {
+      final success = userService.changePassword(
+        currentPassword: currentPassword,
+        newPassword: newPassword,
+      );
+
+      if (!success) {
+        emit(const UserFailure(AppTexts.changePasswordFailure));
+        return;
+      }
+
+      emit(UserSuccess(
+        user: userService.user,
+        isLoggedIn: userService.isUserLoggedIn,
+        isGuest: userService.isGuest,
       ));
     } catch (e) {
       emit(UserFailure(e.toString()));
