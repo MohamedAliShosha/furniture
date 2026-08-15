@@ -213,7 +213,8 @@ class AppTexts {
   static const String howLongDoesDeliveryTake = 'How long does delivery takes?';
   static const String deliveryTypicalDuration =
       'Delivery typically takes 5-7 business days depending on your location and product availability.';
-  static const String doYouOfferAssemblyServices = 'Do you offer assembly services?';
+  static const String doYouOfferAssemblyServices =
+      'Do you offer assembly services?';
   static const String assemblyServicesAnswer =
       'Yes, assembly services are available for select furniture items and can be added during checkout or arranged through customer support.';
 
@@ -246,7 +247,8 @@ class AppTexts {
   static const String contact = 'Contact';
   static const String email = 'Email';
   static const String version = 'Version 1.0.0';
-  static const String copyright = '© 2024 Furniture Shop. All rights are reserved.';
+  static const String copyright =
+      '© 2024 Furniture Shop. All rights are reserved.';
   static const String privacyPolicy = 'Privacy Policy';
   static const String termsOfService = 'Terms of Service';
   static const String facebookUrl = 'https://facebook.com';
@@ -431,11 +433,35 @@ class AppTexts {
   static const String changeYourAccountPassword =
       'Change your account password';
   static const String preferencesSection = 'Preferences';
-  static const String receiveValidationSettings =
-      'Receive validation settings';
+  static const String receiveValidationSettings = 'Receive validation settings';
   static const String supportSection = 'Support';
   static const String getHelpAndFindAnswers = 'Get help and find answers';
   static const String readOurPrivacyPolicy = 'Read our privacy policy';
   static const String readOurTermsOfService = 'Read our terms of service';
   static const String dangerZone = 'Danger Zone';
+
+  // Change Password texts
+  static const String changePasswordTitle = 'Change Password';
+  static const String changePasswordButton = 'Change Password';
+  static const String passwordChangedSuccessfully =
+      'Password changed successfully';
+  static const String passwordSecurity = 'Password Security';
+  static const String chooseStrongPassword =
+      'Please choose a strong password that you haven\'t used before';
+  static const String currentPasswordLabel = 'Current Password';
+  static const String enterCurrentPassword =
+      'Please enter your current password';
+  static const String newPasswordLabel = 'New Password';
+  static const String enterNewPassword = 'Please enter a new password';
+  static const String passwordMinLengthChange =
+      'Password must be at least 6 characters long';
+  static const String newPasswordMustBeDifferent =
+      'New password must be different from current password';
+  static const String confirmNewPasswordLabel = 'Confirm New Password';
+  static const String confirmNewPasswordRequired =
+      'Please confirm your new password';
+  static const String passwordDoNotMatch = 'Password do not match';
+  static const String changePasswordFailure =
+      'Unable to change password. Please check your current password and try again.';
+  static const String passwordEnterHint = 'Enter your password';
 }
