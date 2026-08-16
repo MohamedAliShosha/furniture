@@ -1,4 +1,6 @@
 class UserModel {
+  static final DateTime defaultMemberSince = DateTime(2024, 1, 10);
+
   final String? id;
   final String? name;
   final String? email;
@@ -13,9 +15,9 @@ class UserModel {
     this.email,
     this.phoneNumber,
     this.profileImage,
-    this.memberSince,
+    DateTime? memberSince,
     this.isActive = true,
-  });
+  }) : memberSince = memberSince ?? defaultMemberSince;
 
   /// The copyWith method creates a new copy (new instance) of the UserModel object with the ability to selectively update specific fields while keeping others unchanged.
   UserModel copyWith({
@@ -33,7 +35,7 @@ class UserModel {
       email: email ?? this.email,
       phoneNumber: phoneNumber ?? this.phoneNumber,
       profileImage: profileImage ?? this.profileImage,
-      memberSince: memberSince ?? this.memberSince,
+      memberSince: memberSince ?? this.memberSince ?? defaultMemberSince,
       isActive: isActive ?? this.isActive,
     );
   }
@@ -47,8 +49,8 @@ class UserModel {
       profileImage: json['profileImage'] as String?,
       memberSince: json['memberSince'] != null
           ? DateTime.parse(json['memberSince'] as String)
-          : null,
-      isActive: json['isActive'] as bool,
+          : defaultMemberSince,
+      isActive: json['isActive'] as bool? ?? true,
     );
   }
 
@@ -59,7 +61,8 @@ class UserModel {
       'email': email,
       'phoneNumber': phoneNumber,
       'profileImage': profileImage,
-      'memberSince': memberSince?.toIso8601String(),
+      'memberSince': memberSince?.toIso8601String() ??
+          defaultMemberSince.toIso8601String(),
       'isActive': isActive,
     };
   }
