@@ -151,6 +151,20 @@ class AppTexts {
 
   // Profile
   static const String profileTitle = 'Profile';
+  static const String accountInformationTitle = 'Account Information';
+  static const String accountInfoEdit = 'Edit';
+  static const String accountInfoSave = 'Save';
+  static const String accountInfoUpdatedSuccessfully =
+      'Profile updated successfully';
+  static const String accountInfoPhoneHint = 'Enter your phone number';
+  static const String accountInfoPhoneLabel = 'Phone';
+  static const String accountInfoStatus = 'Account Status';
+  static const String accountInfoActive = 'Active';
+  static const String active = 'Active';
+  static const String edit = 'Edit';
+  static const String accountInfoInactive = 'Inactive';
+  static const String accountInfoMemberSince = 'Member Since';
+  static const String accountInfoNotAvailable = 'N/A';
   static const String shippingAddress = 'Shipping Address';
   static const String paymentMethods = 'Payment Methods';
   static const String manageYourPaymentOptions = 'Manage your payment options';
@@ -267,7 +281,6 @@ class AppTexts {
       'No featured products available';
 
   // Orders Status
-  static const String active = 'Active';
   static const String completed = 'Completed';
   static const String canceled = 'Canceled';
   static const String ordersKey = 'ordersKey';
@@ -294,7 +307,6 @@ class AppTexts {
   static const String addButton = 'Add';
   static const String saveButton = 'Save';
   static const String makeDefault = 'Make Default';
-  static const String edit = 'Edit';
   static const String delete = 'Delete';
   static const String deleteAddressTitle = 'Delete Address';
   static const String deleteAddressConfirmation =
