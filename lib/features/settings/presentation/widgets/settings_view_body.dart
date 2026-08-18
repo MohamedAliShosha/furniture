@@ -12,6 +12,7 @@ import '../../../home/presentation/cubit/user/user_cubit.dart';
 import '../../../home/presentation/cubit/user/user_state.dart';
 import '../../../notification/presentation/cubit/notification_cubit.dart';
 import '../../../notification/presentation/cubit/notification_state.dart';
+import '../../../profile/presentation/widgets/auth_bottom_sheet.dart';
 import '../../../profile/presentation/widgets/logout_dialog.dart';
 
 class SettingsViewBody extends StatelessWidget {
@@ -24,6 +25,28 @@ class SettingsViewBody extends StatelessWidget {
     } else {
       GoRouter.of(context).push(AppRouter.kLoginView);
     }
+  }
+
+  void _handleAuthRequiredSection(
+    BuildContext context, {
+    required String message,
+    required VoidCallback onAction,
+  }) {
+    final userState = context.read<UserCubit>().state;
+    final isLoggedIn = userState is UserSuccess && userState.isLoggedIn;
+
+    if (!isLoggedIn) {
+      AuthBottomSheet.show(
+        context,
+        message: message,
+        onContinueAsGuest: () {
+          context.read<UserCubit>().continueAsGuest();
+        },
+      );
+      return;
+    }
+    // Execute the provided action if user is logged in
+    onAction();
   }
 
   @override
@@ -41,8 +64,13 @@ class SettingsViewBody extends StatelessWidget {
                 title: AppTexts.accountInformation,
                 subTitle: user?.name ?? AppTexts.notSignedIn,
                 onTap: () {
-                  // navigate to account info screen
-                  GoRouter.of(context).push(AppRouter.kAccountInfoView);
+                  _handleAuthRequiredSection(
+                    context,
+                    message: AppTexts.signInToAccessAllFeatures,
+                    onAction: () {
+                      GoRouter.of(context).push(AppRouter.kAccountInfoView);
+                    },
+                  );
                 },
               );
             },
@@ -88,7 +116,14 @@ class SettingsViewBody extends StatelessWidget {
                       activeColor: AppColors.primary,
                     ),
                     onTap: () {
-                      // navigate to notification view
+                      _handleAuthRequiredSection(
+                        context,
+                        message: AppTexts.signInToAccessAllFeatures,
+                        onAction: () {
+                          // navigate to notification view
+                          GoRouter.of(context).push(AppRouter.kNotificationView);
+                        },
+                      );
                     },
                   );
                 },
@@ -101,7 +136,13 @@ class SettingsViewBody extends StatelessWidget {
             title: AppTexts.helpCenter,
             subTitle: AppTexts.getHelpAndFindAnswers,
             onTap: () {
-              GoRouter.of(context).push(AppRouter.kHelpCenterView);
+              _handleAuthRequiredSection(
+                context,
+                message: AppTexts.signInToAccessAllFeatures,
+                onAction: () {
+                  GoRouter.of(context).push(AppRouter.kHelpCenterView);
+                },
+              );
             },
           ),
           _buildSettingsItem(
@@ -109,7 +150,13 @@ class SettingsViewBody extends StatelessWidget {
             title: AppTexts.privacyPolicy,
             subTitle: AppTexts.readOurPrivacyPolicy,
             onTap: () {
-              // Navigate to privacy policy view
+              _handleAuthRequiredSection(
+                context,
+                message: AppTexts.signInToAccessAllFeatures,
+                onAction: () {
+                  GoRouter.of(context).push(AppRouter.kPrivacyPolicyView);
+                },
+              );
             },
           ),
           _buildSettingsItem(
@@ -117,7 +164,13 @@ class SettingsViewBody extends StatelessWidget {
             title: AppTexts.termsOfService,
             subTitle: AppTexts.readOurTermsOfService,
             onTap: () {
-              // Navigate to terms of service view
+              _handleAuthRequiredSection(
+                context,
+                message: AppTexts.signInToAccessAllFeatures,
+                onAction: () {
+                  GoRouter.of(context).push(AppRouter.kTermsOfServiceView);
+                },
+              );
             },
           ),
           BlocBuilder<UserCubit, UserState>(

@@ -271,6 +271,42 @@ class AppTexts {
   static const String emailUrl = 'mailto:support@furnitureshop.com';
   static const String dotSeparator = '.';
 
+  // Privacy Policy & Terms of Service texts
+  static const String yourPrivacyMatters = 'Your Privacy Matters';
+  static const String lastUpdated = 'Last updated: March 2024';
+  static const String informationWeCollect = 'Information We collect';
+  static const String informationWeCollectContent = 'We collect information you provide directly to us, such as when you create an account, make a purchase, or contact us. This includes your name, email address, phone number, and payment information.';
+  static const String howWeUseYourInformation = 'How We Use Your Information';
+  static const String howWeUseYourInformationContent = 'We use the information we collect to provide, maintain, and improve our services, process transactions, send you technical notices and support messages, and respond to your inquiries.';
+  static const String dataSecurity = 'Data Security';
+  static const String dataSecurityContent = 'We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.';
+  static const String yourRights = 'Your Rights';
+  static const String yourRightsContent = 'You have the right to access, correct, or delete your personal information. You may also opt-out of promotional communications at any time.';
+  static const String informationSharing = 'Information Sharing';
+  static const String informationSharingContent = 'We do not sell, trade, or rent your personal information to third parties. We may share your information with trusted service providers who assist us in operating our website and conducting our business, subject to confidentiality agreements.';
+  static const String contactUs = 'Contact Us';
+  static const String contactUsContent = 'If you have any questions about this Privacy Policy or our privacy practices, please contact us at:\n\nEmail: privacy@furniture.com\nPhone: +1 234 567 890\nAddress: 123 Furniture Street, Design city, DC 12345';
+  static const String acceptanceOfTerms = 'Acceptance of Terms';
+  static const String acceptanceOfTermsContent = 'By accessing and using this furniture e-commerce platform, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.';
+  static const String userAccount = 'User Account';
+  static const String userAccountContent = 'You are responsible for maintaining the confidentiality of your account information and password. You agree to accept responsibility for all activities that occur under your account. You must notify us immediately of any unauthorized use of your account.';
+  static const String ordersAndPayment = 'Orders and Payment';
+  static const String ordersAndPaymentContent = 'All orders are subject to acceptance and availability. We reserve the right to refuse or cancel any order. Payment must be received before order processing. We accept all major credit cards and digital payment methods.';
+  static const String shippingAndDelivery = 'Shipping and Delivery';
+  static const String shippingAndDeliveryContent = 'We strive to deliver your furniture within the estimated timeframe. Delivery times are estimates and not guaranteed. Shipping costs will be calculated and displayed before purchase completion.';
+  static const String returnsAndRefunds = 'Returns and Refunds';
+  static const String returnsAndRefundsContent = 'Items may be returned within 30 days of purchase in original condition. Refunds will be processed within 7-10 business days after receipt of returned items. Shipping costs for returns are the customer\'s responsibility unless the item is defective.';
+  static const String productInformation = 'Product Information';
+  static const String productInformationContent = 'We strive to provide accurate descriptions and images of all products. However, we do not guarantee that product descriptions, pricing, or availability are error-free. We reserve the right to correct any errors.';
+  static const String intellectualProperty = 'Intellectual Property';
+  static const String intellectualPropertyContent = 'All content on this platform, including text, graphics, logos, and images, are the property of our company or our content suppliers and are protected by international copyright laws.';
+  static const String limitationOfLiability = 'Limitation of Liability';
+  static const String limitationOfLiabilityContent = 'In no event shall our company be liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use the products or services on this platform.';
+  static const String changesToTerms = 'Changes to Terms';
+  static const String changesToTermsContent = 'We reserve the right to modify these terms and conditions at any time. Changes will be effective immediately upon posting to the website. Your continued use of the platform constitutes your acceptance of the modified terms.';
+  static const String contactInformation = 'Contact Information';
+  static const String contactInformationContent = 'For any questions about these Terms of Service, please contact us at:\n\nEmail: legal@furnitureshop.com\nPhone: +1 234 567 890\nAddress: 123 Furniture Street, Design city, DC 12345';
+
   // Featured Products
   static const String featuredProducts = 'Featured Products';
   static const String seeAll = 'See All';
