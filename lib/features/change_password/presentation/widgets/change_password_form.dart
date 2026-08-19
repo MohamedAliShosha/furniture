@@ -184,13 +184,13 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
                             AlwaysStoppedAnimation<Color>(AppColors.white),
                       ),
                     )
-                    : Text(
-                        AppTexts.changePasswordButton,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                        ),
+                  : const Text(
+                      AppTexts.changePasswordButton,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
                       ),
+                    ),
             ),
           )
         ],
