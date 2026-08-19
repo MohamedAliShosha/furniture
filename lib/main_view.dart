@@ -18,7 +18,6 @@ class MainView extends StatefulWidget {
 
 class _MainViewState extends State<MainView> {
   int currentViewIndex = 0;
-  final pageController = PageController(initialPage: 0);
   final List<Widget> views = [
     const HomeView(),
     const CartView(),
@@ -26,12 +25,6 @@ class _MainViewState extends State<MainView> {
     const BlogView(),
     const ProfileView(),
   ];
-
-  @override
-  void dispose() {
-    pageController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,16 +41,9 @@ class _MainViewState extends State<MainView> {
         systemNavigationBarColor: Colors.white,
       ),
       child: Scaffold(
-        body: PageView.builder(
-          onPageChanged: (index) {
-            setState(() {
-              currentViewIndex = index;
-            });
-          },
-          controller: pageController,
-          itemCount: views.length,
-          physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) => views[index],
+        body: IndexedStack(
+          index: currentViewIndex,
+          children: views,
         ),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
@@ -128,11 +114,6 @@ class _MainViewState extends State<MainView> {
       onTap: () {
         setState(() {
           currentViewIndex = index;
-          pageController.animateToPage(
-            index,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeInOut,
-          );
         });
       },
       child: Container(
