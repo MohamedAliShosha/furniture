@@ -15,6 +15,8 @@ import '../../features/help_center/presentation/views/help_center_view.dart';
 import '../../features/home/data/models/cart_item.dart';
 import '../../features/home/data/models/product_model.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
+import '../../features/privacy_policy/presentation/views/privacy_policy_view.dart';
+import '../../features/privacy_policy/presentation/views/terms_of_service.dart';
 import '../../features/product_details/presentation/views/product_details_view.dart';
 import '../../features/search/presentation/views/search_view.dart';
 import '../../features/settings/presentation/views/settings_view.dart';
@@ -33,6 +35,7 @@ import '../../features/notification/presentation/cubit/notification_cubit.dart';
 class AppRouter {
   static const kOnboardingView = '/onboardingView';
   static const kLoginView = '/loginView';
+  static const kTermsOfServiceView = '/termsOfServiceView';
   static const kAccountInfoView = '/accountInfoView';
   static const kChangePasswordView = '/changePasswordView';
   static const kAboutUsView = '/aboutUsView';
@@ -53,6 +56,7 @@ class AppRouter {
   static const kNotificationView = '/notificationView';
   static const kCheckoutView = '/checkoutView';
   static const kSettingsView = '/settingsView';
+  static const kPrivacyPolicyView = '/privacyPolicyView';
 
   static GoRouter router = GoRouter(
     routes: [
@@ -63,6 +67,14 @@ class AppRouter {
       GoRoute(
         path: kOnboardingView,
         builder: (context, state) => const OnboardingView(),
+      ),
+      GoRoute(
+        path: kPrivacyPolicyView,
+        builder: (context, state) => const PrivacyPolicyView(),
+      ),
+      GoRoute(
+        path: kTermsOfServiceView,
+        builder: (context, state) => const TermsOfServiceView(),
       ),
       GoRoute(
         path: kAccountInfoView,
