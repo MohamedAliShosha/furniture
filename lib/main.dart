@@ -1,6 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:furniture/firebase_options.dart';
 import 'core/utils/app_bloc_observer.dart';
 import 'core/utils/theme.dart';
 import 'core/utils/app_router.dart';
@@ -12,8 +14,11 @@ import 'features/wishlist/presentation/cubit/wishlist_cubit.dart';
 import 'features/home/presentation/cubit/user/user_cubit.dart';
 import 'features/notification/presentation/cubit/notification_cubit.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
