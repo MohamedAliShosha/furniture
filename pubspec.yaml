@@ -2,15 +2,18 @@ name: furniture
 description: "A new Flutter project."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-
 version: 1.0.0+1
 
 environment:
   sdk: ^3.5.3
 
-
 dependencies:
   cupertino_icons: ^1.0.8
+  dartz: ^0.10.1
+  equatable: ^2.0.5
+  firebase_auth: null
+  firebase_core: ^4.7.0
+  cloud_firestore:
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
@@ -18,14 +21,11 @@ dependencies:
   get_it: ^9.2.1
   go_router: null
   google_fonts: null
-  equatable: ^2.0.5
-  shared_preferences: null
-  uuid: 
-  intl:
-  timeago: ^3.7.1 
-  firebase_core: ^4.7.0
-  firebase_auth: 
   google_sign_in: ^6.2.2
+  intl: null
+  shared_preferences: null
+  timeago: ^3.7.1
+  uuid: null
 
 dev_dependencies:
   flutter_launcher_icons: ^0.11.0
@@ -33,12 +33,10 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
 flutter:
 
-  
   uses-material-design: true
-  
+
   assets:
     - assets/images/beds/
     - assets/images/chairs/
@@ -49,7 +47,6 @@ flutter:
     - assets/images/
     - assets/images/blogs/
     - assets/icons/
-  
   # fonts:
   #   - family: Schyler
   #     fonts:
@@ -66,6 +63,5 @@ flutter_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/icons/furnitureLogo.png"
-  remove_alpha_ios: true  # Add this line
+  remove_alpha_ios: true # Add this line
   min_sdk_android: 21 # android min sdk min:16, default 21
-
