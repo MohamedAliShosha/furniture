@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture/core/utils/app_texts.dart';
 import 'package:furniture/features/home/data/models/user_model.dart';
 import 'package:furniture/features/home/presentation/cubit/user/user_cubit.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/constants.dart';
-import '../../../../core/utils/service_locator.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../widgets/account_info_body.dart';
 
@@ -25,7 +25,7 @@ class _AccountInfoViewState extends State<AccountInfoView> {
   @override
   void initState() {
     super.initState();
-    final userCubit = getIt<UserCubit>();
+    final userCubit = context.read<UserCubit>();
     final currentUser = userCubit.getCurrentUser();
 
     if (currentUser == null) {
@@ -64,7 +64,7 @@ class _AccountInfoViewState extends State<AccountInfoView> {
     if (_formKey.currentState?.validate() ?? false) {
       _formKey.currentState?.save();
 
-      final userCubit = getIt<UserCubit>();
+      final userCubit = context.read<UserCubit>();
       userCubit.updateUser(
         name: _nameController.text,
         email: _emailController.text,
