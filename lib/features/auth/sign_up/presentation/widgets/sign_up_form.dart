@@ -3,19 +3,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_icons.dart';
 import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/app_texts.dart';
-import '../../../../home/data/models/user_model.dart';
-import '../../../../home/presentation/cubit/user/user_cubit.dart';
 import '../../../auth_shared_widgets/auth_button.dart';
 import '../../../auth_shared_widgets/auth_divider.dart';
 import '../../../auth_shared_widgets/auth_text_field.dart';
 import '../../../auth_shared_widgets/social_auth_button.dart';
+import '../../../login/presentation/cubit/sign_in_cubit.dart';
 import '../../../login/presentation/widgets/guest_button.dart';
+import '../cubit/sign_up_cubit.dart';
 import 'already_have_account.dart';
 
-class SignUpForm extends StatelessWidget {
+class SignUpForm extends StatefulWidget {
   const SignUpForm({
     super.key,
     required GlobalKey<FormState> formKey,
@@ -32,18 +33,26 @@ class SignUpForm extends StatelessWidget {
   final TextEditingController confirmPasswordController;
 
   @override
+  State<SignUpForm> createState() => _SignUpFormState();
+}
+
+class _SignUpFormState extends State<SignUpForm> {
+  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
+
+  @override
   Widget build(BuildContext context) {
     return Form(
-      key: _formKey,
+      key: widget._formKey,
+      autovalidateMode: autoValidateMode,
       child: Column(
         children: [
           AuthTextField(
-            controller: nameController,
+            controller: widget.nameController,
             label: AppTexts.fullNameLabel,
             hintText: AppTexts.fullNameHint,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return AppTexts.confirmPasswordRequired;
+                return AppTexts.nameRequired;
               }
               return null;
             },
@@ -51,7 +60,7 @@ class SignUpForm extends StatelessWidget {
           const Gap(20),
           AuthTextField(
             keyboardType: TextInputType.emailAddress,
-            controller: emailController,
+            controller: widget.emailController,
             label: AppTexts.emailLabel,
             hintText: AppTexts.emailHint,
             validator: (value) {
@@ -67,7 +76,7 @@ class SignUpForm extends StatelessWidget {
           const Gap(20),
           AuthTextField(
             keyboardType: TextInputType.visiblePassword,
-            controller: passwordController,
+            controller: widget.passwordController,
             label: AppTexts.passwordLabel,
             isPassword: true,
             hintText: AppTexts.passwordHint,
@@ -84,7 +93,7 @@ class SignUpForm extends StatelessWidget {
           const Gap(20),
           AuthTextField(
             keyboardType: TextInputType.visiblePassword,
-            controller: confirmPasswordController,
+            controller: widget.confirmPasswordController,
             label: AppTexts.confirmPasswordLabel,
             hintText: AppTexts.confirmPasswordHint,
             isPassword: true,
@@ -92,29 +101,65 @@ class SignUpForm extends StatelessWidget {
               if (value == null || value.isEmpty) {
                 return AppTexts.passwordRequired;
               }
-              if (value != passwordController.text) {
+              if (value != widget.passwordController.text) {
                 return AppTexts.passwordsDoNotMatch;
               }
               return null;
             },
           ),
           const Gap(32),
-          AuthButton(
-            title: AppTexts.signUpButtonTitle,
-            onPressed: () {
-              if (_formKey.currentState?.validate() ?? false) {
-                final user = UserModel(
-                  name: nameController.text.trim(),
-                  email: emailController.text.trim(),
-                  phoneNumber: null,
-                  profileImage: null,
+          BlocConsumer<SignUpCubit, SignUpState>(
+            listener: (context, state) {
+              if (state is SignUpSuccess) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    backgroundColor: AppColors.primary,
+                    content: Center(
+                      child: Text(
+                        'Sign Up Successfully',
+                        style: TextStyle(
+                          color: AppColors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
                 );
-                context.read<UserCubit>().setPassword(passwordController.text);
-                context.read<UserCubit>().setUser(user);
-                GoRouter.of(context).pushReplacement(
-                  AppRouter.kMainView,
+                GoRouter.of(context).pushReplacement(AppRouter.kMainView);
+              }
+              if (state is SignUpFailure) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    backgroundColor: AppColors.red,
+                    content: Center(
+                      child: Text(
+                        state.errorMessage,
+                        style: const TextStyle(
+                          color: AppColors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
                 );
               }
+            },
+            builder: (context, state) {
+              return AuthButton(
+                isLoading: state is SignUpLoading,
+                title: AppTexts.signUpButtonTitle,
+                onPressed: () {
+                  if (widget._formKey.currentState?.validate() ?? false) {
+                    context.read<SignUpCubit>().createUserWithEmailAndPassword(
+                          name: widget.nameController.text.trim(),
+                          email: widget.emailController.text.trim(),
+                          password: widget.passwordController.text,
+                        );
+                  } else {
+                    setState(() => autoValidateMode = AutovalidateMode.always);
+                  }
+                },
+              );
             },
           ),
           const Gap(16),
@@ -129,15 +174,9 @@ class SignUpForm extends StatelessWidget {
                 child: SocialAuthButton(
                   title: AppTexts.googleButtonTitle,
                   icon: AppIcons.googleIcon,
-                  onPressed: () {},
-                ),
-              ),
-              const Gap(16),
-              Expanded(
-                child: SocialAuthButton(
-                  title: AppTexts.facebookButtonTitle,
-                  icon: AppIcons.facebookIcon,
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<SignInCubit>().signInWithGoogle();
+                  },
                 ),
               ),
             ],
