@@ -3,6 +3,8 @@ import '../../../../core/utils/app_router.dart';
 import '../../../../core/utils/prefs_key.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../features/home/presentation/cubit/user/user_cubit.dart';
 
 import '../widgets/splash_view_body.dart';
 
@@ -60,21 +62,20 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
 
   Future<void> executeNavigation() {
     return Future.delayed(const Duration(milliseconds: 2500), () async {
-      // Creating an instance of SharedPreferences
+      final userCubit = context.read<UserCubit>();
       final prefs = await SharedPreferences.getInstance();
       final bool hasSeenOnboarding =
           prefs.getBool(PrefsKeys.hasSeenOnboarding) ?? false;
-      // Purpose: Determine initial route based on onboarding status at app launch
-      if (mounted) {
-        /*
-        If true → LoginView (returning user)
-        If false → OnboardingView (first-time user)
-       */
-        if (hasSeenOnboarding) {
-          GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
-        } else {
-          GoRouter.of(context).pushReplacement(AppRouter.kOnboardingView);
-        }
+      final bool isLoggedIn = await userCubit.initializeUser();
+
+      if (!mounted) return;
+
+      if (!hasSeenOnboarding) {
+        GoRouter.of(context).pushReplacement(AppRouter.kOnboardingView);
+      } else if (isLoggedIn) {
+        GoRouter.of(context).pushReplacement(AppRouter.kMainView);
+      } else {
+        GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
       }
     });
   }
