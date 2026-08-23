@@ -144,14 +144,18 @@ class AppRouter {
       GoRoute(
         path: kLoginView,
         builder: (context, state) => BlocProvider(
-          create: (context) => SignInCubit(getIt<AuthRepo>()),
+          create: (context) => SignInCubit(
+            getIt<AuthRepo>(),
+          ),
           child: const LoginView(),
         ),
       ),
       GoRoute(
         path: kSignUpView,
         builder: (context, state) => BlocProvider(
-          create: (context) => SignUpCubit(getIt<AuthRepo>()),
+          create: (context) => SignUpCubit(
+            getIt<AuthRepo>(),
+          ),
           child: const SignUpView(),
         ),
       ),
