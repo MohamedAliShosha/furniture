@@ -7,6 +7,7 @@ import 'core/utils/app_bloc_observer.dart';
 import 'core/utils/theme.dart';
 import 'core/utils/app_router.dart';
 import 'core/utils/service_locator.dart';
+import 'core/utils/shared_pref_service.dart';
 import 'features/blog/presentation/cubit/blog_cubit.dart';
 import 'features/cart/presentation/cubit/cart_cubit.dart';
 import 'features/special_offer/presentation/cubit/special_offer_cubit.dart';
@@ -19,6 +20,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await Prefs.init();
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
