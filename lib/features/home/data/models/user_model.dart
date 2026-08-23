@@ -1,3 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
+import '../../../auth/data/domain/entities/user_entity.dart';
+
 class UserModel {
   static final DateTime defaultMemberSince = DateTime(2024, 1, 10);
 
@@ -65,5 +69,21 @@ class UserModel {
           defaultMemberSince.toIso8601String(),
       'isActive': isActive,
     };
+  }
+
+  // This factory constructor takes an parameter called user of type "firebase User" then convert it to "UserModel"
+  factory UserModel.fromFirebaseUser(User user) {
+    return UserModel(
+      name: user.displayName ?? "",
+      email: user.email ?? "",
+      id: user.uid,
+    );
+  }
+  factory UserModel.fromEntity(UserEntity user) {
+    return UserModel(
+      name: user.name,
+      email: user.email,
+      id: user.uId,
+    );
   }
 }
