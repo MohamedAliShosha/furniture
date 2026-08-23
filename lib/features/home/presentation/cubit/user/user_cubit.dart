@@ -1,31 +1,51 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/app_texts.dart';
+import '../../../../../core/utils/constants.dart';
+import '../../../../../core/utils/shared_pref_service.dart';
+import '../../../../auth/data/repos/auth_repo.dart';
+import '../../../../auth/services/firebase_auth_service.dart';
 import '../../../data/models/user_model.dart';
 import '../../../services/user_service.dart';
 import 'user_state.dart';
 
 class UserCubit extends Cubit<UserState> {
   final UserService userService;
+  final AuthRepo authRepo;
+  final FirebaseAuthService firebaseAuthService;
 
-  UserCubit(this.userService) : super(UserInitial());
+  UserCubit(
+    this.userService,
+    this.authRepo,
+    this.firebaseAuthService,
+  ) : super(UserInitial());
 
   /// Initialize user state - check if user is logged in
-  Future<void> initializeUser() async {
+  Future<bool> initializeUser() async {
     emit(UserLoading());
     try {
-      final user = userService.user;
+      final firebaseUser = firebaseAuthService.getCurrentUser();
+      UserModel? user = userService.user;
+
+      if (firebaseUser != null) {
+        final userEntity = await authRepo.getUserData(userId: firebaseUser.uid);
+        user = UserModel.fromEntity(userEntity);
+        userService.setUser(user);
+      }
+
       final isLoggedIn = userService.isUserLoggedIn || user != null;
       emit(UserSuccess(
         user: user,
         isLoggedIn: isLoggedIn,
         isGuest: userService.isGuest,
       ));
+      return isLoggedIn;
     } catch (e) {
       emit(
         UserFailure(
           e.toString(),
         ),
       );
+      return false;
     }
   }
 
@@ -110,6 +130,8 @@ class UserCubit extends Cubit<UserState> {
   /// Clear user data on logout
   Future<void> logout() async {
     try {
+      await firebaseAuthService.signOut();
+      await Prefs.remove(AppConstants.kUserData);
       userService.clearUser();
       emit(const UserSuccess(
         user: null,
@@ -127,6 +149,8 @@ class UserCubit extends Cubit<UserState> {
 
   Future<void> continueAsGuest() async {
     try {
+      await firebaseAuthService.signOut();
+      await Prefs.remove(AppConstants.kUserData);
       userService.continueAsGuest();
       emit(const UserSuccess(
         user: null,
@@ -146,5 +170,31 @@ class UserCubit extends Cubit<UserState> {
   /// Check if user is logged in
   bool isUserLoggedIn() {
     return userService.isUserLoggedIn;
+  }
+
+  Future<void> refreshUser() async {
+    try {
+      emit(UserLoading());
+      final firebaseUser = firebaseAuthService.getCurrentUser();
+
+      if (firebaseUser != null) {
+        final userEntity = await authRepo.getUserData(userId: firebaseUser.uid);
+        final user = UserModel.fromEntity(userEntity);
+        userService.setUser(user);
+        emit(UserSuccess(
+          user: user,
+          isLoggedIn: true,
+          isGuest: false,
+        ));
+      } else {
+        emit(const UserSuccess(
+          user: null,
+          isLoggedIn: false,
+          isGuest: false,
+        ));
+      }
+    } catch (e) {
+      emit(UserFailure(e.toString()));
+    }
   }
 }
