@@ -1,9 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:furniture/features/auth/data/repos/auth_repo.dart';
 import 'package:furniture/features/blog/data/models/blog_model.dart';
 import 'package:furniture/features/blog/presentation/views/blog_details_view.dart';
 import 'package:furniture/features/orders/presentation/views/orders_history_view.dart';
 import '../../features/about_us/presentation/views/about_us_view.dart';
 import '../../features/account_information/presentation/views/account_info_view.dart';
+import '../../features/auth/login/presentation/cubit/sign_in_cubit.dart';
+import '../../features/auth/sign_up/presentation/cubit/sign_up_cubit.dart';
 import '../../features/category/presentation/views/category_view.dart';
 import '../../features/change_password/presentation/views/change_password_view.dart';
 import '../../features/featured_products/presentation/views/featured_products_view.dart';
@@ -140,11 +143,17 @@ class AppRouter {
       ),
       GoRoute(
         path: kLoginView,
-        builder: (context, state) => const LoginView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => SignInCubit(getIt<AuthRepo>()),
+          child: const LoginView(),
+        ),
       ),
       GoRoute(
         path: kSignUpView,
-        builder: (context, state) => const SignUpView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => SignUpCubit(getIt<AuthRepo>()),
+          child: const SignUpView(),
+        ),
       ),
       GoRoute(
         path: kForgetPasswordView,
