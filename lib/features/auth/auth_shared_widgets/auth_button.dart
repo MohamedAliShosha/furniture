@@ -7,11 +7,12 @@ class AuthButton extends StatelessWidget {
     super.key,
     required this.title,
     required this.onPressed,
+    this.isLoading = false,
   });
 
   final String title;
   final VoidCallback onPressed;
-  final bool isLoading = false;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
