@@ -12,7 +12,20 @@
           "package_name": "com.example.furniture"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "853976651603-406b1a14pake8raftkcilj0u8n7iom7a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.furniture",
+            "certificate_hash": "96cff03def652a85099b043127edc443ce2c1674"
+          }
+        },
+        {
+          "client_id": "853976651603-d6g7290u8i0vp10e5dg58vog11seeqot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyADpt9Z6EILlInqKbJzLXa4yAU9j7kBbrQ"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "853976651603-d6g7290u8i0vp10e5dg58vog11seeqot.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "853976651603-v5n5fjkea0uh08j43k5955vhj5c42jha.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.furniture"
+              }
+            }
+          ]
         }
       }
     }
