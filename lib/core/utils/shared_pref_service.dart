@@ -22,4 +22,8 @@ class Prefs {
   static getBool(String key) {
     return _instance.getBool(key) ?? false;
   }
+
+  static Future<void> remove(String key) async {
+    await _instance.remove(key);
+  }
 }
