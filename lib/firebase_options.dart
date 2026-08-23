@@ -63,6 +63,9 @@ class DefaultFirebaseOptions {
     messagingSenderId: '853976651603',
     projectId: 'furniture-459cd',
     storageBucket: 'furniture-459cd.firebasestorage.app',
+    androidClientId: '853976651603-406b1a14pake8raftkcilj0u8n7iom7a.apps.googleusercontent.com',
+    iosClientId: '853976651603-v5n5fjkea0uh08j43k5955vhj5c42jha.apps.googleusercontent.com',
     iosBundleId: 'com.example.furniture',
   );
+
 }
