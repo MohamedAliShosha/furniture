@@ -121,7 +121,8 @@ class SettingsViewBody extends StatelessWidget {
                         message: AppTexts.signInToAccessAllFeatures,
                         onAction: () {
                           // navigate to notification view
-                          GoRouter.of(context).push(AppRouter.kNotificationView);
+                          GoRouter.of(context)
+                              .push(AppRouter.kNotificationView);
                         },
                       );
                     },
