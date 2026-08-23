@@ -1,4 +1,9 @@
 import 'package:get_it/get_it.dart';
+import '../../features/auth/data/repos/auth_repo.dart';
+import '../../features/auth/data/repos/auth_repo_implement.dart';
+import '../../features/auth/services/firebase_auth_service.dart';
+import '../../features/auth/services/database_service.dart';
+import '../../features/auth/services/firestore_service.dart';
 import '../../features/blog/presentation/cubit/blog_cubit.dart';
 import '../../features/blog/services/blog_service.dart';
 import '../../features/cart/presentation/cubit/cart_cubit.dart';
@@ -113,6 +118,8 @@ void setupServiceLocator() {
   getIt.registerFactory<UserCubit>(
     () => UserCubit(
       getIt<UserService>(),
+      getIt<AuthRepo>(),
+      getIt<FirebaseAuthService>(),
     ),
   );
 
@@ -176,6 +183,19 @@ void setupServiceLocator() {
   getIt.registerFactory<OrdersCubit>(
     () => OrdersCubit(
       getIt<OrdersService>(),
+    ),
+  );
+
+  getIt.registerLazySingleton<FirebaseAuthService>(
+    () => FirebaseAuthService(),
+  );
+  getIt.registerLazySingleton<DatabaseService>(
+    () => FireStoreService(),
+  );
+  getIt.registerLazySingleton<AuthRepo>(
+    () => AuthRepoImplement(
+      getIt<FirebaseAuthService>(),
+      getIt<DatabaseService>(),
     ),
   );
 }
