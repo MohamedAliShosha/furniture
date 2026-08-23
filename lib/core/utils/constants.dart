@@ -41,4 +41,7 @@ class AppConstants {
 
   // Animation Duration
   static const Duration defaultDuration = Duration(milliseconds: 300);
+
+  // User data key
+  static const kUserData = 'userData';
 }
