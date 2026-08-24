@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
 
@@ -12,19 +11,22 @@ class AppConstants {
   static const Color greyColor = AppColors.softGrey;
 
   // Text Styles
-  static TextStyle get headingStyle => GoogleFonts.poppins(
+  static TextStyle get headingStyle => const TextStyle(
+        fontFamily: 'Poppins',
         fontSize: 24,
         fontWeight: FontWeight.bold,
         color: textColor,
       );
 
-  static TextStyle get titleStyle => GoogleFonts.poppins(
+  static TextStyle get titleStyle => const TextStyle(
+        fontFamily: 'Poppins',
         fontSize: 18,
         fontWeight: FontWeight.w600,
         color: textColor,
       );
 
-  static TextStyle get bodyStyle => GoogleFonts.poppins(
+  static TextStyle get bodyStyle => const TextStyle(
+        fontFamily: 'Poppins',
         fontSize: 16,
         color: textColor,
       );
