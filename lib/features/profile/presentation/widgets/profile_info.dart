@@ -6,6 +6,8 @@ import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../cart/presentation/cubit/cart_cubit.dart';
 import '../../../cart/presentation/cubit/cart_state.dart';
+import '../../../orders/presentation/cubit/orders_cubit.dart';
+import '../../../orders/presentation/cubit/orders_state.dart';
 import '../../../wishlist/presentation/cubit/wishlist_cubit.dart';
 import '../../../wishlist/presentation/cubit/wishlist_state.dart';
 import 'user_info_bloc_builder.dart';
@@ -32,7 +34,6 @@ class ProfileInfo extends StatelessWidget {
                 right: 0,
                 child: GestureDetector(
                   onTap: () {
-                    // Navigate to edit profile page
                   },
                   child: Container(
                     padding: const EdgeInsets.all(8),
@@ -57,32 +58,38 @@ class ProfileInfo extends StatelessWidget {
             builder: (context, cartState) {
               return BlocBuilder<WishlistCubit, WishlistState>(
                 builder: (context, wishlistState) {
-                  final cartCount = cartState is CartSuccess
-                      ? cartState.cartItems.length
-                      : context.read<CartCubit>().getCartItems().length;
+                  return BlocBuilder<OrdersCubit, OrdersState>(
+                    builder: (context, ordersState) {
+                      final cartCount = cartState is CartSuccess
+                          ? cartState.cartItems.length
+                          : context.read<CartCubit>().getCartItems().length;
 
-                  final wishlistCount = wishlistState is WishlistSuccess
-                      ? wishlistState.wishListedItems.length
-                      : context.read<WishlistCubit>().wishlistCount;
+                      final wishlistCount = wishlistState is WishlistSuccess
+                          ? wishlistState.wishListedItems.length
+                          : context.read<WishlistCubit>().wishlistCount;
 
-                  const ordersCount = 2;
+                      final ordersCount = ordersState is OrderSuccess
+                          ? ordersState.orders.where((order) => order.isCompleted).length
+                          : 0;
 
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      _buildStateItem(
-                        AppTexts.ordersLabel,
-                        ordersCount.toString(),
-                      ),
-                      _buildStateItem(
-                        AppTexts.cartLabel,
-                        cartCount.toString(),
-                      ),
-                      _buildStateItem(
-                        AppTexts.wishlistLabel,
-                        wishlistCount.toString(),
-                      ),
-                    ],
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          _buildStateItem(
+                            AppTexts.ordersLabel,
+                            ordersCount.toString(),
+                          ),
+                          _buildStateItem(
+                            AppTexts.cartLabel,
+                            cartCount.toString(),
+                          ),
+                          _buildStateItem(
+                            AppTexts.wishlistLabel,
+                            wishlistCount.toString(),
+                          ),
+                        ],
+                      );
+                    },
                   );
                 },
               );
