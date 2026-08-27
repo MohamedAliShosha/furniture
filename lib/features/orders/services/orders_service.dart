@@ -1,56 +1,182 @@
 import 'dart:convert';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:furniture/core/utils/app_images.dart';
+import 'package:furniture/features/auth/services/database_service.dart';
 import 'package:furniture/features/home/data/models/product_model.dart';
 import 'package:furniture/features/orders/data/models/shipping_address_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
-
 import '../../../core/utils/app_texts.dart';
 import '../data/enums/order_status_enum.dart';
 import '../data/models/order_item_model.dart';
 import '../data/models/order_model.dart';
 
 class OrdersService {
-  ///  Stores the orders placed by the user
   List<OrderModel> _orders = [];
   final String _ordersKey = AppTexts.ordersKey;
   final _uuid = const Uuid();
+  final DatabaseService _databaseService;
 
-  ///  Returns all orders
+  OrdersService(this._databaseService);
+
+  String? get _userId => FirebaseAuth.instance.currentUser?.uid;
+
   List<OrderModel> getOrders() => _orders;
 
-  ///  Returns only active orders
   List<OrderModel> get activeOrders =>
       _orders.where((order) => order.isActive).toList();
 
-  // Returns only completed orders
   List<OrderModel> get completedOrders =>
       _orders.where((order) => order.isCompleted).toList();
 
-  // Returns only cancelled orders
   List<OrderModel> get cancelledOrders =>
       _orders.where((order) => order.isCancelled).toList();
 
-  /// Loads persisted orders from local storage — call this once at startup
-  /// (e.g. from your Cubit's constructor) since there's no init hook here
   Future<void> loadOrders() async {
-    // get an instance of SharedPreferences
+    if (_userId != null) {
+      try {
+        final ordersData = await _databaseService.getData(
+          path: 'users/$_userId/orders',
+          query: {
+            'orderBy': 'orderDate',
+            'descending': true,
+          },
+        );
+
+        if (ordersData is List) {
+          _orders = ordersData
+              .map<OrderModel>((data) => OrderModel.fromJson(data))
+              .toList();
+          await _saveOrders();
+          return;
+        }
+      } catch (e) {
+        debugPrint('Error loading orders from Firestore: $e');
+      }
+    }
+
     final prefs = await SharedPreferences.getInstance();
-    // retrieve stored orders
     final storedOrders = prefs.getString(_ordersKey);
 
     if (storedOrders != null) {
-      // if there are stored orders => decode and load them
-      // Decoding means converting the JSON string back into a list of order objects
       final List<dynamic> decodedOrders = jsonDecode(storedOrders);
-      // After decoding, convert to OrderModel objects using map then grouping them as a list
       _orders = decodedOrders
           .map<OrderModel>((order) => OrderModel.fromJson(order))
           .toList();
     } else {
-      // add sample orders if no stored orders exists
       await _addSampleOrders();
     }
+  }
+
+  Future<void> loadActiveOrders() async {
+    if (_userId != null) {
+      try {
+        final ordersData = await _databaseService.getData(
+          path: 'users/$_userId/orders',
+          query: {
+            'orderBy': 'orderDate',
+            'descending': true,
+          },
+          where: {
+            'field': 'status',
+            'whereIn': [
+              OrderStatusEnum.confirmed.toString(),
+              OrderStatusEnum.processing.toString(),
+              OrderStatusEnum.shipped.toString(),
+              OrderStatusEnum.outForDelivery.toString(),
+            ],
+          },
+        );
+
+        if (ordersData is List) {
+          final activeOrders = ordersData
+              .map<OrderModel>((data) => OrderModel.fromJson(data))
+              .toList();
+          for (final order in activeOrders) {
+            if (!_orders.any((o) => o.id == order.id)) {
+              _orders.add(order);
+            }
+          }
+          await _saveOrders();
+          return;
+        }
+      } catch (e) {
+        debugPrint('Error loading active orders from Firestore: $e');
+      }
+    }
+
+    _orders = _orders.where((order) => order.isActive).toList();
+  }
+
+  Future<void> loadCompletedOrders() async {
+    if (_userId != null) {
+      try {
+        final ordersData = await _databaseService.getData(
+          path: 'users/$_userId/orders',
+          query: {
+            'orderBy': 'orderDate',
+            'descending': true,
+          },
+          where: {
+            'field': 'status',
+            'isEqualTo': OrderStatusEnum.delivered.toString(),
+          },
+        );
+
+        if (ordersData is List) {
+          final completedOrders = ordersData
+              .map<OrderModel>((data) => OrderModel.fromJson(data))
+              .toList();
+          for (final order in completedOrders) {
+            if (!_orders.any((o) => o.id == order.id)) {
+              _orders.add(order);
+            }
+          }
+          await _saveOrders();
+          return;
+        }
+      } catch (e) {
+        debugPrint('Error loading completed orders from Firestore: $e');
+      }
+    }
+
+    _orders = _orders.where((order) => order.isCompleted).toList();
+  }
+
+  Future<void> loadCancelledOrders() async {
+    if (_userId != null) {
+      try {
+        final ordersData = await _databaseService.getData(
+          path: 'users/$_userId/orders',
+          query: {
+            'orderBy': 'orderDate',
+            'descending': true,
+          },
+          where: {
+            'field': 'status',
+            'isEqualTo': OrderStatusEnum.cancelled.toString(),
+          },
+        );
+
+        if (ordersData is List) {
+          final cancelledOrders = ordersData
+              .map<OrderModel>((data) => OrderModel.fromJson(data))
+              .toList();
+          for (final order in cancelledOrders) {
+            if (!_orders.any((o) => o.id == order.id)) {
+              _orders.add(order);
+            }
+          }
+          await _saveOrders();
+          return;
+        }
+      } catch (e) {
+        debugPrint('Error loading cancelled orders from Firestore: $e');
+      }
+    }
+
+    _orders = _orders.where((order) => order.isCancelled).toList();
   }
 
   /// adds sample orders to local storage
@@ -163,9 +289,7 @@ class OrdersService {
     await prefs.setString(_ordersKey, encodedOrders);
   }
 
-  /// Adds a new order to the list and persists it
   Future<void> addOrder(OrderModel order) async {
-    // Here I used the copy of the orderModel to create a new instance with updated fields
     final newOrder = order.orderModelCopy(
       id: _uuid.v4(),
       orderDate: DateTime.now(),
@@ -175,39 +299,86 @@ class OrdersService {
       ),
     );
     _orders.add(newOrder);
+
+    if (_userId != null) {
+      try {
+        await _databaseService.addData(
+          path: 'users/$_userId/orders',
+          data: {
+            'orderId': newOrder.id,
+            ...newOrder.orderModelToJson(),
+          },
+          documentId: newOrder.id,
+        );
+      } catch (e) {
+        debugPrint('Error saving order to Firestore: $e');
+        rethrow;
+      }
+    } else {
+      debugPrint('User is not logged in. Order saved locally only.');
+    }
+
     await _saveOrders();
   }
 
-  // Clears all orders
   Future<void> clearOrders() async {
     _orders.clear();
+
+    if (_userId != null) {
+      try {
+        final ordersData = await _databaseService.getData(
+          path: 'users/$_userId/orders',
+        );
+
+        if (ordersData is List) {
+          for (var orderData in ordersData) {
+            final orderId = orderData['id'] as String;
+            await _databaseService.deleteData(
+              path: 'users/$_userId/orders',
+              documentId: orderId,
+            );
+          }
+        }
+      } catch (e) {
+        debugPrint('Error clearing orders from Firestore: $e');
+      }
+    }
+
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove(_ordersKey);
   }
 
-  // Marks an order as completed
-  Future<void> completeOrder(String orderId) =>
-      _updateOrderStatus(orderId, OrderStatusEnum.delivered);
+  Future<void> completeOrder(String orderId) async =>
+      await _updateOrderStatus(orderId, OrderStatusEnum.delivered);
 
-  // Marks an order as cancelled
-  Future<void> cancelOrder(String orderId) =>
-      _updateOrderStatus(orderId, OrderStatusEnum.cancelled);
+  Future<void> cancelOrder(String orderId) async =>
+      await _updateOrderStatus(orderId, OrderStatusEnum.cancelled);
 
-  /// Updates the status of an order
   Future<void> _updateOrderStatus(
       String orderId, OrderStatusEnum newStatus) async {
-    // Getting the index of the order that will be updated
     final index = _orders.indexWhere((order) => order.id == orderId);
-    // Check if order exists => -1 means that the order was not found
     if (index != -1) {
-      // Update the order status
       _orders[index] = _orders[index].orderModelCopy(status: newStatus);
 
-      // add tracking number if shipped
       if (newStatus == OrderStatusEnum.shipped) {
         _orders[index] = _orders[index].orderModelCopy(
           trackingNumber: 'TRK${DateTime.now().millisecondsSinceEpoch}',
         );
+      }
+
+      if (_userId != null) {
+        try {
+          await _databaseService.updateData(
+            path: 'users/$_userId/orders',
+            documentId: orderId,
+            data: {
+              'orderId': _orders[index].id,
+              ..._orders[index].orderModelToJson(),
+            },
+          );
+        } catch (e) {
+          debugPrint('Error updating order in Firestore: $e');
+        }
       }
 
       await _saveOrders();
