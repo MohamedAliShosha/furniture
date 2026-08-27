@@ -108,6 +108,26 @@ class FirebaseAuthService {
     return (await _firebaseAuth.signInWithCredential(credential)).user;
   }
 
+  Future<void> sendPasswordResetEmail({required String email}) async {
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      log("Exception in FirebaseAuthService.sendPasswordResetEmail: ${e.toString()} and code is ${e.code}");
+      if (e.code == 'user-not-found') {
+        throw CustomException(message: 'No account found with this email.');
+      } else if (e.code == 'network-request-failed') {
+        throw CustomException(
+            message: 'Please check your internet connection.');
+      } else {
+        throw CustomException(
+            message: 'Something went wrong. Please try again.');
+      }
+    } catch (e) {
+      log("Exception in FirebaseAuthService.sendPasswordResetEmail: ${e.toString()}");
+      throw CustomException(message: 'Something went wrong. Please try again.');
+    }
+  }
+
   bool isLoggedIn() {
     return _firebaseAuth.currentUser != null;
   }
