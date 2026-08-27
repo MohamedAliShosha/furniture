@@ -4,19 +4,15 @@ import 'package:gap/gap.dart';
 import '../../../../../core/utils/constants.dart';
 import 'forget_password_form.dart';
 
-class ForgetPasswordViewBody extends StatefulWidget {
+class ForgetPasswordViewBody extends StatelessWidget {
   const ForgetPasswordViewBody({
     super.key,
+    required this.formKey,
+    required this.emailController,
   });
 
-  @override
-  State<ForgetPasswordViewBody> createState() => _ForgetPasswordViewBodyState();
-}
-
-class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
-  final TextEditingController emailController = TextEditingController();
+  final GlobalKey<FormState> formKey;
+  final TextEditingController emailController;
 
   @override
   Widget build(BuildContext context) {
