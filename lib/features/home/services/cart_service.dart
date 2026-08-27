@@ -56,7 +56,7 @@ class CartService {
     }
   }
 
-  void clearCart() => {
-        cartItems.clear(),
-      };
+  void clearCart() {
+    cartItems.clear();
+  }
 }
