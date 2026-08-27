@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:furniture/features/orders/data/enums/order_status_enum.dart';
 import 'package:furniture/features/orders/data/models/order_item_model.dart';
@@ -201,7 +204,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         }
       },
       // Callback when user clicks Continue button to move to next step
-      onStepContinue: () {
+      onStepContinue: () async {
         // Check if we're not on the last step (step 2 is the last step)
         if (_currentStep < 2) {
           // Update state to move to next step
@@ -233,13 +236,25 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
             );
             return;
           }
+          // Ensure user is logged in so the order can be saved to Firestore
+          if (FirebaseAuth.instance.currentUser == null) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                backgroundColor: AppColors.red,
+                content: Text('Please login to place your order'),
+              ),
+            );
+            return;
+          }
           // Show loading dialog while processing the order
           showDialog(
             // Prevent user from dismissing dialog by tapping outside
             barrierDismissible: false,
             context: context,
             builder: (context) => const Center(
-              child: CircularProgressIndicator(),
+              child: CupertinoActivityIndicator(
+                color: AppColors.primary,
+              ),
             ),
           );
           // Wrap order processing in try-catch to handle errors
@@ -306,10 +321,14 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
               ),
             );
 
+            // Capture cubits before the async gap
+            final ordersCubit = context.read<OrdersCubit>();
+            final cartCubit = context.read<CartCubit>();
+
             // Add the order to the orders cubit (updates app state)
-            getIt<OrdersCubit>().addOrder(order);
+            await ordersCubit.addOrder(order);
             // Clear all items from the shopping cart
-            getIt<CartCubit>().clearCart();
+            cartCubit.clearCart();
 
             // Check if the widget context is still valid before updating UI
             if (context.mounted) {
