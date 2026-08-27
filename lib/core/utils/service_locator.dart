@@ -33,6 +33,7 @@ import '../../features/promo_codes/presentation/cubit/promo_code_cubit.dart';
 import '../../features/promo_codes/service/promo_code_service.dart';
 import '../../features/notification/presentation/cubit/notification_cubit.dart';
 import '../../features/notification/services/notification_service.dart';
+import '../../features/auth/forget_password/presentation/cubit/forget_password_cubit.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -196,6 +197,12 @@ void setupServiceLocator() {
     () => AuthRepoImplement(
       getIt<FirebaseAuthService>(),
       getIt<DatabaseService>(),
+    ),
+  );
+
+  getIt.registerFactory<ForgetPasswordCubit>(
+    () => ForgetPasswordCubit(
+      getIt<AuthRepo>(),
     ),
   );
 }
