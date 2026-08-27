@@ -3,7 +3,6 @@ import 'package:furniture/features/auth/data/domain/entities/user_entity.dart';
 import '../../../../core/errors/failure.dart';
 
 abstract class AuthRepo {
-  // The AuthRepo contains all methods of the authentication feature process
   Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword(
       {required String email, required String password, required String name});
 
@@ -11,6 +10,8 @@ abstract class AuthRepo {
       {required String email, required String password});
 
   Future<Either<Failure, UserEntity>> signInWithGoogle();
+
+  Future<Either<Failure, void>> forgotPassword({required String email});
 
   Future addUserData({required UserEntity user});
   Future saveUserData({required UserEntity user});
