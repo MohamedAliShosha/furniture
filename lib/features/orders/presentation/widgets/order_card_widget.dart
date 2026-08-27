@@ -59,7 +59,7 @@ class OrderCardWidget extends StatelessWidget {
               ),
               IconLabelRow(
                 icon: Icons.shopping_bag_outlined,
-                label: '${order.orderItems.length} items',
+                label: '${order.totalItems} items',
               ),
             ],
           ),
