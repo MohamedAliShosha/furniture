@@ -26,15 +26,13 @@ class FireStoreService implements DatabaseService {
   Future<dynamic> getData({
     required String path,
     String? documentId,
-    // used to filter the data we will filter products based on these query parameters
     Map<String, dynamic>? query,
+    Map<String, dynamic>? where,
   }) async {
-    // Accessing the collection then the document of a specific userId then getting the data
     if (documentId != null) {
       var data = await firestore.collection(path).doc(documentId).get();
       return data.data() as Map<String, dynamic>;
     } else {
-      // I convert the return of this method from collectionReference to Query<Map<String, dynamic>> to be able to do operations on it like orderBy and limit
       Query<Map<String, dynamic>> data = firestore.collection(path);
       if (query != null) {
         if (query['orderBy'] != null) {
@@ -47,14 +45,20 @@ class FireStoreService implements DatabaseService {
           var limit = query['Limit'];
           data = data.limit(limit);
         }
-
-        var result = await data.get();
-        return result.docs
-            .map(
-              (e) => e.data(),
-            )
-            .toList();
       }
+
+      if (where != null) {
+        final field = where['field'] as String;
+        if (where['isEqualTo'] != null) {
+          data = data.where(field, isEqualTo: where['isEqualTo']);
+        }
+        if (where['whereIn'] != null) {
+          data = data.where(field, whereIn: where['whereIn']);
+        }
+      }
+
+      var result = await data.get();
+      return result.docs.map((e) => e.data()).toList();
     }
   }
 
@@ -63,5 +67,22 @@ class FireStoreService implements DatabaseService {
       {required String path, required String documentId}) async {
     var data = await firestore.collection(path).doc(documentId).get();
     return data.exists;
+  }
+
+  @override
+  Future<void> updateData({
+    required String path,
+    required String documentId,
+    required Map<String, dynamic> data,
+  }) async {
+    await firestore.collection(path).doc(documentId).update(data);
+  }
+
+  @override
+  Future<void> deleteData({
+    required String path,
+    required String documentId,
+  }) async {
+    await firestore.collection(path).doc(documentId).delete();
   }
 }
