@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:furniture/core/utils/app_colors.dart';
 import 'package:furniture/core/utils/constants.dart';
+import 'package:furniture/core/utils/app_router.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -15,7 +17,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: AppColors.white,
       elevation: 0,
       leading: IconButton(
-        onPressed: () => Navigator.of(context).pop(),
+        onPressed: () {
+          if (GoRouter.of(context).canPop()) {
+            GoRouter.of(context).pop();
+          } else {
+            GoRouter.of(context).go(AppRouter.kMainView);
+          }
+        },
         icon: const Icon(Icons.arrow_back_ios),
       ),
       title: Text(title, style: AppConstants.titleStyle),
