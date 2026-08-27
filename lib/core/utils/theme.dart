@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(
@@ -11,24 +10,28 @@ class AppTheme {
       primary: const Color(0xFFFFB800),
       secondary: const Color(0xFF1A1A1A),
     ),
-    textTheme: GoogleFonts.poppinsTextTheme().copyWith(
-      displayLarge: GoogleFonts.poppins(
+    textTheme: TextTheme(
+      displayLarge: const TextStyle(
+        fontFamily: 'Poppins',
         fontSize: 24,
         fontWeight: FontWeight.bold,
-        color: const Color(0xFF1A1A1A),
+        color: Color(0xFF1A1A1A),
       ),
-      titleLarge: GoogleFonts.poppins(
+      titleLarge: const TextStyle(
+        fontFamily: 'Poppins',
         fontSize: 18,
         fontWeight: FontWeight.w600,
-        color: const Color(0xFF1A1A1A),
+        color: Color(0xFF1A1A1A),
       ),
-      bodyLarge: GoogleFonts.poppins(
+      bodyLarge: const TextStyle(
+        fontFamily: 'Poppins',
         fontSize: 16,
-        color: const Color(0xFF1A1A1A),
+        color: Color(0xFF1A1A1A),
       ),
-      bodyMedium: GoogleFonts.poppins(
+      bodyMedium: const TextStyle(
+        fontFamily: 'Poppins',
         fontSize: 14,
-        color: const Color(0xFF1A1A1A),
+        color: Color(0xFF1A1A1A),
       ),
     ),
     appBarTheme: const AppBarTheme(
