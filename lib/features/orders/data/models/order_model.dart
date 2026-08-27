@@ -40,6 +40,8 @@ class OrderModel {
   bool get isCompleted => status == OrderStatusEnum.delivered;
   bool get isCancelled => status == OrderStatusEnum.cancelled;
 
+  int get totalItems => orderItems.fold(0, (sum, item) => sum + item.quantity);
+
   // Creates a copy of the OrderModel with the given fields replaced that enables me to create new copies with new data
   OrderModel orderModelCopy({
     String? id,
@@ -101,11 +103,12 @@ class OrderModel {
       orderDate: DateTime.parse(jsonData['orderDate']),
       status: OrderStatusEnum.values.firstWhere(
         (status) => status.toString() == jsonData['status'],
+        orElse: () => OrderStatusEnum.processing,
       ),
-      subTotal: jsonData['subTotal'],
-      shippingCost: jsonData['shippingCost'],
-      discount: jsonData['discount'],
-      total: jsonData['total'],
+      subTotal: (jsonData['subTotal'] as num).toDouble(),
+      shippingCost: (jsonData['shippingCost'] as num).toDouble(),
+      discount: (jsonData['discount'] as num).toDouble(),
+      total: (jsonData['total'] as num).toDouble(),
       shippingAddressModel:
           ShippingAddressModel.fromJson(jsonData['shippingAddress']),
       promoCode: jsonData['promoCode'],
