@@ -177,7 +177,7 @@ void setupServiceLocator() {
   );
 
   getIt.registerLazySingleton<OrdersService>(
-    () => OrdersService(),
+    () => OrdersService(getIt<DatabaseService>()),
   );
 
   getIt.registerFactory<OrdersCubit>(
