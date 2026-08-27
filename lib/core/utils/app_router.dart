@@ -5,6 +5,7 @@ import 'package:furniture/features/blog/presentation/views/blog_details_view.dar
 import 'package:furniture/features/orders/presentation/views/orders_history_view.dart';
 import '../../features/about_us/presentation/views/about_us_view.dart';
 import '../../features/account_information/presentation/views/account_info_view.dart';
+import '../../features/auth/forget_password/presentation/cubit/forget_password_cubit.dart';
 import '../../features/auth/login/presentation/cubit/sign_in_cubit.dart';
 import '../../features/auth/sign_up/presentation/cubit/sign_up_cubit.dart';
 import '../../features/category/presentation/views/category_view.dart';
@@ -168,7 +169,10 @@ class AppRouter {
       ),
       GoRoute(
         path: kForgetPasswordView,
-        builder: (context, state) => const ForgetPasswordView(),
+        builder: (context, state) => BlocProvider(
+          create: (_) => getIt<ForgetPasswordCubit>(),
+          child: const ForgetPasswordView(),
+        ),
       ),
       GoRoute(
         path: kPaymentMethodView,
