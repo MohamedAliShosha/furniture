@@ -25,12 +25,13 @@ class OrdersCubit extends Cubit<OrdersState> {
     }
   }
 
-  Future<void> fetchActiveOrders() async {
+  Future<void> loadActiveOrders() async {
     emit(OrderLoading());
     try {
-      final activeOrders = orderService.activeOrders;
+      await orderService.loadActiveOrders();
+      final orders = orderService.activeOrders;
       emit(
-        OrderSuccess(activeOrders),
+        OrderSuccess(orders),
       );
     } catch (e) {
       emit(
@@ -41,12 +42,13 @@ class OrdersCubit extends Cubit<OrdersState> {
     }
   }
 
-  Future<void> fetchCompletedOrders() async {
+  Future<void> loadCompletedOrders() async {
     emit(OrderLoading());
     try {
-      final completedOrders = orderService.completedOrders;
+      await orderService.loadCompletedOrders();
+      final orders = orderService.completedOrders;
       emit(
-        OrderSuccess(completedOrders),
+        OrderSuccess(orders),
       );
     } catch (e) {
       emit(
@@ -57,12 +59,13 @@ class OrdersCubit extends Cubit<OrdersState> {
     }
   }
 
-  Future<void> fetchCancelledOrders() async {
+  Future<void> loadCancelledOrders() async {
     emit(OrderLoading());
     try {
-      final cancelledOrders = orderService.cancelledOrders;
+      await orderService.loadCancelledOrders();
+      final orders = orderService.cancelledOrders;
       emit(
-        OrderSuccess(cancelledOrders),
+        OrderSuccess(orders),
       );
     } catch (e) {
       emit(
@@ -86,6 +89,7 @@ class OrdersCubit extends Cubit<OrdersState> {
           e.toString(),
         ),
       );
+      rethrow;
     }
   }
 
