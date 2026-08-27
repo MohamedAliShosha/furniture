@@ -116,6 +116,12 @@ class AppTexts {
   static const String loginPasswordHint = 'Enter your password';
   static const String alreadyHaveAccount = 'Already have an account ?';
   static const String signIn = 'Sign In';
+  static const String resetPasswordButtonTitle = 'Reset Password';
+  static const String rememberYourPassword = 'Remember your password ?';
+  static const String resetPasswordSuccess =
+      'Password reset email sent. Please check your inbox.';
+  static const String resetPasswordError =
+      'Failed to send reset email. Please try again.';
 
   // Wishlist texts
   static const String wishlistTitle = 'Wishlist';
