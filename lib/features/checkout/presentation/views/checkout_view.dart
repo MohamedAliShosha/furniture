@@ -4,6 +4,7 @@ import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/service_locator.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../home/data/models/cart_item.dart';
+import '../../../orders/presentation/cubit/orders_cubit.dart';
 import '../../../payment_methods/presentation/cubit/payment_method_cubit.dart';
 import '../widgets/checkout_view_body.dart';
 
@@ -18,8 +19,11 @@ class CheckoutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<PaymentMethodCubit>()..loadPaymentMethods(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => getIt<PaymentMethodCubit>()..loadPaymentMethods()),
+        BlocProvider(create: (context) => getIt<OrdersCubit>()),
+      ],
       child: Scaffold(
         appBar: const CustomAppBar(
           title: AppTexts.checkoutTitle,
