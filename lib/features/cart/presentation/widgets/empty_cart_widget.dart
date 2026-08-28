@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../../../core/utils/app_texts.dart';
+
 class EmptyCartWidget extends StatelessWidget {
   const EmptyCartWidget({
     super.key,
@@ -19,7 +21,7 @@ class EmptyCartWidget extends StatelessWidget {
           ),
           const Gap(16),
           Text(
-            'Your cart is empty',
+            AppTexts.yourCartIsEmpty,
             style: TextStyle(
               color: Colors.grey[600],
               fontSize: 18,

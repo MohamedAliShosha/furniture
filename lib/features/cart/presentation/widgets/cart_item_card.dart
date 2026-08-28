@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../special_offer/presentation/cubit/special_offer_cubit.dart';
 import '../cubit/cart_cubit.dart';
@@ -34,11 +35,13 @@ class CartItemCard extends StatelessWidget {
 
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(
-              '${cartItem.product.name} removed from the cart',
+            content: Center(
+              child: Text(
+                '${cartItem.product.name} ${AppTexts.itemsRemovedFromCart}',
+              ),
             ),
             action: SnackBarAction(
-              label: 'UNDO',
+              label: AppTexts.undo,
               onPressed: () {
                 if (onUndo != null) {
                   onUndo!(cartItem);

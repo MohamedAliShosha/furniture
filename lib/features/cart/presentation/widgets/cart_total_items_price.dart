@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/app_router.dart';
 import '../../../home/data/models/cart_item.dart';
@@ -40,7 +41,7 @@ class CartTotalItemsPrice extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  'Total',
+                  AppTexts.total,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -81,7 +82,7 @@ class CartTotalItemsPrice extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  'CHECKOUT',
+                  AppTexts.checkoutButton,
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,

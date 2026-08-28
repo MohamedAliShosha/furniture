@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 import 'package:gap/gap.dart';
 
@@ -18,7 +19,7 @@ class EmptyWisListWidget extends StatelessWidget {
           ),
           const Gap(16),
           Text(
-            'Your wishlist is empty',
+            AppTexts.yourWishlistIsEmpty,
             style: AppConstants.titleStyle.copyWith(
               color: Colors.grey[600],
             ),
@@ -26,7 +27,7 @@ class EmptyWisListWidget extends StatelessWidget {
           const Gap(8),
           Text(
             textAlign: TextAlign.center,
-            'Save items you like by tapping the heart icon',
+            AppTexts.saveItemsYouLikeByTappingTheHeartIcon,
             style: AppConstants.bodyStyle.copyWith(
               color: Colors.grey,
             ),

@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/app_router.dart';
+import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../home/presentation/cubit/user/user_cubit.dart';
 import '../../../home/presentation/cubit/user/user_state.dart';
@@ -54,7 +55,7 @@ class _CartViewBodyState extends State<CartViewBody> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Shopping Cart',
+                  AppTexts.shoppingCart,
                   style: AppConstants.headingStyle,
                 ),
                 IconButton(
@@ -69,7 +70,7 @@ class _CartViewBodyState extends State<CartViewBody> {
                                 Navigator.pop(context);
                               },
                               child: const Text(
-                                'CANCEL',
+                                AppTexts.cancelButton,
                               ),
                             ),
                             TextButton(
@@ -78,15 +79,15 @@ class _CartViewBodyState extends State<CartViewBody> {
                                 Navigator.pop(context);
                               },
                               child: const Text(
-                                'CLEAR',
+                                AppTexts.clearButton,
                               ),
                             ),
                           ],
                           content: const Text(
-                            'Are you sure you want to clear your cart?',
+                            AppTexts.clearCartConfirmation,
                           ),
                           title: const Text(
-                            'Clear Cart',
+                            AppTexts.clearCartTitle,
                           ),
                         );
                       },
@@ -112,13 +113,13 @@ class _CartViewBodyState extends State<CartViewBody> {
                         ),
                         const Gap(16),
                         Text(
-                          'Sign in to view your cart',
+                          AppTexts.signInToViewCart,
                           style: AppConstants.titleStyle
                               .copyWith(color: Colors.grey[600]),
                         ),
                         const Gap(8),
                         Text(
-                          'Create an account to start shopping',
+                          AppTexts.createAccountToStartShopping,
                           style: AppConstants.bodyStyle.copyWith(
                             color: Colors.grey,
                           ),
@@ -142,7 +143,7 @@ class _CartViewBodyState extends State<CartViewBody> {
                             ),
                           ),
                           child: const Text(
-                            'SIGN IN',
+                            AppTexts.signInButton,
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
@@ -161,7 +162,8 @@ class _CartViewBodyState extends State<CartViewBody> {
                         );
                       } else if (state is CartFailure) {
                         return Center(
-                          child: Text('Error: ${state.message}'),
+                          child:
+                              Text('${AppTexts.errorPrefix} ${state.message}'),
                         );
                       } else if (state is CartSuccess) {
                         if (state.cartItems.isEmpty) {
