@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 
 import 'core/utils/constants.dart';
+import 'core/utils/app_texts.dart';
 import 'features/blog/presentation/views/blog_view.dart';
 import 'features/cart/presentation/views/cart_view.dart';
 import 'features/home/presentation/views/home_view.dart';
@@ -68,31 +69,31 @@ class _MainViewState extends State<MainView> {
                     index: 0,
                     icon: Icons.home,
                     activeIcon: Icons.home_outlined,
-                    label: 'Home',
+                    label: AppTexts.homeLabel,
                   ),
                   buildNavItem(
                     index: 1,
                     icon: Icons.shopping_cart,
                     activeIcon: Icons.shopping_cart_outlined,
-                    label: 'Cart',
+                    label: AppTexts.cartLabel,
                   ),
                   buildNavItem(
                     index: 2,
                     icon: Icons.favorite_border,
                     activeIcon: Icons.favorite,
-                    label: 'Wishlist',
+                    label: AppTexts.wishlistLabel,
                   ),
                   buildNavItem(
                     index: 3,
                     icon: Icons.article_outlined,
                     activeIcon: Icons.article,
-                    label: 'Blog',
+                    label: AppTexts.blogLabel,
                   ),
                   buildNavItem(
                     index: 4,
                     icon: Icons.person_outline,
                     activeIcon: Icons.person,
-                    label: 'Profile',
+                    label: AppTexts.profileTitle,
                   ),
                 ],
               ),

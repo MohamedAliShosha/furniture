@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 import 'blog_view_tags_bloc_builder.dart';
 import 'blogs_bloc_builder.dart';
@@ -27,12 +28,12 @@ class BlogViewBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Blog',
+                AppTexts.blogTitle,
                 style: AppConstants.headingStyle,
               ),
               const Gap(8),
               Text(
-                'Get inspired with furniture tips & trends.',
+                AppTexts.getInspiredWithFurnitureTipsAndTrends,
                 style: AppConstants.bodyStyle.copyWith(color: Colors.grey),
               ),
               const Gap(16),

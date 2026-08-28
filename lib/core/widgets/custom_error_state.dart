@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:gap/gap.dart';
 
 import '../utils/app_colors.dart';
+import '../utils/app_texts.dart';
 import '../utils/constants.dart';
 
 class CustomErrorState extends StatelessWidget {
@@ -53,7 +54,7 @@ class CustomErrorState extends StatelessWidget {
                 borderRadius:
                     BorderRadius.circular(AppConstants.defaultBorderRadius),
                 child: Text(
-                  retryLabel ?? 'Retry',
+                  retryLabel ?? AppTexts.retry,
                   style: const TextStyle(
                     color: AppColors.white,
                     fontWeight: FontWeight.bold,

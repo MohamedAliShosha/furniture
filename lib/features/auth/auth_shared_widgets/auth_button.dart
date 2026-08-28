@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/utils/constants.dart';
@@ -38,12 +39,9 @@ class AuthButton extends StatelessWidget {
               ? const SizedBox(
                   height: 20,
                   width: 20,
-                  child: CircularProgressIndicator(
+                  child: CupertinoActivityIndicator(
+                    radius: 10,
                     color: Colors.white,
-                    strokeWidth: 2,
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      Colors.white,
-                    ),
                   ),
                 )
               : Text(

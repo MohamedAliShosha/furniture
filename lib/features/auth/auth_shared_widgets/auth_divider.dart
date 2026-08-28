@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/utils/app_texts.dart';
+
 class AuthDivider extends StatelessWidget {
   const AuthDivider({super.key});
 
@@ -18,7 +20,7 @@ class AuthDivider extends StatelessWidget {
             horizontal: 16,
           ),
           child: Text(
-            'Or continue with',
+            AppTexts.orContinueWith,
             style: TextStyle(
               color: Colors.grey.shade600,
               fontWeight: FontWeight.w500,

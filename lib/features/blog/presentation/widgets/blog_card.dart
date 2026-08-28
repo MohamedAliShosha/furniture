@@ -3,6 +3,7 @@ import 'package:furniture/core/utils/app_router.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../home/presentation/widgets/animated_list_item.dart';
 import '../../data/models/blog_model.dart';
@@ -97,7 +98,7 @@ class BlogCard extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'Read more',
+                          AppTexts.readMore,
                           style: TextStyle(
                             color: AppConstants.primaryColor,
                             fontSize: 14,

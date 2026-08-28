@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../../../../core/utils/app_texts.dart';
 import '../../../../../core/utils/constants.dart';
 import 'forget_password_form.dart';
 
@@ -24,7 +25,7 @@ class ForgetPasswordViewBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Forget Password ?',
+                AppTexts.forgetPassword,
                 style: AppConstants.headingStyle.copyWith(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
@@ -32,7 +33,7 @@ class ForgetPasswordViewBody extends StatelessWidget {
               ),
               const Gap(8),
               Text(
-                'Enter you email to reset your password',
+                AppTexts.enterYourEmailToResetPassword,
                 style: AppConstants.bodyStyle.copyWith(
                   color: Colors.grey.shade600,
                   fontSize: 16,

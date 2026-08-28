@@ -97,7 +97,7 @@ class _LoginFormState extends State<LoginForm> {
                     backgroundColor: AppColors.primary,
                     content: Center(
                       child: Text(
-                        'Sign In Successfully',
+                        AppTexts.signInSuccessfully,
                         style: TextStyle(
                           color: AppColors.white,
                           fontWeight: FontWeight.bold,

@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 import '../cubit/blog_cubit.dart';
 import '../cubit/blog_state.dart';
@@ -17,13 +19,13 @@ class BlogsBlocBuilder extends StatelessWidget {
       builder: (context, state) {
         if (state is BlogLoading) {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: CupertinoActivityIndicator(),
           );
         } else if (state is BlogSuccess) {
           final blogs = state.blogs;
           if (blogs.isEmpty) {
             return const Center(
-              child: Text('No posts found.'),
+              child: Text(AppTexts.noPostsFound),
             );
           }
           return ListView.builder(

@@ -116,7 +116,7 @@ class _SignUpFormState extends State<SignUpForm> {
                     backgroundColor: AppColors.primary,
                     content: Center(
                       child: Text(
-                        'Sign Up Successfully',
+                        AppTexts.signUpSuccessfully,
                         style: TextStyle(
                           color: AppColors.white,
                           fontWeight: FontWeight.bold,

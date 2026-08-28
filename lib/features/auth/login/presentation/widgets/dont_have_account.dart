@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_router.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../core/utils/app_texts.dart';
 import '../../../../../core/utils/constants.dart';
 
 class DontHaveAccount extends StatelessWidget {
@@ -15,7 +16,7 @@ class DontHaveAccount extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Don't have an account ? ",
+          AppTexts.dontHaveAccount,
           style: AppConstants.bodyStyle.copyWith(
             color: Colors.grey.shade600,
           ),
@@ -26,7 +27,7 @@ class DontHaveAccount extends StatelessWidget {
             GoRouter.of(context).push(AppRouter.kSignUpView);
           },
           child: const Text(
-            'Sign Up',
+            AppTexts.signUp,
             style: TextStyle(
               color: AppConstants.primaryColor,
               fontWeight: FontWeight.w600,

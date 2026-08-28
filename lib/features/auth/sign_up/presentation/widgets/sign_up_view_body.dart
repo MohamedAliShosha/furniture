@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
+import '../../../../../core/utils/app_texts.dart';
 import '../../../auth_shared_widgets/auth_header.dart';
 import 'sign_up_form.dart';
 
@@ -36,8 +37,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const AuthHeader(
-              title: 'Create Account',
-              subtitle: 'Sign up to get started ',
+              title: AppTexts.createAccount,
+              subtitle: AppTexts.signUpToGetStarted,
             ),
             const Gap(32),
             SignUpForm(

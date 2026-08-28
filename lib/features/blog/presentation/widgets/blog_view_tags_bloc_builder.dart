@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/utils/app_texts.dart';
 import '../cubit/blog_cubit.dart';
 import 'package:gap/gap.dart';
 
@@ -29,7 +30,7 @@ class BlogViewTagsBlocBuilder extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Popular Topics',
+                      AppTexts.popularTopics,
                       style: AppConstants.titleStyle.copyWith(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -41,7 +42,7 @@ class BlogViewTagsBlocBuilder extends StatelessWidget {
                           context.read<BlogCubit>().selectTag(null);
                         },
                         child: const Text(
-                          'Clear Filter',
+                          AppTexts.clearFilter,
                           style: TextStyle(
                             color: AppConstants.primaryColor,
                             fontSize: 13,
