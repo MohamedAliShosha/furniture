@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/utils/app_texts.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/utils/shared_pref_service.dart';
 import '../../../../auth/data/repos/auth_repo.dart';
@@ -106,25 +105,19 @@ class UserCubit extends Cubit<UserState> {
     required String currentPassword,
     required String newPassword,
   }) async {
-    try {
-      final success = userService.changePassword(
-        currentPassword: currentPassword,
-        newPassword: newPassword,
-      );
-
-      if (!success) {
-        emit(const UserFailure(AppTexts.changePasswordFailure));
-        return;
-      }
-
-      emit(UserSuccess(
+    emit(UserLoading());
+    final result = await authRepo.changePassword(
+      currentPassword: currentPassword,
+      newPassword: newPassword,
+    );
+    result.fold(
+      (failure) => emit(UserFailure(failure.errorMessage)),
+      (_) => emit(UserSuccess(
         user: userService.user,
         isLoggedIn: userService.isUserLoggedIn,
         isGuest: userService.isGuest,
-      ));
-    } catch (e) {
-      emit(UserFailure(e.toString()));
-    }
+      )),
+    );
   }
 
   /// Clear user data on logout
