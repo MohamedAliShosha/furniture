@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../../core/errors/custom_exception.dart';
+import '../../../core/utils/app_texts.dart';
 
 class FirebaseAuthService {
   // instance4 of auth
@@ -28,22 +29,22 @@ class FirebaseAuthService {
     } on FirebaseAuthException catch (e) {
       log("Exception in FirebaseAuthService.signInWithEmailAndPassword: ${e.toString()} and code is ${e.code}");
       if (e.code == 'user-not-found') {
-        throw CustomException(message: 'The email or password is incorrect.');
+        throw CustomException(message: AppTexts.emailOrPasswordIncorrect);
       } else if (e.code == 'wrong-password') {
-        throw CustomException(message: 'The email or password is incorrect.');
+        throw CustomException(message: AppTexts.emailOrPasswordIncorrect);
       } else if (e.code == 'invalid-credential') {
-        throw CustomException(message: 'The email or password is incorrect.');
+        throw CustomException(message: AppTexts.emailOrPasswordIncorrect);
       } else if (e.code == 'network-request-failed') {
         throw CustomException(
-            message: 'Please check your internet connection.');
+            message: AppTexts.checkYourInternetConnection);
       } else {
         throw CustomException(
-            message: 'Something went wrong. Please try again.');
+            message: AppTexts.somethingWentWrongPleaseTryAgain);
       }
     } catch (e) {
       log("Exception in FirebaseAuthService.signInWithEmailAndPassword: ${e.toString()}");
 
-      throw CustomException(message: 'Something went wrong. Please try again.');
+      throw CustomException(message: AppTexts.somethingWentWrongPleaseTryAgain);
     }
   }
 
@@ -62,21 +63,21 @@ class FirebaseAuthService {
     } on FirebaseAuthException catch (e) {
       log("Exception in FirebaseAuthService.createUserWithEmailAndPassword: ${e.toString()} and code is ${e.code}");
       if (e.code == 'weak-password') {
-        throw CustomException(message: 'The password is too weak.');
+        throw CustomException(message: AppTexts.passwordTooWeak);
       } else if (e.code == 'email-already-in-use') {
         throw CustomException(
-            message: 'You are already registered. Please log in.');
+            message: AppTexts.alreadyRegisteredPleaseLogIn);
       } else if (e.code == 'network-request-failed') {
         throw CustomException(
-            message: 'Please check your internet connection.');
+            message: AppTexts.checkYourInternetConnection);
       } else {
         throw CustomException(
-            message: 'Something went wrong. Please try again.');
+            message: AppTexts.somethingWentWrongPleaseTryAgain);
       }
     } catch (e) {
       log("Exception in FirebaseAuthService.createUserWithEmailAndPassword: ${e.toString()}");
 
-      throw CustomException(message: 'Something went wrong. Please try again.');
+      throw CustomException(message: AppTexts.somethingWentWrongPleaseTryAgain);
     }
   }
 
@@ -114,17 +115,56 @@ class FirebaseAuthService {
     } on FirebaseAuthException catch (e) {
       log("Exception in FirebaseAuthService.sendPasswordResetEmail: ${e.toString()} and code is ${e.code}");
       if (e.code == 'user-not-found') {
-        throw CustomException(message: 'No account found with this email.');
+        throw CustomException(message: AppTexts.noAccountFoundWithThisEmail);
       } else if (e.code == 'network-request-failed') {
         throw CustomException(
-            message: 'Please check your internet connection.');
+            message: AppTexts.checkYourInternetConnection);
       } else {
         throw CustomException(
-            message: 'Something went wrong. Please try again.');
+            message: AppTexts.somethingWentWrongPleaseTryAgain);
       }
     } catch (e) {
       log("Exception in FirebaseAuthService.sendPasswordResetEmail: ${e.toString()}");
-      throw CustomException(message: 'Something went wrong. Please try again.');
+      throw CustomException(message: AppTexts.somethingWentWrongPleaseTryAgain);
+    }
+  }
+
+  Future<void> updatePassword({
+    required String currentPassword,
+    required String newPassword,
+  }) async {
+    try {
+      final user = _firebaseAuth.currentUser;
+      if (user == null) {
+        throw CustomException(message: AppTexts.noAuthenticatedUserFound);
+      }
+
+      final credential = EmailAuthProvider.credential(
+        email: user.email!,
+        password: currentPassword,
+      );
+
+      await user.reauthenticateWithCredential(credential);
+      await user.updatePassword(newPassword);
+    } on FirebaseAuthException catch (e) {
+      log("Exception in FirebaseAuthService.updatePassword: ${e.toString()} and code is ${e.code}");
+      if (e.code == 'wrong-password') {
+        throw CustomException(message: AppTexts.currentPasswordIsIncorrect);
+      } else if (e.code == 'weak-password') {
+        throw CustomException(message: AppTexts.newPasswordIsTooWeak);
+      } else if (e.code == 'requires-recent-login') {
+        throw CustomException(
+            message: AppTexts.signOutAndSignInAgainToChangePassword);
+      } else if (e.code == 'network-request-failed') {
+        throw CustomException(
+            message: AppTexts.checkYourInternetConnection);
+      } else {
+        throw CustomException(
+            message: AppTexts.somethingWentWrongPleaseTryAgain);
+      }
+    } catch (e) {
+      log("Exception in FirebaseAuthService.updatePassword: ${e.toString()}");
+      throw CustomException(message: AppTexts.somethingWentWrongPleaseTryAgain);
     }
   }
 
