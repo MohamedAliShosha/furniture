@@ -27,7 +27,9 @@ class ForgetPasswordForm extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
               backgroundColor: Colors.green,
-              content: Text(AppTexts.resetPasswordSuccess),
+              content: Center(
+                child: Text(AppTexts.resetPasswordSuccess),
+              ),
             ),
           );
           GoRouter.of(context).pop();
@@ -35,7 +37,9 @@ class ForgetPasswordForm extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               backgroundColor: Colors.red,
-              content: Text(state.errorMessage),
+              content: Center(
+                child: Text(state.errorMessage),
+              ),
             ),
           );
         }
