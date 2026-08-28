@@ -21,6 +21,9 @@ class AppTexts {
   static const String facebookButtonTitle = 'Facebook';
 
   // Onboarding texts
+  static const String furnitureShop = 'Furniture Shop';
+  static const String discoverTheBestFurnitureForYourHome =
+      'Discover the best furniture for your home';
   static const String onboardingTitle1 = 'Discover Unique Furniture!';
   static const String onboardingDescription1 =
       'find the perfect pieces to make your home truly yours';
@@ -239,7 +242,6 @@ class AppTexts {
       'Yes, assembly services are available for select furniture items and can be added during checkout or arranged through customer support.';
 
   // About Us texts
-  static const String furnitureShop = 'Furniture Shop';
   static const String furnitureShopTagline =
       'Your one-shop destination for premium furniture';
   static const String ourMission = 'Our Mission';
@@ -281,37 +283,53 @@ class AppTexts {
   static const String yourPrivacyMatters = 'Your Privacy Matters';
   static const String lastUpdated = 'Last updated: March 2024';
   static const String informationWeCollect = 'Information We collect';
-  static const String informationWeCollectContent = 'We collect information you provide directly to us, such as when you create an account, make a purchase, or contact us. This includes your name, email address, phone number, and payment information.';
+  static const String informationWeCollectContent =
+      'We collect information you provide directly to us, such as when you create an account, make a purchase, or contact us. This includes your name, email address, phone number, and payment information.';
   static const String howWeUseYourInformation = 'How We Use Your Information';
-  static const String howWeUseYourInformationContent = 'We use the information we collect to provide, maintain, and improve our services, process transactions, send you technical notices and support messages, and respond to your inquiries.';
+  static const String howWeUseYourInformationContent =
+      'We use the information we collect to provide, maintain, and improve our services, process transactions, send you technical notices and support messages, and respond to your inquiries.';
   static const String dataSecurity = 'Data Security';
-  static const String dataSecurityContent = 'We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.';
+  static const String dataSecurityContent =
+      'We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.';
   static const String yourRights = 'Your Rights';
-  static const String yourRightsContent = 'You have the right to access, correct, or delete your personal information. You may also opt-out of promotional communications at any time.';
+  static const String yourRightsContent =
+      'You have the right to access, correct, or delete your personal information. You may also opt-out of promotional communications at any time.';
   static const String informationSharing = 'Information Sharing';
-  static const String informationSharingContent = 'We do not sell, trade, or rent your personal information to third parties. We may share your information with trusted service providers who assist us in operating our website and conducting our business, subject to confidentiality agreements.';
+  static const String informationSharingContent =
+      'We do not sell, trade, or rent your personal information to third parties. We may share your information with trusted service providers who assist us in operating our website and conducting our business, subject to confidentiality agreements.';
   static const String contactUs = 'Contact Us';
-  static const String contactUsContent = 'If you have any questions about this Privacy Policy or our privacy practices, please contact us at:\n\nEmail: privacy@furniture.com\nPhone: +1 234 567 890\nAddress: 123 Furniture Street, Design city, DC 12345';
+  static const String contactUsContent =
+      'If you have any questions about this Privacy Policy or our privacy practices, please contact us at:\n\nEmail: privacy@furniture.com\nPhone: +1 234 567 890\nAddress: 123 Furniture Street, Design city, DC 12345';
   static const String acceptanceOfTerms = 'Acceptance of Terms';
-  static const String acceptanceOfTermsContent = 'By accessing and using this furniture e-commerce platform, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.';
+  static const String acceptanceOfTermsContent =
+      'By accessing and using this furniture e-commerce platform, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.';
   static const String userAccount = 'User Account';
-  static const String userAccountContent = 'You are responsible for maintaining the confidentiality of your account information and password. You agree to accept responsibility for all activities that occur under your account. You must notify us immediately of any unauthorized use of your account.';
+  static const String userAccountContent =
+      'You are responsible for maintaining the confidentiality of your account information and password. You agree to accept responsibility for all activities that occur under your account. You must notify us immediately of any unauthorized use of your account.';
   static const String ordersAndPayment = 'Orders and Payment';
-  static const String ordersAndPaymentContent = 'All orders are subject to acceptance and availability. We reserve the right to refuse or cancel any order. Payment must be received before order processing. We accept all major credit cards and digital payment methods.';
+  static const String ordersAndPaymentContent =
+      'All orders are subject to acceptance and availability. We reserve the right to refuse or cancel any order. Payment must be received before order processing. We accept all major credit cards and digital payment methods.';
   static const String shippingAndDelivery = 'Shipping and Delivery';
-  static const String shippingAndDeliveryContent = 'We strive to deliver your furniture within the estimated timeframe. Delivery times are estimates and not guaranteed. Shipping costs will be calculated and displayed before purchase completion.';
+  static const String shippingAndDeliveryContent =
+      'We strive to deliver your furniture within the estimated timeframe. Delivery times are estimates and not guaranteed. Shipping costs will be calculated and displayed before purchase completion.';
   static const String returnsAndRefunds = 'Returns and Refunds';
-  static const String returnsAndRefundsContent = 'Items may be returned within 30 days of purchase in original condition. Refunds will be processed within 7-10 business days after receipt of returned items. Shipping costs for returns are the customer\'s responsibility unless the item is defective.';
+  static const String returnsAndRefundsContent =
+      'Items may be returned within 30 days of purchase in original condition. Refunds will be processed within 7-10 business days after receipt of returned items. Shipping costs for returns are the customer\'s responsibility unless the item is defective.';
   static const String productInformation = 'Product Information';
-  static const String productInformationContent = 'We strive to provide accurate descriptions and images of all products. However, we do not guarantee that product descriptions, pricing, or availability are error-free. We reserve the right to correct any errors.';
+  static const String productInformationContent =
+      'We strive to provide accurate descriptions and images of all products. However, we do not guarantee that product descriptions, pricing, or availability are error-free. We reserve the right to correct any errors.';
   static const String intellectualProperty = 'Intellectual Property';
-  static const String intellectualPropertyContent = 'All content on this platform, including text, graphics, logos, and images, are the property of our company or our content suppliers and are protected by international copyright laws.';
+  static const String intellectualPropertyContent =
+      'All content on this platform, including text, graphics, logos, and images, are the property of our company or our content suppliers and are protected by international copyright laws.';
   static const String limitationOfLiability = 'Limitation of Liability';
-  static const String limitationOfLiabilityContent = 'In no event shall our company be liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use the products or services on this platform.';
+  static const String limitationOfLiabilityContent =
+      'In no event shall our company be liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use the products or services on this platform.';
   static const String changesToTerms = 'Changes to Terms';
-  static const String changesToTermsContent = 'We reserve the right to modify these terms and conditions at any time. Changes will be effective immediately upon posting to the website. Your continued use of the platform constitutes your acceptance of the modified terms.';
+  static const String changesToTermsContent =
+      'We reserve the right to modify these terms and conditions at any time. Changes will be effective immediately upon posting to the website. Your continued use of the platform constitutes your acceptance of the modified terms.';
   static const String contactInformation = 'Contact Information';
-  static const String contactInformationContent = 'For any questions about these Terms of Service, please contact us at:\n\nEmail: legal@furnitureshop.com\nPhone: +1 234 567 890\nAddress: 123 Furniture Street, Design city, DC 12345';
+  static const String contactInformationContent =
+      'For any questions about these Terms of Service, please contact us at:\n\nEmail: legal@furnitureshop.com\nPhone: +1 234 567 890\nAddress: 123 Furniture Street, Design city, DC 12345';
 
   // Featured Products
   static const String featuredProducts = 'Featured Products';
@@ -518,4 +536,77 @@ class AppTexts {
   static const String changePasswordFailure =
       'Unable to change password. Please check your current password and try again.';
   static const String passwordEnterHint = 'Enter your password';
+  static const String somethingWentWrong = 'Something went wrong';
+  static const String noPostsFound = 'No posts found.';
+  static const String shoppingCart = 'Shopping Cart';
+  static const String cancelButton = 'CANCEL';
+  static const String clearButton = 'CLEAR';
+  static const String clearCartConfirmation =
+      'Are you sure you want to clear your cart?';
+  static const String clearCartTitle = 'Clear Cart';
+  static const String signInToViewCart = 'Sign in to view your cart';
+  static const String createAccountToStartShopping =
+      'Create an account to start shopping';
+  static const String signInButton = 'SIGN IN';
+  static const String signUp = 'Sign Up';
+  static const String pleaseLoginToPlaceOrder =
+      'Please login to place your order';
+  static const String noButton = 'No';
+  static const String yesButton = 'Yes';
+  static const String pleaseLogInToAddItemsToCart =
+      'Please log in to add items to your cart.';
+  static const String undo = 'UNDO';
+  static const String popularTopics = 'Popular Topics';
+  static const String clearFilter = 'Clear Filter';
+  static const String blogTitle = 'Blog';
+  static const String getInspiredWithFurnitureTipsAndTrends =
+      'Get inspired with furniture tips & trends.';
+  static const String readMore = 'Read more';
+  static const String description = 'Description';
+  static const String selectColor = 'Select Color';
+  static const String createAccount = 'Create Account';
+  static const String signUpToGetStarted = 'Sign up to get started';
+  static const String signUpSuccessfully = 'Sign Up Successfully';
+  static const String signInSuccessfully = 'Sign In Successfully';
+  static const String dontHaveAccount = "Don't have an account ?";
+  static const String forgetPassword = 'Forget Password ?';
+  static const String enterYourEmailToResetPassword =
+      'Enter you email to reset your password';
+  static const String orContinueWith = 'Or continue with';
+  static const String yourWishlistIsEmpty = 'Your wishlist is empty';
+  static const String saveItemsYouLikeByTappingTheHeartIcon =
+      'Save items you like by tapping the heart icon';
+  static const String yourCartIsEmpty = 'Your cart is empty';
+  static const String checkoutButton = 'CHECKOUT';
+  static const String itemsRemovedFromCart = 'removed from the cart';
+  static const String homeLabel = 'Home';
+  static const String blogLabel = 'Blog';
+  static const String emailOrPasswordIncorrect =
+      'The email or password is incorrect.';
+  static const String checkYourInternetConnection =
+      'Please check your internet connection.';
+  static const String somethingWentWrongPleaseTryAgain =
+      'Something went wrong. Please try again.';
+  static const String passwordTooWeak = 'The password is too weak.';
+  static const String alreadyRegisteredPleaseLogIn =
+      'You are already registered. Please log in.';
+  static const String noAccountFoundWithThisEmail =
+      'No account found with this email.';
+  static const String noAuthenticatedUserFound = 'No authenticated user found.';
+  static const String currentPasswordIsIncorrect =
+      'The current password is incorrect.';
+  static const String newPasswordIsTooWeak = 'The new password is too weak.';
+  static const String signOutAndSignInAgainToChangePassword =
+      'Please sign out and sign in again to change your password.';
+  static const String orderConfirmed = 'Order Confirmed';
+  static const String yourOrderHasBeenConfirmed =
+      'Your order #1234 has been confirmed.';
+  static const String newPromotion = 'New Promotion';
+  static const String get20OffOnYourNextPurchase =
+      'Get 20% off on your next purchase!';
+  static const String newArrival = 'New Arrival';
+  static const String checkOutOurLatestCollectionOfFurniture =
+      'Check out our latest collection of furniture.';
+
+  static const String signInRequired = 'Sign In Required';
 }
