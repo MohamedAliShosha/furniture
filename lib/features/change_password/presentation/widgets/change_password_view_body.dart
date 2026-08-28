@@ -14,30 +14,23 @@ class ChangePasswordViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UserCubit, UserState>(
-      builder: (context, state) {
+    return BlocListener<UserCubit, UserState>(
+      listener: (context, state) {
         if (state is UserFailure) {
-          final errorMessage = state.message;
-          WidgetsBinding.instance.addPostFrameCallback(
-            (_) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  backgroundColor: AppColors.red,
-                  content: Text(errorMessage),
-                ),
-              );
-            },
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              backgroundColor: AppColors.red,
+              content: Center(
+                child: Text(state.message),
+              ),
+            ),
           );
         }
-        return SingleChildScrollView(
-          padding: const EdgeInsets.all(
-            AppConstants.defaultPadding,
-          ),
-          child: ChangePasswordForm(
-            formKey: _formKey,
-          ),
-        );
       },
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(AppConstants.defaultPadding),
+        child: ChangePasswordForm(formKey: _formKey),
+      ),
     );
   }
 }
