@@ -10,25 +10,25 @@ class AppTheme {
       primary: const Color(0xFFFFB800),
       secondary: const Color(0xFF1A1A1A),
     ),
-    textTheme: TextTheme(
-      displayLarge: const TextStyle(
+    textTheme: const TextTheme(
+      displayLarge: TextStyle(
         fontFamily: 'Poppins',
         fontSize: 24,
         fontWeight: FontWeight.bold,
         color: Color(0xFF1A1A1A),
       ),
-      titleLarge: const TextStyle(
+      titleLarge: TextStyle(
         fontFamily: 'Poppins',
         fontSize: 18,
         fontWeight: FontWeight.w600,
         color: Color(0xFF1A1A1A),
       ),
-      bodyLarge: const TextStyle(
+      bodyLarge: TextStyle(
         fontFamily: 'Poppins',
         fontSize: 16,
         color: Color(0xFF1A1A1A),
       ),
-      bodyMedium: const TextStyle(
+      bodyMedium: TextStyle(
         fontFamily: 'Poppins',
         fontSize: 14,
         color: Color(0xFF1A1A1A),
