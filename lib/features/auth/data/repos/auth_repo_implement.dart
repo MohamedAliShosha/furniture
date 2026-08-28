@@ -159,6 +159,27 @@ class AuthRepoImplement implements AuthRepo {
   }
 
   @override
+  Future<Either<Failure, void>> changePassword({
+    required String currentPassword,
+    required String newPassword,
+  }) async {
+    try {
+      await firebaseAuthService.updatePassword(
+        currentPassword: currentPassword,
+        newPassword: newPassword,
+      );
+      return right(null);
+    } on CustomException catch (e) {
+      return left(ServerFailure(e.message));
+    } catch (e) {
+      log('Exception in AuthRepoImplement.changePassword: ${e.toString()}');
+      return left(
+        ServerFailure('Something went wrong. Please try again later.'),
+      );
+    }
+  }
+
+  @override
   Future addUserData({required UserEntity user}) async {
     await databaseService.addData(
       path: BackendEndpoints.isUserExists,

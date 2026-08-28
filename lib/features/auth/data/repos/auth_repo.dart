@@ -13,6 +13,11 @@ abstract class AuthRepo {
 
   Future<Either<Failure, void>> forgotPassword({required String email});
 
+  Future<Either<Failure, void>> changePassword({
+    required String currentPassword,
+    required String newPassword,
+  });
+
   Future addUserData({required UserEntity user});
   Future saveUserData({required UserEntity user});
   Future<UserEntity> getUserData({required String userId});
