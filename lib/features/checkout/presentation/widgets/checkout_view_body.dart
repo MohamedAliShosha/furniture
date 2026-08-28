@@ -229,8 +229,10 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                 // Set snackbar background to red for error
                 backgroundColor: AppColors.red,
                 // Display error message
-                content: Text(
-                  AppTexts.selectPaymentMethod,
+                content: Center(
+                  child: Text(
+                    AppTexts.selectPaymentMethod,
+                  ),
                 ),
               ),
             );
@@ -241,7 +243,9 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 backgroundColor: AppColors.red,
-                content: Text('Please login to place your order'),
+                content: Center(
+                  child: Text(AppTexts.pleaseLoginToPlaceOrder),
+                ),
               ),
             );
             return;
@@ -352,8 +356,10 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                   // Set snackbar background to red for error
                   backgroundColor: AppColors.red,
                   // Display error message with exception details
-                  content: Text(
-                    '${AppTexts.orderPlacedError} ${e.toString()}',
+                  content: Center(
+                    child: Text(
+                      '${AppTexts.orderPlacedError} ${e.toString()}',
+                    ),
                   ),
                 ),
               );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../home/data/models/product_model.dart';
 import 'add_to_cart_button.dart';
@@ -38,7 +39,7 @@ class ProductDetailsWidget extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               Text(
-                'Description',
+                AppTexts.description,
                 style: AppConstants.bodyStyle.copyWith(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,

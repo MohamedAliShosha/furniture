@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 
 class SplashViewBody extends StatelessWidget {
@@ -60,7 +61,7 @@ class SplashViewBody extends StatelessWidget {
             child: SlideTransition(
               position: slideAnimation,
               child: Text(
-                'Furniture Shop',
+                AppTexts.furnitureShop,
                 style: AppConstants.headingStyle.copyWith(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
@@ -75,7 +76,7 @@ class SplashViewBody extends StatelessWidget {
             child: SlideTransition(
               position: slideAnimation,
               child: Text(
-                'Discover the best furniture for your home',
+                AppTexts.discoverTheBestFurnitureForYourHome,
                 style: AppConstants.bodyStyle.copyWith(
                   color: Colors.grey.shade600,
                   fontSize: 16,

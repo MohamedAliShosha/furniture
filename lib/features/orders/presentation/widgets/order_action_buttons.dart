@@ -76,7 +76,9 @@ class OrderActionButtons extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           behavior: SnackBarBehavior.floating,
-          content: Text('${AppTexts.trackingNumber}${order.trackingNumber}'),
+          content: Center(
+            child: Text('${AppTexts.trackingNumber}${order.trackingNumber}'),
+          ),
         ),
       );
     }
@@ -91,11 +93,11 @@ class OrderActionButtons extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('No'),
+            child: const Text(AppTexts.noButton),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('Yes'),
+            child: const Text(AppTexts.yesButton),
           ),
         ],
       ),

@@ -92,13 +92,13 @@ class _HomeViewBlocBuilderState extends State<HomeViewBlocBuilder> {
                 const Icon(Icons.error_outline, size: 48, color: Colors.red),
                 const SizedBox(height: 16),
                 Text(
-                  'Something went wrong',
+                  AppTexts.somethingWentWrong,
                   style: TextStyle(fontSize: 16, color: Colors.grey[700]),
                 ),
                 const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () => context.read<HomeCubit>().fetchAllHomeData(),
-                  child: const Text('Retry'),
+                  child: const Text(AppTexts.retry),
                 ),
               ],
             ),

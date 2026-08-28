@@ -20,9 +20,11 @@ class ApplyPromoButton extends StatelessWidget {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             behavior: SnackBarBehavior.floating,
-            content: Text(success
-                ? AppTexts.promoCodeAddedSuccessfully
-                : AppTexts.invalidPromoCode),
+            content: Center(
+              child: Text(success
+                  ? AppTexts.promoCodeAddedSuccessfully
+                  : AppTexts.invalidPromoCode),
+            ),
           ),
         );
       },

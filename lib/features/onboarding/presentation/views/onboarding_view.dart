@@ -151,7 +151,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                       minimumSize: const Size(120, 40),
                     ),
                     child: Text(
-                      currentView == pages.length - 1 ? 'Get Started' : 'Next',
+                      currentView == pages.length - 1 ? AppTexts.getStarted : AppTexts.next,
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,

@@ -1,5 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../core/utils/app_keys.dart';
+import '../../../../core/utils/app_texts.dart';
 import '../data/enums/notification_type_enum.dart';
 import '../data/model/notification_model.dart';
 
@@ -107,24 +108,24 @@ class NotificationService {
     final sampleNotifications = [
       NotificationModel(
         id: '1',
-        title: 'Order Confirmed',
-        message: 'Your order #1234 has been confirmed.',
+        title: AppTexts.orderConfirmed,
+        message: AppTexts.yourOrderHasBeenConfirmed,
         timestamp: DateTime.now().subtract(const Duration(minutes: 5)),
         type: NotificationType.order,
         isRead: false,
       ),
       NotificationModel(
         id: '2',
-        title: 'New Promotion',
-        message: 'Get 20% off on your next purchase!',
+        title: AppTexts.newPromotion,
+        message: AppTexts.get20OffOnYourNextPurchase,
         timestamp: DateTime.now().subtract(const Duration(hours: 1)),
         type: NotificationType.promotion,
         isRead: false,
       ),
       NotificationModel(
         id: '3',
-        title: 'New Arrival',
-        message: 'Check out our latest collection of furniture.',
+        title: AppTexts.newArrival,
+        message: AppTexts.checkOutOurLatestCollectionOfFurniture,
         timestamp: DateTime.now().subtract(const Duration(days: 1)),
         type: NotificationType.newArrival,
         isRead: false,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_texts.dart';
 import '../../../../core/utils/constants.dart';
 
 class ColorSelector extends StatefulWidget {
@@ -29,7 +30,7 @@ class _ColorSelectorState extends State<ColorSelector> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Select Color',
+          AppTexts.selectColor,
           style: AppConstants.bodyStyle.copyWith(
             fontSize: 18,
             fontWeight: FontWeight.w600,

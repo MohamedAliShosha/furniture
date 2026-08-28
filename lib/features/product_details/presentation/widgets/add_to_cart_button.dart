@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_texts.dart';
 import '../../../cart/presentation/cubit/cart_cubit.dart';
 import '../../../home/data/models/cart_item.dart';
 import '../../../home/data/models/product_model.dart';
@@ -37,7 +39,7 @@ class _AddToCartButtonState extends State<AddToCartButton> {
                 if (!userCubit.userService.isUserLoggedIn) {
                   AuthBottomSheet.show(
                     context,
-                    message: 'Please log in to add items to your cart.',
+                    message: AppTexts.pleaseLogInToAddItemsToCart,
                   );
                   return;
                 }
@@ -63,11 +65,13 @@ class _AddToCartButtonState extends State<AddToCartButton> {
                   });
                   messenger.showSnackBar(
                     SnackBar(
-                      content: Text(
-                        '${widget.product.name} added to cart!',
+                      content: Center(
+                        child: Text(
+                          '${widget.product.name} added to cart!',
+                        ),
                       ),
                       action: SnackBarAction(
-                        label: 'UNDO',
+                        label: AppTexts.undo,
                         onPressed: () {
                           cartCubit.removeFromCart(widget.product.id);
                         },
@@ -87,13 +91,13 @@ class _AddToCartButtonState extends State<AddToCartButton> {
             ? const SizedBox(
                 width: 24,
                 height: 24,
-                child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(AppColors.white),
-                  strokeWidth: 2,
+                child: CupertinoActivityIndicator(
+                  radius: 12,
+                  color: AppColors.white,
                 ),
               )
             : const Text(
-                'Add to Cart',
+                AppTexts.addToCart,
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,

@@ -42,7 +42,9 @@ class PromoCodesList extends StatelessWidget {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                     behavior: SnackBarBehavior.floating,
-                    content: Text(AppTexts.promoCodeCopiedToClipboard),
+                    content: Center(
+                      child: Text(AppTexts.promoCodeCopiedToClipboard),
+                    ),
                   ),
                 );
               },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/utils/app_texts.dart';
 import '../../../cart/presentation/cubit/cart_cubit.dart';
 
 import '../../../../core/utils/constants.dart';
@@ -48,11 +49,13 @@ class _AddToCartIconState extends State<AddToCartIcon> {
 
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(
-                '${widget.productModel.name} added to cart',
+              content: Center(
+                child: Text(
+                  '${widget.productModel.name} ${AppTexts.addedToCart}',
+                ),
               ),
               action: SnackBarAction(
-                label: 'UNDO',
+                label: AppTexts.undo,
                 onPressed: () {
                   context.read<CartCubit>().removeFromCart(
                         widget.productModel.id,

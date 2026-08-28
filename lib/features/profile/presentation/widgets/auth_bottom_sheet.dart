@@ -69,7 +69,7 @@ class AuthBottomSheet extends StatelessWidget {
           ),
           const Gap(16),
           Text(
-            'Sign In Required',
+            AppTexts.signInRequired,
             style: AppConstants.headingStyle.copyWith(
               fontWeight: FontWeight.bold,
               fontSize: 20,
