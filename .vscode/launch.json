@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Furniture Development", // flavor name
+            "request": "launch", // request type always launch
+            "type": "dart", // type always dart
+            "program": "lib/main_dev.dart",
+            "args": ["--flavor", "development","--target", "lib/main_dev.dart"],
+        }
+        ,
+        {
+            "name": "Furniture Production", // flavor name
+            "request": "launch", // request type always launch
+            "type": "dart", // type always dart
+            "program": "lib/main_prod.dart",
+            "args": ["--flavor", "production","--target", "lib/main_prod.dart"],
+        }
+    ]
+
+}
