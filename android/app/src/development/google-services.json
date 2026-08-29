@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "47109812553",
+    "project_id": "furniture-dev-2024",
+    "storage_bucket": "furniture-dev-2024.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47109812553:android:83e030f1efd9519a0aaa98",
+        "android_client_info": {
+          "package_name": "com.example.furniture"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9sfGlS1uj8U94cla_yHU_yNazfMi63ok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47109812553:android:3beb8aa0483791c10aaa98",
+        "android_client_info": {
+          "package_name": "com.example.furniture.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9sfGlS1uj8U94cla_yHU_yNazfMi63ok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
