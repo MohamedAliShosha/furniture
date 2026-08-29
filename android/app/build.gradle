@@ -32,6 +32,23 @@ android {
             signingConfig = signingConfigs.debug
         }
     }
+
+    flavorDimensions += "default"
+    productFlavors {
+        // Production flavor
+        create("production") {
+            dimension = "default"
+            applicationId = "com.example.furniture"
+            resValue "string", "app_name", "Furniture Prod"
+        }
+        // Development flavor
+        create("development") {
+            dimension = "default"
+            applicationId = "com.example.furniture.dev"
+            resValue "string", "app_name", "Furniture Dev"
+        }
+    }
+
 }
 
 flutter {
