@@ -34,11 +34,11 @@ Future<void> main() async {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   Bloc.observer = AppBlocObserver();
   setupServiceLocator();
-  runApp(const FurnitureProd());
+  runApp(const Furniture());
 }
 
-class FurnitureProd extends StatelessWidget {
-  const FurnitureProd({super.key});
+class Furniture extends StatelessWidget {
+  const Furniture({super.key});
 
   @override
   Widget build(BuildContext context) {
