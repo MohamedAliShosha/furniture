@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../core/widgets/custom_app_bar.dart';
 import '../widgets/sign_up_view_body.dart';
 
 class SignUpView extends StatelessWidget {
@@ -6,21 +7,12 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        scrolledUnderElevation: 0,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
+      appBar: CustomAppBar(
+        title: '',
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: SignUpViewBody(),
       ),
     );
